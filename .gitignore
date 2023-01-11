@@ -1,0 +1,10 @@
+Gemfile.lock
+_site
+/vendor
+/.bundle
+
+### Jekyll ###
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
