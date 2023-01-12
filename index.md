@@ -1,10 +1,8 @@
-## Team DADY - FRQ Mini-Project
+## About DADY Academy
 
-What is Team DADY? It's Dylan, Aryan, Daniel, and Yash. This is our mini project to test frontend and deployment of our four FRQs from the past weeks. Go ahead and try out these links!
+What is DADY Academy? It's a tools website for different STEM classes, specifically Physics, Biology, Chemistry, and Statistics. They are specifically created to be useful based on what we have experienced and may have needed while we were taking these classes. Why DADY? It's our names: Dylan, Aryan, Daniel, and Yash. Enjoy!
 
-
-
-<button onclick="location.href='/DADY-ACADEMY/home';"> Home </button>
+<button onclick="location.href='/DADY-ACADEMY/';"> Home </button>
 
 
 ## Our Team - Github Links
