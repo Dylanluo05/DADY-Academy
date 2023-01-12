@@ -46,7 +46,7 @@
     <label for="h-input"> Height Value</label><br>
     <input type="text" id="h-input" name="H"><br>
     <!-- Gravity value -->
-    <label for="g-input"> G Value"</label><br>
+    <label for="g-input"> G Value</label><br>
     <input type="text" id="g-input" name="G"><br>
     <button type="submit" id="PEG-submit">Calculate</button>
 </form> 
