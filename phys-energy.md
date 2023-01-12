@@ -35,6 +35,8 @@
 
 ## PE Gravity Calculator
 
+<img src="images/phys-pe.png" height="200px">
+
 <form id="PEG-form">
     <!-- Dropdown to select object -->
     <label for="object-selector"> Select an Object </label><br>
