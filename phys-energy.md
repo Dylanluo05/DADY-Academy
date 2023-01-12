@@ -18,6 +18,8 @@
 
 ## KE Calculator
 
+<img src="images/phys-ke.png" height="200px">
+
 <form id="KE-form">
     <!-- Dropdown to select object -->
     <label for="object-selector"> Select an Object </label><br>
