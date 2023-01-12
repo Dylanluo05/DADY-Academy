@@ -3,6 +3,12 @@
 
 @import "{{ site.theme }}";
 
+$jellow : #F9C80E;
+$orange : #F86624;
+$red: #EA3546;
+$purple: #662E9B;
+$lightblue : #43BCCD;
+
 /* "row style" is flexible size and aligns pictures in center */
   .row {
     align-items: center;
@@ -16,15 +22,15 @@
   }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #B8B08D;
+  color: $red;
 }
 
 a {
-  color: #f2ba92;
+  color: $jellow;
 }
 
 blockquote {
-  border-left: 3px solid #87f259;
+  border-left: 3px solid $jellow;
 }
 
 input[type=text] {
@@ -32,17 +38,17 @@ input[type=text] {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: 2px solid #f2ba92;
+  border: 2px solid $jellow;
   border-radius: 4px;
   background-color: black;
   color: white;
 }
 input[type=text]:focus {
-  border: 2px solid #f2ba92;
+  border: 2px solid $orange;
 }
 
 button, .button {
-  background-color: #f2ba92;
+  background-color: $orange;
   border: none;
   color: black;
   padding: 16px 32px;
