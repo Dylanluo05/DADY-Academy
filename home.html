@@ -1,14 +1,345 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        #navbar-container {
+            height: 50px;
+            width: 100%;
+            background-color: #160E2C;
+        }
+
+        .navlinks-container {
+            height: 70px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .navlink {
+            margin-left: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        h1:hover {
+            font-size: 60px;
+        }
+
+        #home-background-1 {
+            height: 900px;
+            width: 100%;
+            background-color: #160E2C;
+        }
+
+        .home-sub-background-1 {
+            height: 300px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .home-sub-background-2 {
+            height: 600px;
+            width: 100%;
+        }
+
+        .navdropdown-container {
+            height: 110px;
+            width: 130px;
+            background-color: darkblue;
+            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.7);
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            position: relative;
+            top: 75px;
+            left: -100px;
+            z-index: 2;
+        }
+
+        .navdropdown-link {
+            color: white;
+            position: relative;
+            margin-top: 5px;
+            z-index: 3;
+        }
+
+
+        #left-sidebar {
+            height: 100%;
+            width: 300px;
+            background-color: black;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 15px;
+        }
+
+        .button-1 {
+            height: 40px;
+            width: 350px;
+            border-radius: 20px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-family: 'Oswald', sans-serif;
+            background-color: #702963;
+            display: block; 
+            margin: auto;
+            margin-top: 250px;
+            transition-duration: 0.7s;
+        }
+
+        .button-1:hover {
+            background-color: #BF40BF;
+        }
+
+        .slideshow-container {
+            height: 400px;
+            width: 600px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .slideshow-image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+
+        .slideshow-title {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 40px;
+            color: black;
+
+        }
+
+        .slideshow-navigation {
+            height: 50px;
+            width: 100%;
+            background-color: transparent;
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .slideshow-page-indicator {
+            height: 15px;
+            width: 15px;
+            background-color: gray;
+            border-radius: 50%;
+        }
 
     </style>
     <body>
-        <h1>Title</h1>
+        <div id = "navbar-container">
+            <div class = "navlinks-container">
+                <a class = "navlink">Home</a>
+                <a class = "navlink" href = "">Simulator</a>
+                <a class = "navlink">Subject Lobby</a>
+                <a class = "navlink">Scientific Calculator</a>
+                <a class = "navlink">STEM Library</a>
+                <a class = "navlink navdropdown">About Us</a>
+                <div class = "navdropdown-container">
+                    <a class = "navdropdown-link">About Dylan</a>
+                    <a class = "navdropdown-link">About Aryan</a>
+                    <a class = "navdropdown-link">About Daniel</a>
+                    <a class = "navdropdown-link">About Yash</a>
+                </div>
+            </div>
+        </div>
+
+        <div id = "left-sidebar">
+            <h2>Tool Suggestions</h2>
+            <br>
+            <ol>
+                <li></li>
+            </ol>
+        </div>
+
+        <div id = "home-background-1">
+            <div class = "home-sub-background-1">
+                <h1 style = "text-align: center; margin: 0;">DADY Academy</h1>
+                <h3 style = "text-align: center; font-weight: lighter; color: white;">Where ambitious learners can pursue their STEM aspirations</h3>
+            </div>
+            <div class = "home-sub-background-2">
+                <h4 style = "color: white; text-align: center; margin-top: -60px; font-weight: lighter;">Explore and pursue STEM like you never have with the variety of tools we offer, ranging from </h4>
+                <h4 style = "color: white; text-align: center; margin-top: -10px; font-weight: lighter;">an online simulator to an advanced mathematical and scientific calculator</h4>
+                <div class = "slideshow-container">
+                    <div id = "subject-1">
+                        <img class = "slideshow-image" src = "assets/images/biology.jpg">
+                        <h2 class = "slideshow-title">Biology</h2>
+                    </div>
+                    <div id = "subject-2">
+                        <img class = "slideshow-image" src = "assets/images/chemistry.jpg">
+                        <h2 class = "slideshow-title">Chemistry</h2>
+                    </div>
+                    <div id = "subject-3">
+                        <img class = "slideshow-image" src = "assets/images/physics.jpg">
+                        <h2 class = "slideshow-title">Physics</h2>
+                    </div>
+                    <div class = "slideshow-navigation">
+                        <p id = "back" style = "font-size: 30px; position: absolute; left: 0; margin-left: 15px; color: #101010; cursor: pointer;">&#60;</p>
+                        <div style = "display: flex; flex-direction: row; margin: auto;">
+                            <div id = "slide-1" class = "slideshow-page-indicator" style = "position: relative; left: -10px;"></div>
+                            <div id = "slide-2" class = "slideshow-page-indicator"></div>
+                            <div id = "slide-3" class = "slideshow-page-indicator" style = "position: relative; right: -10px;"></div>
+                        </div>
+                        <p id = "next" style = "font-size: 30px; position: absolute; right: 0; margin-right: 15px; color: #101010; cursor: pointer;">&#62;</p>
+                    </div>
+                </div>
+                <p id = "left-sidebar-button" style = "color: white; font-size: 100px; margin-left: 20px; position: absolute; width: 35px;">&#8250;</p>
+                <button class = "button-1">Get Started</button>
+            </div>
+        </div>
+
         <script>
+            // Navbar dropdown
+            $(".navdropdown").click(dropdown);
+
+            function dropdown() {
+                var navdropdownIndex = $(this).index();
+                if (navdropdownIndex == 5) {
+                    if ($(".navdropdown-container").eq(0).css("visibility") == "hidden") {
+                        $(".navdropdown-container").eq(0).css("visibility", "visible");
+                    } else if ($(".navdropdown-container").eq(0).css("visibility") == "visible") {
+                        $(".navdropdown-container").eq(0).css("visibility", "hidden");
+                    }
+                }
+            }
+
+            var leftSidebar = document.getElementById("left-sidebar");
+            leftSidebar.style.width = "0px";
+            leftSidebar.setAttribute("status", "off");
+
+            // Sidebar animation
+            var leftSidebarButton = document.getElementById("left-sidebar-button");
+            leftSidebarButton.addEventListener('click', sidebarToggle);
+            leftSidebarButton.style.position = "relative";
+            leftSidebarButton.style.left = "30px";
+            leftSidebarButton.style.top = "70px";
+            leftSidebarButton.style.cursor = "pointer";
+
+            function sidebarToggle() {
+                var WIDTH1 = 0;
+                var LEFT1 = 30;
+                function sidebarOnAnimation() {
+                    leftSidebar.style.width = WIDTH1 + "px";
+                    leftSidebarButton.style.left = LEFT1 + "px";
+                    WIDTH1 += 3;
+                    LEFT1 += 3;
+                    if (WIDTH1 >= 302) {
+                        clearInterval(sidebarTimer);
+                        leftSidebar.setAttribute("status", "on");
+                        leftSidebarButton.innerHTML = "&#8249;";
+                    }
+                }
+
+                var WIDTH2 = 300;
+                var LEFT2 = 330;
+                function sidebarOffAnimation() {
+                    leftSidebar.style.width = WIDTH2 + "px";
+                    leftSidebarButton.style.left = LEFT2 + "px";
+                    WIDTH2 -= 3;
+                    LEFT2 -= 3;
+                    if (WIDTH2 < 0) {
+                        clearInterval(sidebarTimer);
+                        leftSidebar.setAttribute("status", "off");
+                        leftSidebarButton.innerHTML = "&#8250;";
+                    }
+                }
+                if (leftSidebar.getAttribute("status") == "off") {
+                    var sidebarTimer = setInterval(sidebarOnAnimation, 5);
+                } else if (leftSidebar.getAttribute("status") == "on") {
+                    var sidebarTimer = setInterval(sidebarOffAnimation, 5);
+                }
+            }
+
+            //Slideshow
+            var subject1 = document.getElementById("subject-1");
+            var subject2 = document.getElementById("subject-2");
+            var subject3 = document.getElementById("subject-3");
+            subject1.style.opacity = "1";
+            subject2.style.opacity = "0";
+            subject3.style.opacity = "0";
+            var subjects = [subject1, subject2, subject3];
+
+            var slide1 = document.getElementById("slide-1");
+            var slide2 = document.getElementById("slide-2");
+            var slide3 = document.getElementById("slide-3");
+            slide1.style.backgroundColor = "black";
+            var slides = [slide1, slide2, slide3];
+
+            var backButton = document.getElementById("back");
+            var nextButton = document.getElementById("next");
+            backButton.addEventListener("click", slideshowBack);
+            nextButton.addEventListener("click", slideshowNext);
+
+            var slideNumber = 0;
+            function slideshowBack() {
+                var oldSlideNumber = slideNumber;
+                slideNumber--;
+                if (slideNumber == -1) {
+                    slideNumber = 2;
+                } 
+                subjects[oldSlideNumber].style.opacity = "0";
+                slides[oldSlideNumber].style.backgroundColor = "gray";
+                subjects[slideNumber].style.opacity = "1";
+                slides[slideNumber].style.backgroundColor = "black";
+            }
+
+            function slideshowNext() {
+                var oldSlideNumber = slideNumber;
+                slideNumber++;
+                if (slideNumber == 3) {
+                    slideNumber = 0;
+                } 
+                subjects[oldSlideNumber].style.opacity = "0";
+                slides[oldSlideNumber].style.backgroundColor = "gray";
+                subjects[slideNumber].style.opacity = "1";
+                slides[slideNumber].style.backgroundColor = "black";
+            } 
+
 
         </script>
     </body>
