@@ -2,7 +2,7 @@
 
 What is DADY Academy? It's a tools website for different STEM classes, specifically Physics, Biology, Chemistry, and Statistics. They are specifically created to be useful based on what we have experienced and may have needed while we were taking these classes. Why DADY? It's our names: Dylan, Aryan, Daniel, and Yash. Enjoy!
 
-<button onclick="location.href='/home';"> DADY Academy </button>
+<button onclick="location.href='/DADY-Academy/home';"> DADY Academy </button>
 
 
 ## Our Team - Github Links
