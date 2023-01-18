@@ -85,6 +85,7 @@
     .button-3 {
         height: 35px;
         width: 250px;
+        padding: 0;
         background-color: white;
         border: 2px solid #F9C80E;
         color: #F9C80E;
@@ -137,14 +138,14 @@
 <form id = "hardy-weinberg-form">
     <div id = "hardy-weinberg-inputs">
         <h3 style = "font-weight: lighter; text-align: center;">p^2 + 2pq + q^2 = 1</h3>
-        <ul>
+        <ul style = "color: black">
             <li style = "font-size: 15px; color: black;">p = Dominant allele frequency</li>
             <li style = "font-size: 15px; color: black;">q = Recessive allele frequency</li>
         </ul>
-        <label for = "p-value" style = "display: block; text-align: center; font-size: 15px;">Enter p value:</label>
+        <label for = "p-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter p value:</label>
         <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "p-value" required>
         <br>
-        <label for = "q-value" style = "display: block; text-align: center; font-size: 15px;">Enter q value:</label>
+        <label for = "q-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter q value:</label>
         <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "q-value" required>
         <br>
         <input type = "submit" class = "button-2" value = "Compute">
