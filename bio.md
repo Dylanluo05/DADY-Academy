@@ -37,8 +37,8 @@
         background-color: white;
         transition-duration: 0.4s;
         display: block;
+        margin: auto;
         margin-top: 15px;
-        margin-left: 25px;
         transition-duration: 0.4s;
     }
 
@@ -51,6 +51,7 @@
         border: 2px solid black;
         padding: 10px;
         width: 200px;
+        margin: auto;
         margin-top: 30px;
     }
 
@@ -62,6 +63,7 @@
         justify-content: center;
         align-items: center;
         background-color: lightgray;
+        margin: auto;
         margin-top: 20px;
     }
 
@@ -81,6 +83,7 @@
     }
 </style>
 
+<br>
 <form id = "punnett-square-form">
     <table id = "punnett-table">
         <tr>
@@ -109,22 +112,24 @@
     </table>
     <input type = "submit" class = "button-1" value = "Update Punnett Square">
 </form>
+
 <div class = "punnett-results-container">
     <p id = "dominant-percentage-display">Chance of inheriting dominant trait:</p>
     <p id = "recessive-percentage-display">Chance of inheriting recessive trait:</p>
 </div>
+
 <form id = "hardy-weinberg-form">
     <div id = "hardy-weinberg-inputs">
-        <h2 style = "font-weight: lighter; text-align: center;">p^2 + 2pq + q^2 = 1</h3>
+        <h3 style = "font-weight: lighter; text-align: center;">p^2 + 2pq + q^2 = 1</h3>
         <ul>
-            <li>p = Dominant allele frequency</li>
-            <li>q = Recessive allele frequency</li>
+            <li style = "font-size: 10px;">p = Dominant allele frequency</li>
+            <li style = "font-size: 10px;">q = Recessive allele frequency</li>
         </ul>
         <label for = "p-value" style = "display: block; text-align: center; font-size: 15px;">Enter p value:</label>
-        <input type = "text" style = "display: block; margin: auto;" name = "p-value" required>
+        <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "p-value" required>
         <br>
         <label for = "q-value" style = "display: block; text-align: center; font-size: 15px;">Enter q value:</label>
-        <input type = "text" style = "display: block; margin: auto;" name = "q-value" required>
+        <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "q-value" required>
         <br>
         <input type = "submit" class = "button-2" value = "Compute">
     </div>
@@ -135,13 +140,12 @@
 </form>
 
 <script>
-
-    $("#punnett-square-form").on("submit", punnettUpdate);
     var square1 = document.getElementById("square-1");
     var square2 = document.getElementById("square-2");
     var square3 = document.getElementById("square-3");
     var square4 = document.getElementById("square-4");
 
+    $("#punnett-square-form").on("submit", punnettUpdate);
     function punnettUpdate() {
         event.preventDefault();
         var formData = $("#punnett-square-form").serializeArray();
