@@ -11,7 +11,7 @@
     <!-- Mass of object -->
     <label for="mass-input">Mass of Object</label><br>
     <input type="text" id="mass-input" name="Mass"><br>
-    <button type="submit" id="obj-create-submit">Create Object</button>
+    <button id="obj-create-submit">Create Object</button>
 </form>
 
 <br>
@@ -30,7 +30,7 @@
     <!-- Velocity of object -->
     <label for="v-input">Velocity Value</label><br>
     <input type="text" id="v-input" name="V"><br>
-    <button type="submit" id="KE-submit">Calculate</button>
+    <button id="KE-submit">Calculate</button>
 </form> 
 
 <br>
@@ -52,6 +52,6 @@
     <!-- Gravity value -->
     <label for="g-input"> G Value</label><br>
     <input type="text" id="g-input" name="G"><br>
-    <button type="submit" id="PEG-submit">Calculate</button>
+    <button id="PEG-submit">Calculate</button>
 </form> 
 
