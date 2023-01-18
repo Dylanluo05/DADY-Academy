@@ -81,6 +81,22 @@
     .button-2:hover {
         background-color: dodgerblue;
     }
+
+    .button-3 {
+        height: 35px;
+        width: 250px;
+        background-color: white;
+        border: 2px solid #F9C80E;
+        color: #F9C80E;
+        display: block;
+        margin: auto;
+        transition-duration: 0.7s;
+    }
+
+    .button-3:hover {
+        color: white;
+        background-color: #F9C80E;
+    }
 </style>
 
 <br>
@@ -122,8 +138,8 @@
     <div id = "hardy-weinberg-inputs">
         <h3 style = "font-weight: lighter; text-align: center;">p^2 + 2pq + q^2 = 1</h3>
         <ul>
-            <li style = "font-size: 10px;">p = Dominant allele frequency</li>
-            <li style = "font-size: 10px;">q = Recessive allele frequency</li>
+            <li style = "font-size: 15px; color: black;">p = Dominant allele frequency</li>
+            <li style = "font-size: 15px; color: black;">q = Recessive allele frequency</li>
         </ul>
         <label for = "p-value" style = "display: block; text-align: center; font-size: 15px;">Enter p value:</label>
         <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "p-value" required>
@@ -135,7 +151,7 @@
     </div>
     <div id = "hardy-weinberg-results"> 
         <h2 id = "equilibrium-status" style = "text-align: center;"></h2>
-        <button id = "return-button" class = "button-2">Return to input page</button>
+        <button id = "return-button" class = "button-3">Return to input page</button>
     </div>
 </form>
 
