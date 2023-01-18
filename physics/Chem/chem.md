@@ -17,15 +17,15 @@
     <br><br>
     <p id="result"></p>
 
-    <script>
+    <!-- <script>
       function calculateDensity() {
         var mass = document.getElementById("mass").value;
         var volume = document.getElementById("volume").value;
         var density = mass / (volume / 1000);
         document.getElementById("result").innerHTML = "Density: " + density + " g/cm^3";
       }
-    </script>
-    
+    </script>  --!>
+
   </body>
 </html>
 
