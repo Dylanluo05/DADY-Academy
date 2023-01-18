@@ -2,7 +2,7 @@
 
 <br>
 
-** Biology is the study of living organisms, divided into many specialized fields that cover their morphology, physiology, anatomy, behavior, origin, and distribution. **
+<bold>Biology is the study of living organisms, divided into many specialized fields that cover their morphology, physiology, anatomy, behavior, origin, and distribution.</bold>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
@@ -11,17 +11,14 @@
     #punnett-table {
         border-collapse: collapse;
     }
-
     .punnett-td {
         padding: 50px;
         font-size: 20px;
         border: 2px solid black
     }
-
     .input-container {
         padding: 10px;
     }
-
     .punnett-input {
         height: 20px;
         width: 70px; 
@@ -88,22 +85,22 @@
     <table id = "punnett-table">
         <tr>
             <td style = "border: none;"></td>
-            <td class = "input-container">
+            <td class = "punnett-td input-container">
                 <input type = "text" class = "punnett-input" name = "square-input-1" required>
             </td>
-            <td class = "input-container">
+            <td class = "punnett-td input-container">
                 <input type = "text" class = "punnett-input" name = "square-input-2" required>
             </td>
         </tr>
         <tr>
-            <td class = "input-container">
+            <td class = "punnett-td input-container">
                 <input type = "text" class = "punnett-input" name = "square-input-3" required>
             </td>
             <td class = "punnett-td" id = "square-1"></td>
             <td class = "punnett-td" id = "square-2"></td>
         </tr>
         <tr>
-            <td class = "input-container">
+            <td class = "punnett-td input-container">
                 <input type = "text" class = "punnett-input" name = "square-input-4" required>
             </td>
             <td class = "punnett-td" id = "square-3"></td>
@@ -136,7 +133,9 @@
         <button id = "return-button" class = "button-2">Return to input page</button>
     </div>
 </form>
+
 <script>
+
     $("#punnett-square-form").on("submit", punnettUpdate);
     var square1 = document.getElementById("square-1");
     var square2 = document.getElementById("square-2");
