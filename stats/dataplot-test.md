@@ -4,14 +4,38 @@
 
 <form>
     <label for="data">List of values (comma separated):</label>
-    <input type="text" id="data" name="data"><br>
-    <button type="button" onclick="calculate()">Calculate</button>
+    <input type="text" id="values" name="data"><br>
+    <button type="button" onclick="calculate(); createDotPlot()">Calculate</button>
 </form>
-<div id="results"></div>
+
+<br><br>
+
+<table id="output-table">
+    <tr>
+        <th> n </th>
+        <th> Mean </th>
+        <th> Median </th>
+        <th> Mode </th>
+        <th> Range </th>
+        <th> Standard Deviation </th>
+    </tr>
+    <tr>
+        <td id="numTerms">-</td>
+        <td id="mean">-</td>
+        <td id="median">-</td>
+        <td id="mode">-</td>
+        <td id="range">-</td>
+        <td id="standardDeviation">-</td>
+    </tr>
+</table>
+
+<br><br>
+
+<canvas id="dotPlot"></canvas>
 
 <script>
     function calculate() {
-        var data = document.getElementById("data").value;
+        var data = document.getElementById("values").value;
         data = data.split(",");
         var nums = data.map(function(x) { return parseFloat(x); });
         var mean = getMean(nums);
@@ -20,14 +44,20 @@
         var range = getRange(nums);
         var standardDeviation = getStandardDeviation(nums);
         var n = nums.length;
-        var results = "Mean: " + mean + "<br>" +
-                    "Median: " + median + "<br>" +
-                    "Mode: " + mode + "<br>" +
-                    "Range: " + range + "<br>" +
-                    "Standard Deviation: " + standardDeviation + "<br>" +
-                    "Number of terms: " + n;
-        document.getElementById("results").innerHTML = results;
-        createDotPlot();
+        document.getElementById("mean").innerHTML = mean;
+        document.getElementById("median").innerHTML = median;
+        document.getElementById("mode").innerHTML = mode;
+        document.getElementById("range").innerHTML = range;
+        document.getElementById("standardDeviation").innerHTML = standardDeviation;
+        document.getElementById("numTerms").innerHTML = n;
+
+        // var results = "Mean: " + mean + "<br>" +
+        //             "Median: " + median + "<br>" +
+        //             "Mode: " + mode + "<br>" +
+        //             "Range: " + range + "<br>" +
+        //             "Standard Deviation: " + standardDeviation + "<br>" +
+        //             "Number of terms: " + n;
+        // document.getElementById("results").innerHTML = results;
     }
   
     function getMean(nums) {
@@ -77,45 +107,40 @@
         var stdDev = Math.sqrt(avgSquareDiff);
         return stdDev.toFixed(2);
     }
-</script>
 
-<br><br>
-
-<form>
-    <label>Enter values separated by commas:</label>
-    <input type="text" id="values" placeholder="e.g. 3, 5, 7, 2">
-    <button type="button" onclick="createDotPlot()">Create Dot Plot</button>
-</form>
-<canvas id="dotPlot"></canvas>
-
-<script>
     function createDotPlot() {
-    var values = document.getElementById("values").value.split(",");
-    var ctx = document.getElementById("dotPlot").getContext("2d");
-    var dotPlot = new Chart(ctx, {
-        type: "scatter",
-        data: {
-            datasets: [{
-                label: "Values",
-                data: values.map(function(value) {
-                    return {
-                        x: value,
-                        y: 0
-                    };
-                }),
-                borderColor: "red",
-                backgroundColor: "red",
-                pointRadius: 3
-            }]
-        },
-        options: {
-            scales: {
-                x: {
-                    type: "linear",
-                    position: "bottom"
+        var values = document.getElementById("values").value.split(",");
+        var ctx = document.getElementById("dotPlot").getContext("2d");
+        var data = values.reduce(function(acc, curr) {
+            acc[curr] = acc[curr] ? acc[curr] + 1 : 1;
+            return acc;
+        }, {});
+        var dataPoints = Object.keys(data).map(function(value) {
+            return {x: value, y: data[value]};
+        });
+        var dotPlot = new Chart(ctx, {
+            type: "scatter",
+            data: {
+                datasets: [{
+                    label: "Values",
+                    data: dataPoints,
+                    borderColor: "red",
+                    backgroundColor: "red",
+                    pointRadius: 3
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: "linear",
+                        position: "bottom"
+                    },
+                    y: {
+                        type: "linear",
+                        position: "left"
+                    }
                 }
             }
-        }
-    });
-}
+        });
+    }
 </script>
