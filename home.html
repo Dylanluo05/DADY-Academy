@@ -19,9 +19,18 @@
         }
 
         #navbar-container {
-            height: 50px;
+            height: 100px;
             width: 100%;
-            background-color: #160E2C;
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        /*#navbar-container {
+            height: 70px;
+            width: 100%;
+            background-color: black;
         }
 
         .navlinks-container {
@@ -30,12 +39,16 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-        }
+        }*/
 
         .navlink {
             margin-left: 30px;
             color: white;
             cursor: pointer;
+        }
+
+        a:link {
+            text-decoration: none;
         }
 
         h1 {
@@ -50,22 +63,50 @@
         }
 
         #home-background-1 {
-            height: 900px;
+            height: 650px;
             width: 100%;
             background-color: #160E2C;
         }
 
-        .home-sub-background-1 {
-            height: 300px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        #home-background-2 {
+            position: relative;
+            background-repeat: no-repeat;
         }
 
-        .home-sub-background-2 {
-            height: 600px;
-            width: 100%;
+        .home-background-2-image, .home-background-2-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .home-background-2-image {
+            height: 580px;
+            background: url("https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .home-background-2-overlay {
+            height: 580px;
+            background-color: darkblue;
+            opacity: 0.5;
+            z-index: 2;
+        }
+
+        .home-background-2-content {
+            height: 580px;
+            position: relative;
+            z-index: 3;
+        }
+
+        #home-background-3 {
+            height: 550px;
+            background-color: #160E2C;
         }
 
         .navdropdown-container {
@@ -98,7 +139,7 @@
             width: 300px;
             background-color: black;
             position: fixed;
-            z-index: 1;
+            z-index: 4;
             top: 0;
             left: 0;
             overflow-x: hidden;
@@ -116,7 +157,6 @@
             background-color: #702963;
             display: block; 
             margin: auto;
-            margin-top: 250px;
             transition-duration: 0.7s;
         }
 
@@ -169,44 +209,40 @@
             background-color: gray;
             border-radius: 50%;
         }
+        
+        .home-science-picture {
+            transition-duration: 0.7s;
+        }
+
+        .home-science-picture:hover {
+            box-shadow: 0 10px 10px 0 rgba(255, 255, 255, 0.7);
+        }
 
     </style>
     <body>
-        <div id = "navbar-container">
-            <div class = "navlinks-container">
+        <div id = "home-background-1">
+            <div id = "navbar-container">
+                <img src = "assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
                 <a class = "navlink" href="/">Home</a>
                 <a class = "navlink" href="/">Simulator</a>
                 <a class = "navlink" href="/">Subject Lobby</a>
                 <a class = "navlink" href="/">Scientific Calculator</a>
                 <a class = "navlink" href="/">STEM Library</a>
-                <a class = "navlink navdropdown">About Us</a>
-                <div class = "navdropdown-container">
-                    <a class = "navdropdown-link" href="https://github.com/Dylanluo05">About Dylan</a>
-                    <a class = "navdropdown-link" href="https://github.com/Aryanboxout">About Aryan</a>
-                    <a class = "navdropdown-link" href="https://github.com/dtsivkovski">About Daniel</a>
-                    <a class = "navdropdown-link" href="https://github.com/YashShah138">About Yash</a>
-                </div>
             </div>
+            <h1 style = "text-align: center; font-size: 120px; position: relative; z-index: 2;" >DADY Academy</h1>
+            <img src = "assets/images/galaxy.png" width = "1000px;" height = "625px;" style = "display: block; margin: auto; position: absolute; z-index: 1; left: 0; right: 0; margin-left: auto; margin-right: auto; margin-top: -450px;">
+            <h2 style = "text-align: center; font-size: 30px; font-weight: lighter; margin-top: -70px; position: relative; z-index: 2;">Where ambitious students can pursue STEM</h2>
         </div>
+        <div id = "home-transition-background-1">
 
-        <div id = "left-sidebar">
-            <h2>Tool Suggestions</h2>
-            <br>
-            <ol>
-                <li style = "font-size: 30px">Simulator</li>
-                <li style = "font-size: 30px">STEM Library</li>
-                <li style = "font-size: 30px">Scientific Calculator</li>
-            </ol>
         </div>
-
-        <div id = "home-background-1">
-            <div class = "home-sub-background-1">
-                <h1 style = "text-align: center; margin: 0;">DADY Academy</h1>
-                <h3 style = "text-align: center; font-weight: lighter; color: white;">Where ambitious learners can pursue their STEM aspirations</h3>
-            </div>
-            <div class = "home-sub-background-2">
-                <h4 style = "color: white; text-align: center; margin-top: -60px; font-weight: lighter;">Explore and pursue STEM like you never have with the variety of tools we offer, ranging from </h4>
-                <h4 style = "color: white; text-align: center; margin-top: -10px; font-weight: lighter;">an online simulator to an advanced mathematical and scientific calculator</h4>
+        <div id = "home-background-2">
+            <div class = "home-background-2-image"></div>
+            <div class = "home-background-2-overlay"></div>
+            <div class = "home-background-2-content">
+                <br><br>
+                <h4 style = "color: white; text-align: center; font-weight: lighter;">Explore and pursue STEM like you never have with the variety of tools we offer, ranging from </h4>
+                <h4 style = "color: white; text-align: center; font-weight: lighter;">an online simulator to an advanced mathematical and scientific calculator</h4>
                 <div class = "slideshow-container">
                     <div id = "subject-1">
                         <img class = "slideshow-image" src = "assets/images/biology.jpg">
@@ -230,9 +266,33 @@
                         <p id = "next" style = "font-size: 30px; position: absolute; right: 0; margin-right: 15px; color: #101010; cursor: pointer;">&#62;</p>
                     </div>
                 </div>
-                <p id = "left-sidebar-button" style = "color: white; font-size: 100px; margin-left: 20px; position: absolute; width: 35px;">&#8250;</p>
+                <p id = "left-sidebar-button" style = "color: white; font-size: 100px; width: 35px;">&#8250;</p>
+            </div>
+        </div>
+
+        <div id = "home-background-3">
+            <div style = "height: 100%; width: 50%; position: relative; margin-left: 0; margin-right: auto; display: flex; justify-content: center; align-items: center;">
+                <img src = "assets/images/science.jpg" class = "home-science-picture" height = "350px;" width = "550px;">
+            </div>
+            <div style = "height: 100%; width: 50%; position: relative; margin-right: 0; margin-left: auto; margin-top: -550px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style = "width: 400px; position: relative; top: 115px;">
+                    <h2 style = "color: royalblue; text-align: center;">Supporting the next generation of aspiring STEM learners</h2>
+                </div>
+                <div style = "width: 500px; position: relative; top: 115px;">
+                    <h3 style = "text-align: center; font-weight: lighter;">Here at Team DADY, we strive to provide useful academic resources that our users can utilize to help pursue their STEM passions. On our website, users can gain in-depth knowledge on a variety of STEM subjects such as biology, chemistry, and physics.</h3>
+                </div>
                 <button class = "button-1">Get Started</button>
             </div>
+        </div>
+
+        <div id = "left-sidebar">
+            <h2>Tool Suggestions</h2>
+            <br>
+            <ol>
+                <li style = "font-size: 30px">Simulator</li>
+                <li style = "font-size: 30px">STEM Library</li>
+                <li style = "font-size: 30px">Scientific Calculator</li>
+            </ol>
         </div>
 
         <script>
@@ -259,7 +319,6 @@
             leftSidebarButton.addEventListener('click', sidebarToggle);
             leftSidebarButton.style.position = "relative";
             leftSidebarButton.style.left = "30px";
-            leftSidebarButton.style.top = "70px";
             leftSidebarButton.style.cursor = "pointer";
 
             function sidebarToggle() {
