@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        h1:hover {
+            font-size: 60px;
+        }
+
+
+
+        #navbar-container {
+            height: 100px;
+            width: 100%;
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .navlink {
+            margin-left: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        .navdropdown-container {
+            height: 110px;
+            width: 130px;
+            background-color: darkblue;
+            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.7);
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            position: relative;
+            top: 75px;
+            left: -100px;
+            z-index: 2;
+        }
+
+        .navdropdown-link {
+            color: white;
+            position: relative;
+            margin-top: 5px;
+            z-index: 3;
+        }
+
+        #bio-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .bio-background-1-image, .bio-background-1-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .bio-background-1-image {
+            height: 550px;
+            background: url("https://images.pexels.com/photos/3825573/pexels-photo-3825573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .bio-background-1-overlay {
+            height: 550px;
+            background-color: black;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        .bio-background-1-content {
+            height: 550px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        #bio-background-2 {
+            height: 1100px;
+            background-color: #160E2C;
+        }
+
+        #punnett-table {
+            border-collapse: collapse;
+            position: relative;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td {
+            background-color: white;
+        }
+
+        .punnett-td {
+            padding: 50px;
+            font-size: 20px;
+            border: 2px solid black;
+            color: black;
+        }
+        .input-container {
+            padding: 10px;
+        }
+        .punnett-input {
+            height: 20px;
+            width: 70px; 
+            border: none;
+            background-color: slategray;
+            color: white;
+            display: block;
+            margin: auto;
+        }
+
+        .button-1 {
+            height: 30px;
+            width: 250px;
+            border: 2px solid #EA3546;
+            color: #EA3546;
+            background-color: white;
+            transition-duration: 0.4s;
+            display: block;
+            margin: auto;
+            margin-top: 15px;
+            transition-duration: 0.4s;
+        }
+
+        .button-1:hover {
+            color: white;
+            background-color: #EA3546;
+        }
+
+        .punnett-results-container {
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            padding: 10px;
+            width: 200px;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        #hardy-weinberg-form {
+            height: 300px;
+            width: 300px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightgray;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .button-2 {
+            height: 30px;
+            width: 200px;
+            background-color: royalblue;
+            border: none;
+            color: white;
+            display: block;
+            margin: auto;
+            transition-duration: 0.4s;
+        }
+
+        .button-2:hover {
+            background-color: dodgerblue;
+        }
+
+        .button-3 {
+            height: 35px;
+            width: 250px;
+            padding: 0;
+            background-color: white;
+            border: 2px solid #F9C80E;
+            color: #F9C80E;
+            display: block;
+            margin: auto;
+            transition-duration: 0.7s;
+        }
+
+        .button-3:hover {
+            color: white;
+            background-color: #F9C80E;
+        }
+
+    </style>
+    <body>
+        <div id = "bio-background-1">
+            <div class = "bio-background-1-image"></div>
+            <div class = "bio-background-1-overlay"></div>
+            <div class = "bio-background-1-content">
+                <div id = "navbar-container">
+                    <img src = "assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
+                    <a class = "navlink" href="/">Home</a>
+                    <a class = "navlink" href="/">Simulator</a>
+                    <a class = "navlink" href="/">Subject Lobby</a>
+                    <a class = "navlink" href="/">Scientific Calculator</a>
+                    <a class = "navlink" href="/">STEM Library</a>
+                    <a class = "navlink" href="/bio.html">Biology</a>
+                </div>
+                <h1 style = "text-align: center; font-size: 120px; margin-top: 30px;">Biology</h1>
+                <h2 style = "text-align: center; font-size: 30px; font-weight: lighter; margin-top: -70px; position: relative; z-index: 2;">Dive deep into the study of Earth's life</h2>
+            </div>
+        </div>
+        <div id = "bio-background-2">
+            <br>
+            <div style = "width: 1000px; display: block; margin: auto;">
+                <h2 style = "text-align: center; font-weight: lighter;">Biology is the study of living organisms, divided into many specialized fields that cover their morphology, physiology, anatomy, behavior, origin, and distribution.</h2>
+            </div>
+            <h2 style = "text-align: center;">Punnett Square</h2>
+            <form id = "punnett-square-form">
+                <table id = "punnett-table">
+                    <tr>
+                        <td style = "visibility: hidden;"></td>
+                        <td class = "punnett-td input-container">
+                            <input type = "text" class = "punnett-input" name = "square-input-1" required>
+                        </td>
+                        <td class = "punnett-td input-container">
+                            <input type = "text" class = "punnett-input" name = "square-input-2" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class = "punnett-td input-container">
+                            <input type = "text" class = "punnett-input" name = "square-input-3" required>
+                        </td>
+                        <td class = "punnett-td" id = "square-1"></td>
+                        <td class = "punnett-td" id = "square-2"></td>
+                    </tr>
+                    <tr>
+                        <td class = "punnett-td input-container">
+                            <input type = "text" class = "punnett-input" name = "square-input-4" required>
+                        </td>
+                        <td class = "punnett-td" id = "square-3"></td>
+                        <td class = "punnett-td" id = "square-4"></td>
+                    </tr>
+                </table>
+                <input type = "submit" class = "button-1" value = "Update Punnett Square">
+            </form>
+            
+            <div class = "punnett-results-container">
+                <p id = "dominant-percentage-display">Chance of inheriting dominant trait:</p>
+                <p id = "recessive-percentage-display">Chance of inheriting recessive trait:</p>
+            </div>
+            
+            <h2 style = "text-align: center;">Hardy Weinberg</h2>
+            <form id = "hardy-weinberg-form">
+                <div id = "hardy-weinberg-inputs">
+                    <h3 style = "font-weight: lighter; text-align: center;">p^2 + 2pq + q^2 = 1</h3>
+                    <ul style = "color: black">
+                        <li style = "font-size: 15px; color: black;">p = Dominant allele frequency</li>
+                        <li style = "font-size: 15px; color: black;">q = Recessive allele frequency</li>
+                    </ul>
+                    <label for = "p-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter p value:</label>
+                    <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "p-value" required>
+                    <br>
+                    <label for = "q-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter q value:</label>
+                    <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "q-value" required>
+                    <br>
+                    <input type = "submit" class = "button-2" value = "Compute">
+                </div>
+                <div id = "hardy-weinberg-results"> 
+                    <h2 id = "equilibrium-status" style = "text-align: center;"></h2>
+                    <button id = "return-button" class = "button-3">Return to input page</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            var square1 = document.getElementById("square-1");
+            var square2 = document.getElementById("square-2");
+            var square3 = document.getElementById("square-3");
+            var square4 = document.getElementById("square-4");
+
+            $("#punnett-square-form").on("submit", punnettUpdate);
+            function punnettUpdate() {
+                event.preventDefault();
+                var formData = $("#punnett-square-form").serializeArray();
+                var square1Combination = "";
+                var square2Combination = "";
+                var square3Combination = "";
+                var square4Combination = "";
+                var squareCombinations = [];
+                if (formData[2].value.toLowerCase() == formData[2].value && formData[0].value.toUpperCase() == formData[0].value) {
+                    square1Combination += formData[0].value + formData[2].value;
+                } else {
+                    square1Combination += formData[2].value + formData[0].value;
+                }
+                squareCombinations.push(square1Combination);
+                if (formData[2].value.toLowerCase() == formData[2].value && formData[1].value.toUpperCase() == formData[1].value) {
+                    square2Combination += formData[1].value + formData[2].value;
+                } else {
+                    square2Combination += formData[2].value + formData[1].value;
+                }
+                squareCombinations.push(square2Combination);
+                if (formData[3].value.toLowerCase() == formData[3].value && formData[0].value.toUpperCase() == formData[0].value) {
+                    square3Combination += formData[0].value + formData[3].value;
+                } else {
+                    square3Combination += formData[3].value + formData[0].value;
+                }
+                squareCombinations.push(square3Combination);
+                if (formData[3].value.toLowerCase() == formData[3].value && formData[1].value.toUpperCase() == formData[1].value) {
+                    square4Combination += formData[1].value + formData[3].value;
+                } else {
+                    square4Combination += formData[3].value + formData[1].value;
+                }
+                squareCombinations.push(square4Combination);
+                
+                square1.innerHTML = square1Combination;
+                square2.innerHTML = square2Combination;
+                square3.innerHTML = square3Combination;
+                square4.innerHTML = square4Combination;
+
+                var dominantCount = 0;
+                
+                for (var key in squareCombinations) {
+                    for (var j = 0; j < squareCombinations[key].length; j++) {
+                        if (squareCombinations[key].substring(j, j + 1).toUpperCase() == squareCombinations[key].substring(j, j + 1)) {
+                            dominantCount++;
+                            break;
+                        }
+                    }
+                }
+
+                var dominantPercentage = (dominantCount / 4) * 100;
+                var recessivePercentage = 100 - dominantPercentage;
+                var dominantPercentageDisplay = document.getElementById("dominant-percentage-display");
+                var recessivePercentageDisplay = document.getElementById("recessive-percentage-display");
+                dominantPercentageDisplay.innerHTML = "Chance of inheriting dominant trait: " + dominantPercentage + "%";
+                recessivePercentageDisplay.innerHTML = "Chance of inheriting recessive trait: " + recessivePercentage + "%"; 
+                document.getElementById("punnett-square-form").reset();
+            }
+            var hardyWeinbergInputs = document.getElementById("hardy-weinberg-inputs");
+            hardyWeinbergInputs.style.display = "block";
+            var hardyWeinbergResults = document.getElementById("hardy-weinberg-results");
+            hardyWeinbergResults.style.display = "none";
+            var equilibriumStatus = document.getElementById("equilibrium-status");
+            var returnButton = document.getElementById("return-button");
+            returnButton.addEventListener("click", returnHardyWeinberg);
+            function returnHardyWeinberg() {
+                hardyWeinbergResults.style.display = "none";
+                hardyWeinbergInputs.style.display = "block";
+            }
+            $("#hardy-weinberg-form").on("submit", hardyWeinberg);
+            function hardyWeinberg() {
+                event.preventDefault();
+                var hardyWeinbergFormData = $("#hardy-weinberg-form").serializeArray();
+                var pValue = parseFloat(hardyWeinbergFormData[0].value);
+                var qValue = parseFloat(hardyWeinbergFormData[1].value);
+                var hardyWeinbergSum = (pValue ** 2) + (2 * pValue * qValue) + (qValue ** 2);
+                
+                document.getElementById("hardy-weinberg-form").reset();
+                hardyWeinbergInputs.style.display = "none";
+                hardyWeinbergResults.style.display = "block";
+                
+                if (hardyWeinbergSum == 1) {
+                    equilibriumStatus.innerHTML = "The population is at equilibrium";
+                } else {
+                    equilibriumStatus.innerHTML = "The population is not at equilibrium";
+                }
+            }
+        </script>
+    </body>
+</html>
