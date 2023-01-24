@@ -1,6 +1,6 @@
 # Get Started
 
-<form id="loginForm" action="https:frrq.dtsivkovski.tk/api/person/post" method="post">
+<form id="loginForm" action="https://frq.dtsivkovski.tk/api/person/post" method="post">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br>
     <label for="password">Password:</label>
@@ -12,7 +12,7 @@
 
 <script>
     function submitForm() {
-        $.post("https:frq.dtsivkovski.tk/api/person/post", $("#loginForm").serialize(), function(data) {
+        $.post("https://frq.dtsivkovski.tk/api/person/post", $("#loginForm").serialize(), function(data) {
             console.log(data);
         });
     }
