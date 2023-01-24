@@ -29,51 +29,6 @@
             font-size: 60px;
         }
 
-
-
-        #navbar-container {
-            height: 100px;
-            width: 100%;
-            background-color: transparent;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .navlink {
-            margin-left: 30px;
-            color: white;
-            cursor: pointer;
-        }
-
-        a:link {
-            text-decoration: none;
-        }
-
-        .navdropdown-container {
-            height: 110px;
-            width: 130px;
-            background-color: darkblue;
-            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.7);
-            visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 15px;
-            position: relative;
-            top: 75px;
-            left: -100px;
-            z-index: 2;
-        }
-
-        .navdropdown-link {
-            color: white;
-            position: relative;
-            margin-top: 5px;
-            z-index: 3;
-        }
-
         #bio-background-1 {
             position: relative;
             background-repeat: no-repeat;
@@ -111,8 +66,13 @@
         }
         
         #bio-background-2 {
-            height: 1100px;
+            height: 125px;
             background-color: #160E2C;
+        }
+
+        #bio-background-3 {
+            height: 700px;
+            background-color: black;
         }
 
         #punnett-table {
@@ -225,15 +185,7 @@
             <div class = "bio-background-1-image"></div>
             <div class = "bio-background-1-overlay"></div>
             <div class = "bio-background-1-content">
-                <div id = "navbar-container">
-                    <img src = "assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
-                    <a class = "navlink" href="/">Home</a>
-                    <a class = "navlink" href="/">Simulator</a>
-                    <a class = "navlink" href="/">Subject Lobby</a>
-                    <a class = "navlink" href="/">Scientific Calculator</a>
-                    <a class = "navlink" href="/">STEM Library</a>
-                    <a class = "navlink" href="/bio.html">Biology</a>
-                </div>
+                <div id = "navbar-content"></div>
                 <h1 style = "text-align: center; font-size: 120px; margin-top: 30px;">Biology</h1>
                 <h2 style = "text-align: center; font-size: 30px; font-weight: lighter; margin-top: -70px; position: relative; z-index: 2;">Dive deep into the study of Earth's life</h2>
             </div>
@@ -243,7 +195,12 @@
             <div style = "width: 1000px; display: block; margin: auto;">
                 <h2 style = "text-align: center; font-weight: lighter;">Biology is the study of living organisms, divided into many specialized fields that cover their morphology, physiology, anatomy, behavior, origin, and distribution.</h2>
             </div>
-            <h2 style = "text-align: center;">Punnett Square</h2>
+        </div>
+        <div id = "bio-background-3">
+            
+            <!--<br>
+            <h2 style = "text-align: center; font-size: 50px;">Biology Tools</h2>
+            <h2 style = "text-align: center; margin: 0;">Punnett Square</h2>
             <form id = "punnett-square-form">
                 <table id = "punnett-table">
                     <tr>
@@ -298,9 +255,13 @@
                     <h2 id = "equilibrium-status" style = "text-align: center;"></h2>
                     <button id = "return-button" class = "button-3">Return to input page</button>
                 </div>
-            </form>
+            </form>-->
         </div>
         <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+
             var square1 = document.getElementById("square-1");
             var square2 = document.getElementById("square-2");
             var square3 = document.getElementById("square-3");

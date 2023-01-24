@@ -18,49 +18,6 @@
             overflow-x: hidden;
         }
 
-        #navbar-container {
-            height: 100px;
-            width: 100%;
-            background-color: transparent;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .navlink {
-            margin-left: 30px;
-            color: white;
-            cursor: pointer;
-        }
-
-        a:link {
-            text-decoration: none;
-        }
-
-        .navdropdown-container {
-            height: 110px;
-            width: 130px;
-            background-color: darkblue;
-            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.7);
-            visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 15px;
-            position: relative;
-            top: 75px;
-            left: -100px;
-            z-index: 2;
-        }
-
-        .navdropdown-link {
-            color: white;
-            position: relative;
-            margin-top: 5px;
-            z-index: 3;
-        }
-
         h1 {
             font-family: 'Oswald', sans-serif;
             font-size: 48px;
@@ -206,15 +163,7 @@
     </style>
     <body>
         <div id = "home-background-1">
-            <div id = "navbar-container">
-                <img src = "assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
-                <a class = "navlink" href="/">Home</a>
-                <a class = "navlink" href="/">Simulator</a>
-                <a class = "navlink" href="/">Subject Lobby</a>
-                <a class = "navlink" href="/">Scientific Calculator</a>
-                <a class = "navlink" href="/">STEM Library</a>
-                <a class = "navlink" href="/bio.html">Biology</a>
-            </div>
+            <div id = "navbar-content"></div>
             <h1 style = "text-align: center; font-size: 120px; position: relative; z-index: 2;" >DADY Academy</h1>
             <img src = "assets/images/galaxy.png" width = "800px;" height = "500px;" style = "display: block; margin: auto; position: absolute; z-index: 1; left: 0; right: 0; margin-left: auto; margin-right: auto; margin-top: -385px;">
             <h2 style = "text-align: center; font-size: 30px; font-weight: lighter; margin-top: -70px; position: relative; z-index: 2;">Where ambitious students can pursue STEM</h2>
@@ -279,19 +228,9 @@
         </div>
 
         <script>
-            // Navbar dropdown
-            $(".navdropdown").click(dropdown);
-
-            function dropdown() {
-                var navdropdownIndex = $(this).index();
-                if (navdropdownIndex == 5) {
-                    if ($(".navdropdown-container").eq(0).css("visibility") == "hidden") {
-                        $(".navdropdown-container").eq(0).css("visibility", "visible");
-                    } else if ($(".navdropdown-container").eq(0).css("visibility") == "visible") {
-                        $(".navdropdown-container").eq(0).css("visibility", "hidden");
-                    }
-                }
-            }
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
 
             var leftSidebar = document.getElementById("left-sidebar");
             leftSidebar.style.width = "0px";

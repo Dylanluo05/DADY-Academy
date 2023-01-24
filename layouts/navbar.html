@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <style>
+        #navbar-container {
+            height: 100px;
+            width: 100%;
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .navlink {
+            margin-left: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        .navdropdown-container {
+            height: 110px;
+            width: 130px;
+            background-color: darkblue;
+            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.7);
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            position: relative;
+            top: 75px;
+            left: -100px;
+            z-index: 2;
+        }
+
+        .navdropdown-link {
+            color: white;
+            position: relative;
+            margin-top: 5px;
+            z-index: 3;
+        }
+    </style>
+    <body>
+        <div id = "navbar-container">
+            <img src = "assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
+            <a class = "navlink" href="/home.html">Home</a>
+            <a class = "navlink" href="/">Simulator</a>
+            <a class = "navlink" href="/subject-lobby.html">Subject Lobby</a>
+            <a class = "navlink" href="/">Scientific Calculator</a>
+            <a class = "navlink" href="/">STEM Library</a>
+            <a class = "navlink" href="/bio.html">Biology</a>
+        </div>
+        <script>
+            // Navbar dropdown
+            $(".navdropdown").click(dropdown);
+
+            function dropdown() {
+                var navdropdownIndex = $(this).index();
+                if (navdropdownIndex == 5) {
+                    if ($(".navdropdown-container").eq(0).css("visibility") == "hidden") {
+                        $(".navdropdown-container").eq(0).css("visibility", "visible");
+                    } else if ($(".navdropdown-container").eq(0).css("visibility") == "visible") {
+                        $(".navdropdown-container").eq(0).css("visibility", "hidden");
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
