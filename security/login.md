@@ -7,7 +7,7 @@
     <input type="password" id="password" name="password" required><br>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required><br>
-    <input type="button" class="button" value="Sign Up" onclick="submitForm()">
+    <button class="button" value="Sign Up" onclick="submitForm()">Sign Up</button>
 </form>
 
 <script>
