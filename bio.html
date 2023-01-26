@@ -71,8 +71,18 @@
         }
 
         #bio-background-3 {
-            height: 700px;
-            background-color: black;
+            height: 550px;
+            background-color: #00563B;
+        }
+
+        #bio-background-4 {
+            height: 550px;
+            background-color: coral;
+        }
+
+        #bio-background-5 {
+            height: 550px;
+            background-color: navy;
         }
 
         #punnett-table {
@@ -89,13 +99,14 @@
         }
 
         .punnett-td {
-            padding: 50px;
+            padding: 60px;
             font-size: 20px;
             border: 2px solid black;
             color: black;
         }
+
         .input-container {
-            padding: 10px;
+            padding: 20px;
         }
         .punnett-input {
             height: 20px;
@@ -128,11 +139,10 @@
         .punnett-results-container {
             background-color: white;
             color: black;
-            border: 2px solid black;
+            border: none;
+            height: 250px;
+            width: 300px;
             padding: 10px;
-            width: 200px;
-            margin: auto;
-            margin-top: 30px;
         }
 
         #hardy-weinberg-form {
@@ -179,6 +189,39 @@
             background-color: #F9C80E;
         }
 
+        #chi-squared-form {
+            height: 300px;
+            width: 300px;
+            padding: 10px;
+            background-color: whitesmoke;
+            color: black;
+        }
+
+        .button-4 {
+            height: 25px;
+            width: 250px;
+            background-color: white;
+            border: 2px solid purple;
+            color: purple;
+            display: block;
+            margin: auto;
+            transition-duration: 0.4s;
+        }
+
+        .button-4:hover {
+            background-color: purple;
+            color: white;
+        }
+
+        .chi-squared-results-container {
+            height: 400px;
+            width: 350px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
     </style>
     <body>
         <div id = "bio-background-1">
@@ -197,65 +240,113 @@
             </div>
         </div>
         <div id = "bio-background-3">
-            
-            <!--<br>
-            <h2 style = "text-align: center; font-size: 50px;">Biology Tools</h2>
-            <h2 style = "text-align: center; margin: 0;">Punnett Square</h2>
-            <form id = "punnett-square-form">
-                <table id = "punnett-table">
-                    <tr>
-                        <td style = "visibility: hidden;"></td>
-                        <td class = "punnett-td input-container">
-                            <input type = "text" class = "punnett-input" name = "square-input-1" required>
-                        </td>
-                        <td class = "punnett-td input-container">
-                            <input type = "text" class = "punnett-input" name = "square-input-2" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class = "punnett-td input-container">
-                            <input type = "text" class = "punnett-input" name = "square-input-3" required>
-                        </td>
-                        <td class = "punnett-td" id = "square-1"></td>
-                        <td class = "punnett-td" id = "square-2"></td>
-                    </tr>
-                    <tr>
-                        <td class = "punnett-td input-container">
-                            <input type = "text" class = "punnett-input" name = "square-input-4" required>
-                        </td>
-                        <td class = "punnett-td" id = "square-3"></td>
-                        <td class = "punnett-td" id = "square-4"></td>
-                    </tr>
-                </table>
-                <input type = "submit" class = "button-1" value = "Update Punnett Square">
-            </form>
-            
-            <div class = "punnett-results-container">
-                <p id = "dominant-percentage-display">Chance of inheriting dominant trait:</p>
-                <p id = "recessive-percentage-display">Chance of inheriting recessive trait:</p>
+            <div style = "height: 500px; width: 33%; position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style = "width: 300px;">
+                    <h2 style = "color: white; font-weight: lighter; text-align: center;">The Punnett Square is a diagram that displays the possible genotypes of children, based on the genotypes of the parents. In the input fields, make sure to keep the same letter throughout, and only input 1 letter per input field</h2>
+                </div>
             </div>
-            
-            <h2 style = "text-align: center;">Hardy Weinberg</h2>
-            <form id = "hardy-weinberg-form">
-                <div id = "hardy-weinberg-inputs">
-                    <h3 style = "font-weight: lighter; text-align: center;">p^2 + 2pq + q^2 = 1</h3>
-                    <ul style = "color: black">
-                        <li style = "font-size: 15px; color: black;">p = Dominant allele frequency</li>
-                        <li style = "font-size: 15px; color: black;">q = Recessive allele frequency</li>
-                    </ul>
-                    <label for = "p-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter p value:</label>
-                    <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "p-value" required>
-                    <br>
-                    <label for = "q-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter q value:</label>
-                    <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "q-value" required>
-                    <br>
-                    <input type = "submit" class = "button-2" value = "Compute">
+            <div style = "height: 500px; width: 33%; position: absolute; margin-left: 33%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h2 style = "text-align: center; font-size: 50px; margin-top: 0px; font-family: 'Oswald', sans-serif">Punnett Square</h2>
+                <form id = "punnett-square-form" style = "margin-top: -20px;">
+                    <table id = "punnett-table">
+                        <tr>
+                            <td style = "visibility: hidden;"></td>
+                            <td class = "punnett-td input-container">
+                                <input type = "text" class = "punnett-input" name = "square-input-1" required>
+                            </td>
+                            <td class = "punnett-td input-container">
+                                <input type = "text" class = "punnett-input" name = "square-input-2" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class = "punnett-td input-container">
+                                <input type = "text" class = "punnett-input" name = "square-input-3" required>
+                            </td>
+                            <td class = "punnett-td" id = "square-1"></td>
+                            <td class = "punnett-td" id = "square-2"></td>
+                        </tr>
+                        <tr>
+                            <td class = "punnett-td input-container">
+                                <input type = "text" class = "punnett-input" name = "square-input-4" required>
+                            </td>
+                            <td class = "punnett-td" id = "square-3"></td>
+                            <td class = "punnett-td" id = "square-4"></td>
+                        </tr>
+                    </table>
+                    <input type = "submit" class = "button-1" value = "Update Punnett Square">
+                </form>
+            </div>
+            <div style = "height: 500px; width: 34%; position: absolute; margin-left: 66%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div class = "punnett-results-container">
+                    <h2 id = "dominant-percentage-display" style = "font-weight: lighter; text-align: center;">Chance of inheriting dominant trait:</h2>
+                    <h2 id = "recessive-percentage-display" style = "font-weight: lighter; text-align: center; margin-top: 50px;">Chance of inheriting recessive trait:</h2>
                 </div>
-                <div id = "hardy-weinberg-results"> 
-                    <h2 id = "equilibrium-status" style = "text-align: center;"></h2>
-                    <button id = "return-button" class = "button-3">Return to input page</button>
+            </div>
+        </div>
+        <div id = "bio-background-4">
+            <div style = "height: 500px; width: 33%; position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style = "height: 350px; width: 300px; background-color: black; padding: 10px; text-align: center;">
+                    <h2 style = "color: white; font-size: 30px;">Example Test Cases</h2>
+                    <h3 style = "font-weight: lighter; font-size: 21px;">p = 0.5 and q = 0.5:</h3>
+                    <h3 style = "font-weight: lighter; font-size: 21px;">The population is at equilibrium</h3>
+                    <h3 style = "font-weight: lighter; font-size: 21px;">p = 0.1 and q = 0.2:</h3>
+                    <h3 style = "font-weight: lighter; font-size: 21px;">The population is not at equilibrium</h3>
                 </div>
-            </form>-->
+            </div>
+            <div style = "height: 500px; width: 33%; position: absolute; margin-left: 33%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h2 style = "text-align: center; font-size: 50px; margin-top: 30px; font-family: 'Oswald', sans-serif">Hardy Weinberg</h2>
+                <form id = "hardy-weinberg-form">
+                    <div id = "hardy-weinberg-inputs">
+                        <h2 style = "font-weight: lighter; text-align: center; color: crimson; margin-top: -10px;">p^2 + 2pq + q^2 = 1</h2>
+                        <ul style = "color: black">
+                            <li style = "font-size: 15px; color: black;">p = Dominant allele frequency</li>
+                            <li style = "font-size: 15px; color: black;">q = Recessive allele frequency</li>
+                        </ul>
+                        <label for = "p-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter p value:</label>
+                        <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "p-value" required>
+                        <br>
+                        <label for = "q-value" style = "display: block; text-align: center; font-size: 15px; color: black;">Enter q value:</label>
+                        <input type = "text" style = "display: block; margin: auto; height: 20px;" name = "q-value" required>
+                        <br>
+                        <input type = "submit" class = "button-2" value = "Compute">
+                    </div>
+                    <div id = "hardy-weinberg-results"> 
+                        <h2 id = "equilibrium-status" style = "text-align: center;"></h2>
+                        <button id = "return-button" class = "button-3">Return to input page</button>
+                    </div>
+                </form>
+            </div>
+            <div style = "height: 500px; width: 34%; position: absolute; margin-left: 66%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style = "width: 300px;">
+                    <h2 style = "color: white; font-weight: lighter; text-align: center;">The Hardy Weinberg equilibrium principle states that the allele and genotype variation in a population will stay constant to the next generation if there are no disturbing factors. p^2 = Dominant Homozygous Frequency; 2pq = Heterozygous Frequency; q^2 = Recessive Homozygous Frequency</h2>
+                </div>
+            </div>
+        </div>
+        <div id = "bio-background-5">
+            <div style = "height: 500px; width: 33%; position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <form id = "chi-squared-form">
+                    <br>
+                    <label for = "observed" style = "display: block; text-align: center;">Enter the observed values, separated by commas with no spaces.</label><br>
+                    <input name = "observed" type = "text" style = "border: none; background-color: slategray; color: white; height: 20px; width: 250px; display: block; margin: auto;"><br>
+                    <label for = "expected" style = "display: block; text-align: center;">Enter the expected values corresponding to the observed values, separated by commas with no spaces.</label><br>
+                    <input name = "expected" type = "text" style = "border: none; background-color: slategray; color: white; height: 20px; width: 250px; display: block; margin: auto;"><br><br>
+                    <input type = "submit" class = "button-4">
+                </form>
+            </div>
+            <div style = "height: 500px; width: 33%; position: absolute; margin-left: 33%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h2 style = "text-align: center; font-size: 50px; margin-top: 20px; font-family: 'Oswald', sans-serif">Chi Squared Statistics</h2>
+                <div class = "chi-squared-results-container">
+                    <h2 style = "font-size: 30px;">Chi Squared Value:</h2>
+                    <h3 id = "chi-squared-result" style = "font-size: 20px; font-weight: lighter;"></h3>
+                    <h2 style = "font-size: 30px;">Work Shown:</h2>
+                    <h3 id = "chi-squared-work" style = "font-size: 20px; font-weight: lighter;"></h3>
+                </div>
+            </div>
+            <div style = "height: 500px; width: 34%; position: absolute; margin-left: 66%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style = "width: 300px;">
+                    <h2 style = "color: white; font-weight: lighter; text-align: center;">The chi-squared test typically a statistical test used to analyze the differences between the observed counts and expected counts in contingency tables. This test is mainly used for determining whether or not two categorical variables are independent of one another when impacting the test statistic</h2>
+                </div>
+            </div>
         </div>
         <script>
             $(function() {
@@ -353,6 +444,59 @@
                 } else {
                     equilibriumStatus.innerHTML = "The population is not at equilibrium";
                 }
+            }
+
+            $("#chi-squared-form").on("submit", chiSquared);
+            var chiSquaredResult = document.getElementById("chi-squared-result");
+            var chiSquaredWork = document.getElementById("chi-squared-work");
+
+            function chiSquared() {
+                event.preventDefault();
+                var formData = $("#chi-squared-form").serializeArray();
+                var observedString = formData[0].value;
+                var expectedString = formData[1].value;
+                var observedArray = observedString.split(",");
+                var expectedArray = expectedString.split(",");
+                if (observedArray.length != expectedArray.length) {
+                    alert("The number of observed values and expected values should be the same");
+                    return;
+                }
+                var observedSum = 0;
+                var expectedSum = 0;
+                for (key in observedArray) {
+                    if (parseInt(observedArray[key] == NaN)) {
+                        alert("Please make sure you entered valid numbers in the observed values");
+                        return;
+                    }
+                    observedSum += parseInt(observedArray[key]);
+                }
+                for (key in expectedArray) {
+                    if (parseInt(expectedArray[key] == NaN)) {
+                        alert("Please make sure you entered valid numbers in the expected values");
+                        return;
+                    } else if (parseInt(expectedArray[key] == 0)) {
+                        alert("You cannot have 0 as one of the expected values");
+                        return;
+                    }
+                    parseInt(expectedArray[key]);
+                    expectedSum += parseInt(expectedArray[key]);
+                }
+                if (observedSum != expectedSum) {
+                    alert("The sums of the observed values and expected values must be the same");
+                    return;
+                }
+                var chiSquaredValue = 0;
+                chiSquaredWork.innerHTML = "";
+                for (var i = 0; i < observedArray.length; i++) {
+                    chiSquaredValue += Math.pow(parseInt(observedArray[i]) - parseInt(expectedArray[i]), 2)/parseInt(expectedArray[i]);
+                    if (i == observedArray.length - 1) {
+                        chiSquaredWork.innerHTML += "(((" + observedArray[i] + " - " + expectedArray[i] + ")^2)/" + expectedArray[i] + ")";
+                    } else {
+                        chiSquaredWork.innerHTML += "(((" + observedArray[i] + " - " + expectedArray[i] + ")^2)/" + expectedArray[i] + ") + ";
+                    }
+                }
+                chiSquaredResult.innerHTML = chiSquaredValue;
+                document.getElementById("chi-squared-form").reset();
             }
         </script>
     </body>
