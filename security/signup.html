@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        #signup-background-1 {
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(to right, purple, dodgerblue);
+        }
+
+        .signup-container {
+            height: 50vh;
+            width: 30%;
+            padding: 10px;
+            background-color: whitesmoke;
+            margin: 0;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 15px 15px 0 rgba(255,255,255,0.7);
+        }
+
+        .signup-label {
+            color: silver;
+            font-weight: lighter;
+            position: relative;
+            font-size: 15px;
+            top: 20px;
+        }
+
+        .signup-input {
+            height: 30px;
+            width: 200px;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            border-bottom: 2px solid black;
+            background-color: transparent;
+            color: black;
+            caret-color: black;
+        }
+
+        .signup-input:focus {
+            outline: none;
+        }
+
+        .question {
+            height: 50px;
+            width: 200px;
+            padding: 7px;
+            background-color: transparent;
+            display: block;
+            margin: auto;
+            margin-top: -20px;
+        }
+
+        #navigation {
+            height: 30px; 
+            width: 300px; 
+            display: grid; 
+            grid-template-columns: 70px 160px 70px; 
+            margin: auto; 
+            margin-top: 20px;
+        }
+
+        .next-button {
+            height: 20px;
+            width: 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .back-button {
+            height: 20px;
+            width: 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: default;
+        }
+
+        .signup-submit {
+            height: 30px;
+            width: 200px;
+            background-image: linear-gradient(to right,violet, dodgerblue, mediumseagreen);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            display: none;
+            opacity: 0;
+            position: relative;
+            right: 70px;
+            top: -5px;
+            cursor: pointer;
+        }
+
+    </style>
+    <body>
+        <div id = "signup-background-1">
+            <div id = "navbar-content"></div>
+            <div class = "signup-container">
+                <h1 style = "text-align: center; color: black">Sign Up</h1>
+                <form>
+                    <div id = "question-1" class = "question">
+                        <label class = "signup-label" id = "name-label" for = "name" status = "off">Enter full name:</label>
+                        <input class = "signup-input" type = "text" name = "name" id = "name">
+                    </div>
+                    <div id = "question-2" class = "question">
+                        <label class = "signup-label" id = "email-label" for = "email" status = "off">Enter email address:</label>
+                        <input class = "signup-input" type = "email" name = "email" id = "email">
+                    </div>
+                    <div id = "question-3" class = "question">
+                        <label class = "signup-label" id = "password-label" for = "password" status = "off">Create a password:</label>
+                        <input class = "signup-input" type = "password" name = "password" id = "password">
+                        <label class = "signup-label" id = "cpassword-label" for = "cpassword" status = "off">Confirm password:</label>
+                        <input class = "signup-input" type = "password" name = "cpassword" id = "cpassword">
+                    </div>
+                    <div id = "question-4" class = "question">
+                        <label style = "color: black;" id = "stem-interest-label" for = "stem-interest">Check your STEM interests:</label><br>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px">Biology</p><br>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px">Chemistry</p><br>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px">Physics</p><br>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px">Statistics</p>
+                    </div>
+                </form>
+                <div id = "navigation">
+                    <div class = "back-button" id = "back-button">
+                        <p style = "color: black; font-size: 27px;">&#8676;</p>
+                        <p style = "color: black; margin-left: 10px; font-size: 17px;">Back</p>
+                    </div>
+                    <div></div>
+                    <div class = "next-button" id = "next-button">
+                        <p style = "color: black; font-size: 17px;">Next</p>
+                        <p style = "color: black; margin-left: 10px; font-size: 27px;">&#8677;</p>
+                    </div>
+                    <input type = "submit" class = "signup-submit" id = "signup-submit">
+                </div>
+                <p style = "color: black; text-align: center; margin-top: 10px;">Already have an account?</p>
+                <a style = "color: blue; display: block; text-align: center; margin-top: -10px;" href = "/security/login.html">Login</a>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+
+            var backButton = document.getElementById("back-button");
+            backButton.addEventListener("click", previousPage);
+            backButton.style.opacity = "0";
+            var nextButton = document.getElementById("next-button");
+            nextButton.addEventListener("click", nextPage);
+
+            var question1 = document.getElementById("question-1");
+            var question2 = document.getElementById("question-2");
+            var question3 = document.getElementById("question-3");
+            var question4 = document.getElementById("question-4");
+            question2.style.display = "none";
+            question2.style.opacity = "0";
+            question3.style.display = "none";
+            question3.style.opacity = "0";
+            question4.style.display = "none";
+            question4.style.opacity = "0";
+            var page = 1;
+
+            function nextPage() {
+                switch(page) {
+                    case 1:
+                        $("#back-button").animate({opacity: "1"}, {duration: 2000, queue: true});
+                        $("#back-button").css("cursor", "pointer");
+                        $("#question-1").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question1.style.display = "none";
+                        question2.style.display = "block";
+                        $("#question-2").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                    case 2:
+                        $("#question-2").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question2.style.display = "none";
+                        $("#navigation").css("margin-top", "70px");
+                        question3.style.display = "block";
+                        $("#question-3").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                    case 3:
+                        $("#next-button").animate({opacity: "0"}, {duration: 2000, queue: true});
+                        $("#next-button").css("cursor", "default");
+                        $("#next-button").css("display", "none");
+                        $("#signup-submit").css("display", "block");
+                        $("#signup-submit").animate({opacity: "1"}, {duration: 2000, queue: true});
+                        $("#question-3").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question3.style.display = "none";
+                        question4.style.display = "block";
+                        $("#question-4").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                }
+                page++;
+            }
+
+            function previousPage() {
+                switch(page) {
+                    case 2:
+                        $("#back-button").animate({opacity: "0"}, {duration: 2000, queue: true});
+                        $("#back-button").css("cursor", "default");
+                        $("#question-2").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question2.style.display = "none";
+                        question1.style.display = "block";
+                        $("#question-1").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                    case 3:
+                        $("#question-3").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question3.style.display = "none";
+                        $("#navigation").css("margin-top", "20px");
+                        question2.style.display = "block";
+                        $("#question-2").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                    case 4:
+                        $("#signup-submit").animate({opacity: "0"}, {duration: 2000, queue: true});
+                        $("#signup-submit").css("display", "none");
+                        $("#next-button").css("display", "flex");
+                        $("#next-button").animate({opacity: "1"}, {duration: 2000, queue: true});
+                        $("#next-button").css("cursor", "pointer");
+                        $("#question-4").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question4.style.display = "none";
+                        question3.style.display = "block";
+                        $("#question-3").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                }
+                page--;
+            }
+
+            $("body").on("click", activation);
+        
+            function activation(e) {
+                if ($(e.target).attr("class") == "signup-input") {
+                    var inputName = $(e.target).attr("name");
+                    for (var i = 0; i < 4; i++) {
+                        if ($(".signup-label").eq(i).attr("for") == inputName) {
+                            $(".signup-label").eq(i).animate({top: "0px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(i).animate({fontSize: "17px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(i).animate({color: "black"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(i).attr("status", "on");
+                        }
+                    }
+                } else {
+                    for (var j = 0; j < 4; j++) {
+                        if ($(".signup-label").eq(j).attr("status") == "on") {
+                            $(".signup-label").eq(j).attr("status", "off");
+                            $(".signup-label").animate({top: "20px"}, {duration: 200, queue: false});
+                            $(".signup-label").animate({fontSize: "15px"}, {duration: 200, queue: false});
+                            $(".signup-label").animate({color: "silver"}, {duration: 200, queue: false});
+                        }
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>

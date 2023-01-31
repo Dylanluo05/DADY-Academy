@@ -45,15 +45,61 @@
             margin-top: 5px;
             z-index: 3;
         }
+
+        #menu {
+            height: 30px;
+            width: 40px;
+            margin-top: -7px;
+            position: absolute;
+            right: 40px;
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        .menu-line {
+            height: 3px;
+            width: 40px;
+            background-color: white;
+            margin-top: 7px;
+            border-radius: 10px;
+        }
+
+        #right-sidebar {
+            height: 100%;
+            width: 300px;
+            background-color: black;
+            position: fixed;
+            z-index: 4;
+            top: 0;
+            right: 0;
+            overflow-x: hidden;
+            padding-top: 15px;
+        }
+
+        #right-sidebar-close-button {
+            position: relative;
+            left: 0;
+            margin-right: auto;
+        }
+
     </style>
     <body>
         <div id = "navbar-container">
-            <img src = "assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
-            <a class = "navlink" href="/home.html">Home</a>
+            <img src = "/assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
+            <a class = "navlink" href="/templates/home.html">Home</a>
             <a class = "navlink" href="/">Simulator</a>
-            <a class = "navlink" href="/subject-lobby.html">Subject Lobby</a>
+            <a class = "navlink" href="/templates/subject-lobby.html">Subject Lobby</a>
             <a class = "navlink" href="/">Scientific Calculator</a>
             <a class = "navlink" href="/">STEM Library</a>
+            <div id = "menu">
+                <div class = "menu-line"></div>
+                <div class = "menu-line"></div>
+                <div class = "menu-line"></div>
+            </div>
+        </div>
+        <div id = "right-sidebar">
+            <p id = "right-sidebar-close-button">x</p>
+            <a href = "/security/login.html">Login</a>
         </div>
         <script>
             // Navbar dropdown
@@ -67,6 +113,28 @@
                     } else if ($(".navdropdown-container").eq(0).css("visibility") == "visible") {
                         $(".navdropdown-container").eq(0).css("visibility", "hidden");
                     }
+                }
+            }
+
+            var menu = document.getElementById("menu");
+            menu.addEventListener("click", rightSidebarOn);
+
+            var rightSidebar = document.getElementById("right-sidebar");
+            rightSidebar.style.width = "0px";
+            rightSidebar.setAttribute("status", "off");
+
+            function rightSidebarOn() {
+                var WIDTH1 = 0;
+                function rightSidebarOnAnimation(){
+                    rightSidebar.style.width = WIDTH1 + "px";
+                    WIDTH1 += 3;
+                    if (WIDTH1 >= 302) {
+                        clearInterval(rightSidebarTimer);
+                        rightSidebar.setAttribute("status", "on");
+                    }
+                }
+                if (rightSidebar.getAttribute("status") == "off") {
+                    var rightSidebarTimer = setInterval(rightSidebarOnAnimation, 5);
                 }
             }
         </script>
