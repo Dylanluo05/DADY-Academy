@@ -79,7 +79,28 @@
   
   <h2>Ideal gas law</h2>
   
-
+<p>The ideal gas law states that the pressure, volume, and temperature of a gas are related by the equation:</p>
+  
+  <p>PV = nRT</p>
+  
+  <p>Where:</p>
+  <ul>
+    <li>P = pressure (in atm)</li>
+    <li>V = volume (in L)</li>
+    <li>n = number of moles of gas</li>
+    <li>R = ideal gas constant (0.0821 L atm/mol K)</li>
+    <li>T = temperature (in K)</li>
+  </ul>
+  
+  <h2>Density</h2>
+  <p>Density is the mass per unit volume of a substance. It can be calculated using the equation:</p>
+  
+  <p>density = mass/volume</p>
+  
+  <p>The SI unit of density is kg/m<sup>3</sup>.</p>
+  
+</body>
+</html>
 
 <script>
 var elements = document.getElementsByClassName("element");
