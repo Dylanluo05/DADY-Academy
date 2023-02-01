@@ -23,34 +23,3 @@
 </html>
 
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  
-  input[type="number"] {
-    width: 150px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    width: 150px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-</style>
-
