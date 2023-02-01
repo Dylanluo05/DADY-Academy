@@ -72,6 +72,13 @@
   <h1>Chemical Calculations Cheat Sheet</h1>
   
   <h2>Molar mass</h2>
+  <p>The molar mass of a substance is the mass of one mole of that substance.</p>
+  
+  <h2>Molar volume</h2>
+  <p>The molar volume of a gas is the volume occupied by one mole of that gas at standard temperature and pressure (STP).</p>
+  
+  <h2>Ideal gas law</h2>
+  
 
 
 <script>
