@@ -8,6 +8,8 @@
   <body>
     <h1>Density Calculator</h1>
     <form>
+    <label for="obj">Object name (g):</label>
+      <input type="obj" id="obj" name="obj"><br><br>
       <label for="mass">Mass (g):</label>
       <input type="number" id="mass" name="mass"><br><br>
       <label for="volume">Volume (mL):</label>
