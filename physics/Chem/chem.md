@@ -66,6 +66,14 @@
   </tr>
 </table>
 
+ <title>Chemical Calculations Cheat Sheet</title>
+</head>
+<body>
+  <h1>Chemical Calculations Cheat Sheet</h1>
+  
+  <h2>Molar mass</h2>
+
+
 <script>
 var elements = document.getElementsByClassName("element");
 
