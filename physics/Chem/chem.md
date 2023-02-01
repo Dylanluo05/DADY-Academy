@@ -54,3 +54,25 @@
   }
 </style>
 
+
+<table id="periodic-table">
+  <tr>
+    <td class="element" id="H"></td>
+    <td class="element" id="He"></td>
+  </tr>
+  <tr>
+    <td class="element" id="Li"></td>
+    <td class="element" id="Be"></td>
+  </tr>
+</table>
+
+<script>
+var elements = document.getElementsByClassName("element");
+
+for (var i = 0; i < elements.length; i++) {
+  elements[i].onclick = function() {
+    this.innerHTML = "Clicked!";
+  }
+}
+</script>
+
