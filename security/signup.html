@@ -260,6 +260,17 @@
                     var inputName = $(e.target).attr("name");
                     for (var i = 0; i < 4; i++) {
                         if ($(".signup-label").eq(i).attr("for") == inputName) {
+                            for (var x = 0; x < 4; x++) {
+                                if (x == i) {
+                                    continue;
+                                }
+                                if ($(".signup-label").eq(x).attr("status") == "on") {
+                                    $(".signup-label").eq(x).attr("status", "off");
+                                    $(".signup-label").eq(x).animate({top: "20px"}, {duration: 200, queue: false});
+                                    $(".signup-label").eq(x).animate({fontSize: "15px"}, {duration: 200, queue: false});
+                                    $(".signup-label").eq(x).animate({color: "silver"}, {duration: 200, queue: false});
+                                }
+                            }
                             $(".signup-label").eq(i).animate({top: "0px"}, {duration: 200, queue: false});
                             $(".signup-label").eq(i).animate({fontSize: "17px"}, {duration: 200, queue: false});
                             $(".signup-label").eq(i).animate({color: "black"}, {duration: 200, queue: false});
@@ -270,9 +281,9 @@
                     for (var j = 0; j < 4; j++) {
                         if ($(".signup-label").eq(j).attr("status") == "on") {
                             $(".signup-label").eq(j).attr("status", "off");
-                            $(".signup-label").animate({top: "20px"}, {duration: 200, queue: false});
-                            $(".signup-label").animate({fontSize: "15px"}, {duration: 200, queue: false});
-                            $(".signup-label").animate({color: "silver"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(j).animate({top: "20px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(j).animate({fontSize: "15px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(j).animate({color: "silver"}, {duration: 200, queue: false});
                         }
                     }
                 }
