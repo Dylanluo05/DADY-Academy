@@ -40,6 +40,7 @@
         .calculator-output-container {
             height: 50%;
             width: 500px;
+            overflow-y: auto;
         }
 
         .calculator-input-container {
@@ -55,6 +56,8 @@
             border: 1px solid #404040;
             border-left: none;
             border-right: none;
+            caret-color: white;
+            color: white;
             font-size: 30px;
             padding-left: 10px;
         }
@@ -80,11 +83,20 @@
             cursor: pointer;
         }
 
+        .output-container {
+            height: 50px;
+            width: 100%;
+            background-color: #383838;
+            border: 1px solid #404040;
+            padding-left: 10px;
+            color: white;
+        }
+
     </style>
     <body>
         <div id = "navbar-content"></div>
         <div class = "calculator-main-container">
-            <div class = "calculator-output-container"></div> 
+            <div class = "calculator-output-container" id = "calculator-output-container"></div> 
             <div class = "calculator-input-container">
                 <input type = "text" class = "calculator-input-field" id = "calculator-input-field">
                 <div class = " calculator-input-buttons-container">
@@ -95,7 +107,7 @@
                         <div class = "calculator-input-button"><p>m+</p></div>
                         <div class = "calculator-input-button"><p>m-</p></div>
                         <div class = "calculator-input-button"><p>mr</p></div>
-                        <div class = "calculator-input-button"><p>AC</p></div>
+                        <div class = "calculator-input-button"><p id = "clear-text">AC</p></div>
                         <div class = "calculator-input-button"><p>+/-</p></div>
                         <div class = "calculator-input-button"><p>%</p></div>
                         <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#247;</p></div>
@@ -151,7 +163,7 @@
                         <div class = "calculator-input-button"><p>Rand</p></div>
                         <div class = "calculator-input-button"><p>0</p></div>
                         <div class = "calculator-input-button"><p>.</p></div>
-                        <div class = "calculator-input-button" style = "width: 20%; font-size: 30px; background-image: linear-gradient(to right, blue, cyan)"><p>=</p></div>
+                        <div type = "submit" id = "calculator-equals-button" class = "calculator-input-button" style = "width: 20%; font-size: 30px; background-image: linear-gradient(to right, blue, cyan)"><p>=</p></div>
                     </div>
                 </div>
             </div>
@@ -162,19 +174,54 @@
             });
 
             var calculatorInputField = document.getElementById("calculator-input-field");
+            var clearText = document.getElementById("clear-text");
 
             $(".calculator-input-button").on("click", calculatorInput);
             function calculatorInput() {
-                var inputValue = $(this).children().html();
+                var inputValue = $(this).children().text();
+                if (inputValue != "AC") {
+                    clearText.innerHTML = "C";
+                }
                 switch (inputValue) {
-                    case "(-)":
-                        calculatorInputField.value += "-";
+                    case "C":
+                        clearText.innerHTML = "AC";
+                        calculatorInputField.value = "";
+                        break;
+                    case "sin":
+                        calculatorInputField.value += "sin(";
+                        break;
+                    case "cos":
+                        calculatorInputField.value += "cos(";
+                        break;
+                    case "tan":
+                        calculatorInputField.value += "tan(";
+                        break;
+                    case "ln":
+                        calculatorInputField.value += "ln(";
                         break;
                     default:
                         calculatorInputField.value += inputValue;
                         break;
                 }
             }
+
+            const apiURL = "";
+            var calculatorOutputContainer = document.getElementById("calculator-output-container");
+            var calculatorEqualsButton = document.getElementById("calculator-equals-button");
+            calculatorEqualsButton.addEventListener("click", (event) => {
+                var expression = calculatorInputField.value;
+                fetch(`${apiURL}/${expression}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var outputContainer = document.createElement("div");
+                        outputContainer.setAttribute("class", "output-container");
+                        var outputText = document.createElement("p");
+                        outputText.innerHTML = `${data.Result}`;
+                        outputContainer.appendChild(outputText);
+                        calculatorOutputContainer.appendChild(outputContainer);
+                    })
+            })
+
         </script>
     </body>
 </html>
