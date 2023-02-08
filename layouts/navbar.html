@@ -66,7 +66,7 @@
 
         #right-sidebar {
             height: 100%;
-            width: 300px;
+            width: 0px;
             background-color: black;
             position: fixed;
             z-index: 4;
@@ -78,8 +78,24 @@
 
         #right-sidebar-close-button {
             position: relative;
-            left: 0;
-            margin-right: auto;
+            font-size: 25px;
+            left: 170px;
+            margin-top: -5px;
+            cursor: pointer;
+        }
+
+        .right-sidebar-link-container {
+            padding: 10px;
+            background-color: crimson;
+            border: none;
+            margin-top: 15px;
+        }
+
+        .right-sidebar-link {
+            font-size: 21px;
+            color: white;
+            display: block;
+            text-align: center;
         }
 
     </style>
@@ -99,7 +115,12 @@
         </div>
         <div id = "right-sidebar">
             <p id = "right-sidebar-close-button">x</p>
-            <a href = "/security/login.html">Login</a>
+            <div class = "right-sidebar-link-container" style = "margin-top: -15px;">
+                <a class = "right-sidebar-link" href = "/security/login.html">Login</a>
+            </div>
+            <div class = "right-sidebar-link-container">
+                <a class = "right-sidebar-link" href = "/security/login.html">Sign Up</a>
+            </div>
         </div>
         <script>
             // Navbar dropdown
@@ -116,27 +137,24 @@
                 }
             }
 
+            $("#right-sidebar").children().css("opacity", "0");
+
             var menu = document.getElementById("menu");
             menu.addEventListener("click", rightSidebarOn);
 
-            var rightSidebar = document.getElementById("right-sidebar");
-            rightSidebar.style.width = "0px";
-            rightSidebar.setAttribute("status", "off");
+            var closeButton = document.getElementById("right-sidebar-close-button");
+            closeButton.addEventListener("click", rightSidebarOff);
 
             function rightSidebarOn() {
-                var WIDTH1 = 0;
-                function rightSidebarOnAnimation(){
-                    rightSidebar.style.width = WIDTH1 + "px";
-                    WIDTH1 += 3;
-                    if (WIDTH1 >= 302) {
-                        clearInterval(rightSidebarTimer);
-                        rightSidebar.setAttribute("status", "on");
-                    }
-                }
-                if (rightSidebar.getAttribute("status") == "off") {
-                    var rightSidebarTimer = setInterval(rightSidebarOnAnimation, 5);
-                }
+                $("#right-sidebar").animate({width: "200px"}, {duration: 500, queue: true});
+                $("#right-sidebar").children().animate({opacity: "1"}, {duration: 800, queue: true});
             }
+
+            function rightSidebarOff() {
+                $("#right-sidebar").children().animate({opacity: "0"}, {duration: 200, queue: true});
+                $("#right-sidebar").animate({width: "0px"}, {duration: 500, queue: true});
+            }
+
         </script>
     </body>
 </html>

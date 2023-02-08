@@ -167,19 +167,19 @@
             background-position: center center;
             background-repeat: no-repeat;
             margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .carousel-title {
             font-size: 45px;
             text-align: center;
-            margin-top: 100px;
         }
 
         .carousel-text {
-            height: 70%;
-            width: 700px;
-            display: block;
-            margin: auto;
+            width: 600px;
             text-align: center;
             font-size: 20px;
             font-weight: lighter;
@@ -196,7 +196,8 @@
         .back-button {
             height: 50px;
             width: 50px;
-            background-color: #383838;
+            background-color: lightgray;
+            color: black;
             border-radius: 50%;
             position: relative;
             left: 20px;
@@ -211,7 +212,8 @@
         .next-button {
             height: 50px;
             width: 50px;
-            background-color: #383838;
+            background-color: lightgray;
+            color: black;
             border-radius: 50%;
             position: relative;
             right: 20px;
@@ -221,6 +223,21 @@
             align-items: center;
             cursor: pointer;
             transition-duration: 0.4s;
+        }
+
+        .intro-button {
+            height: 35px;
+            width: 250px;
+            background-color: white;
+            color: royalblue;
+            border: 3px solid royalblue;
+            border-radius: 20px;
+            transition-duration: 0.7s;
+        }
+
+        .intro-button:hover {
+            color: white;
+            background-color: royalblue;
         }
 
     </style>
@@ -239,7 +256,7 @@
                     <h1 style = "display: inline; color: crimson;">Explore</h1><h1 style = "display: inline;"> and </h1><h1 style = "display: inline; color: crimson;">pursue </h1><h1 style = "display: inline;">STEM like you never have before</h1>
                 </div>
                 <div style = "width: 700px; margin: auto; position: relative; top: 70px;">
-                    <h2 style = "text-align: center; font-size: 22px; font-weight: lighter;">Here at Team DADY, we strive to provide useful academic resources that you can use to help pursue your STEM passions, as well as gain in-depth knowledge on a variety of STEM subjects such as biology, chemistry, and physics. Furthermore, users can utilize the many tools we offer, from an online simulator to an advanced mathematical and scientific calculator.</h2>
+                    <h2 style = "text-align: center; font-size: 22px; font-weight: lighter;">Here at Team DADY, we strive to provide useful academic resources that you can use to help pursue your STEM passions, as well as gain in-depth knowledge on a variety of STEM subjects such as biology, chemistry, and physics. Furthermore, you can utilize the many tools we offer, from an online simulator to an advanced mathematical and scientific calculator.</h2>
                 </div>
                 <button class = "get-started-button" id = "get-started-button" onclick = "location.href = '/security/signup.html'"><span>Get Started</span></button>
                 <div class = "get-started-background" id = "get-started-background"></div>
@@ -254,35 +271,40 @@
         <div class = "home-background-3">
             <div class = "carousel-container">
                 <div></div>
-                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                    <h1 class = "carousel-title">Subject Lobby</h1>
+                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/355938/pexels-photo-355938.jpeg?auto=compress&cs=tinysrgb&w=800'); background-position: center -300px;">
+                    <h1 class = "carousel-title">Simulator</h1>
                     <div class = "carousel-text">
-                        <p>Hello World</p>
+                        <p>Experiment with science in a digital environment. Collect and analyze data using our simulators to get a hands-on experience while learning about STEM.</p>
                     </div>
+                    <button class = "intro-button" onclick = "location.href='/templates/simulator.html'">Take Me There!</button>
                 </div>
-                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                    <h1 class = "carousel-title">Subject Lobby</h1>
+                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/6964138/pexels-photo-6964138.jpeg?auto=compress&cs=tinysrgb&w=900')">
+                    <h1 class = "carousel-title">Scientific Calculator</h1>
                     <div class = "carousel-text">
-                        <p>Hello World</p>
+                        <p>Utilize a one-of-a-kind calculator that contains just about every scientific function there is. The Scientific Calculator can be used for a variety of math and science subjects.</p>
                     </div>
+                    <button class = "intro-button" onclick = "location.href='/templates/calculator.html'">Take Me There!</button>
                 </div>
-                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/1025469/pexels-photo-1025469.jpeg?auto=compress&cs=tinysrgb&w=800')">
                     <h1 class = "carousel-title">Subject Lobby</h1>
                     <div class = "carousel-text">
-                        <p>Hello World</p>
+                        <p>Explore a variety of STEM subjects and pursue your academic interests using the useful scientific tools the Subject Lobby provides.</p>
                     </div>
+                    <button class = "intro-button" onclick = "location.href='/templates/subject-lobby.html'">Take Me There!</button>
                 </div>
-                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                    <h1 class = "carousel-title">Subject Lobby</h1>
+                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/6238050/pexels-photo-6238050.jpeg?auto=compress&cs=tinysrgb&w=900')">
+                    <h1 class = "carousel-title">STEM Library</h1>
                     <div class = "carousel-text">
-                        <p>Hello World</p>
+                        <p>Review the large multitudes of mathematical and scientific formulas the STEM Library displays, as well as review useful educational resources.</p>
                     </div>
+                    <button class = "intro-button" onclick = "location.href='/templates/stem-library.html'">Take Me There!</button>
                 </div>
-                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                    <h1 class = "carousel-title">Subject Lobby</h1>
+                <div class = "carousel-box" style = "background: url('https://images.pexels.com/photos/2452345/pexels-photo-2452345.jpeg?auto=compress&cs=tinysrgb&w=900'); background-position: center -400px;">
+                    <h1 class = "carousel-title">Personal Profile</h1>
                     <div class = "carousel-text">
-                        <p>Hello World</p>
+                        <p>Save all of your simulations, notes, and projects, so that you can review them later as many times as you want. You can also save calculations made in the scientific calculator as well as important formulas and resources from the STEM Library.</p>
                     </div>
+                    <button class = "intro-button" onclick = "location.href='/templates/signup.html'">Take Me There!</button>
                 </div>
             </div>
             <div class = "carousel-navigation">
@@ -296,6 +318,12 @@
         </div>
         <div class = "transition-background-1" style = "height: 200px;">
             <div class = "circle" style = "top: -125px; z-index: 2;"></div>
+            <div style = "width: 500px; color: white; text-align: center; display: block; margin: auto; position: relative; top: -350px; z-index: 2;">
+                <h1 style = "display: inline;">What are </h1><h1 style = "display: inline; color: crimson; font-size: 70px;">you</h1><h1 style = "display: inline;"> waiting for?</h1>
+            </div>
+            <div style = "width: 450px; color: white; text-align: center; font-size: 21px; font-weight: lighter; display: block; position: relative; top: -350px; margin: auto; z-index: 2;">
+                <p>Sign up for a DADY Academy account today and utilize our tools to the fullest</p>
+            </div>
         </div>        
 
         <!--<div id = "home-background-3">
@@ -370,23 +398,23 @@
             $("#next-button").hover(nextAnimationOn, nextAnimationOff);
 
             function backAnimationOn() {
-                $(this).animate({backgroundColor: "lightgray"}, {duration: 300, queue: false});
-                $(this).children("p").animate({color: "black"}, {duration: 300, queue: false});
+                $(this).animate({backgroundColor: "#383838"}, {duration: 300, queue: false});
+                $(this).children("p").animate({color: "white"}, {duration: 300, queue: false});
             }
 
             function backAnimationOff() {
-                $(this).animate({backgroundColor: "#383838"}, {duration: 300, queue: false});
-                $(this).children("p").animate({color: "white"}, {duration: 300, queue: false});
-            }
-
-            function nextAnimationOn() {
                 $(this).animate({backgroundColor: "lightgray"}, {duration: 300, queue: false});
                 $(this).children("p").animate({color: "black"}, {duration: 300, queue: false});
             }
 
-            function nextAnimationOff() {
+            function nextAnimationOn() {
                 $(this).animate({backgroundColor: "#383838"}, {duration: 300, queue: false});
                 $(this).children("p").animate({color: "white"}, {duration: 300, queue: false});
+            }
+
+            function nextAnimationOff() {
+                $(this).animate({backgroundColor: "lightgray"}, {duration: 300, queue: false});
+                $(this).children("p").animate({color: "black"}, {duration: 300, queue: false});
             }
 
             /*var leftSidebar = document.getElementById("left-sidebar");

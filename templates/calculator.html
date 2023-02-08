@@ -30,10 +30,17 @@
             box-sizing: border-box;
         }
 
+        #calculator-background-1 {
+            height: 800px;
+            width: 100%;
+            background-image: linear-gradient(to top right, navy, purple);
+        }
+
         .calculator-main-container {
             height: 600px;
             width: 500px;
             background-color: #303030;
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
             margin: auto;
         }
 
@@ -94,76 +101,78 @@
 
     </style>
     <body>
-        <div id = "navbar-content"></div>
-        <div class = "calculator-main-container">
-            <div class = "calculator-output-container" id = "calculator-output-container"></div> 
-            <div class = "calculator-input-container">
-                <input type = "text" class = "calculator-input-field" id = "calculator-input-field">
-                <div class = " calculator-input-buttons-container">
-                    <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
-                        <div class = "calculator-input-button"><p>(</p></div>
-                        <div class = "calculator-input-button"><p>)</p></div>
-                        <div class = "calculator-input-button"><p>mc</p></div>
-                        <div class = "calculator-input-button"><p>m+</p></div>
-                        <div class = "calculator-input-button"><p>m-</p></div>
-                        <div class = "calculator-input-button"><p>mr</p></div>
-                        <div class = "calculator-input-button"><p id = "clear-text">AC</p></div>
-                        <div class = "calculator-input-button"><p>+/-</p></div>
-                        <div class = "calculator-input-button"><p>%</p></div>
-                        <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#247;</p></div>
-                    </div>
-                    <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
-                        <div class = "calculator-input-button"><p>2<sup>nd</sup></p></div>
-                        <div class = "calculator-input-button"><p>x<sup>2</sup></p></div>
-                        <div class = "calculator-input-button"><p>x<sup>3</sup></p></div>
-                        <div class = "calculator-input-button"><p>x<sup>y</sup></p></div>
-                        <div class = "calculator-input-button"><p>e<sup>x</sup></p></div>
-                        <div class = "calculator-input-button"><p>10<sup>x</sup></p></div>
-                        <div class = "calculator-input-button"><p>7</p></div>
-                        <div class = "calculator-input-button"><p>8</p></div>
-                        <div class = "calculator-input-button"><p>9</p></div>
-                        <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#215;</p></div>
-                    </div>
-                    <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
-                        <div class = "calculator-input-button"><p>1/x</p></div>
-                        <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>2</sup>
-                            &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
-                            </span></div>
-                        <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>3</sup>
-                            &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
-                            </span></div>
-                        <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>y</sup>
-                            &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
-                            </span></div>
-                        <div class = "calculator-input-button"><p>ln</p></div>
-                        <div class = "calculator-input-button"><p>log<sub>10</sub></p></div>
-                        <div class = "calculator-input-button"><p>4</p></div>
-                        <div class = "calculator-input-button"><p>5</p></div>
-                        <div class = "calculator-input-button"><p>6</p></div>
-                        <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#8722;</p></div>
-                    </div>
-                    <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
-                        <div class = "calculator-input-button"><p>x!</p></div>
-                        <div class = "calculator-input-button"><p>sin</p></div>
-                        <div class = "calculator-input-button"><p>cos</p></div>
-                        <div class = "calculator-input-button"><p>tan</p></div>
-                        <div class = "calculator-input-button"><p>e</p></div>
-                        <div class = "calculator-input-button"><p>EE</p></div>
-                        <div class = "calculator-input-button"><p>1</p></div>
-                        <div class = "calculator-input-button"><p>2</p></div>
-                        <div class = "calculator-input-button"><p>3</p></div>
-                        <div class = "calculator-input-button" style = "font-size: 20px;"><p>+</p></div>
-                    </div>
-                    <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
-                        <div class = "calculator-input-button"><p>Rad</p></div>
-                        <div class = "calculator-input-button"><p>sinh</p></div>
-                        <div class = "calculator-input-button"><p>cosh</p></div>
-                        <div class = "calculator-input-button"><p>tanh</p></div>
-                        <div class = "calculator-input-button"><p>&pi;</p></div>
-                        <div class = "calculator-input-button"><p>Rand</p></div>
-                        <div class = "calculator-input-button"><p>0</p></div>
-                        <div class = "calculator-input-button"><p>.</p></div>
-                        <div type = "submit" id = "calculator-equals-button" class = "calculator-input-button" style = "width: 20%; font-size: 30px; background-image: linear-gradient(to right, blue, cyan)"><p>=</p></div>
+        <div id = "calculator-background-1">
+            <div id = "navbar-content"></div>
+            <div class = "calculator-main-container">
+                <div class = "calculator-output-container" id = "calculator-output-container"></div> 
+                <div class = "calculator-input-container">
+                    <input type = "text" class = "calculator-input-field" id = "calculator-input-field">
+                    <div class = " calculator-input-buttons-container">
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>(</p></div>
+                            <div class = "calculator-input-button"><p>)</p></div>
+                            <div class = "calculator-input-button"><p>mc</p></div>
+                            <div class = "calculator-input-button"><p>m+</p></div>
+                            <div class = "calculator-input-button"><p>m-</p></div>
+                            <div class = "calculator-input-button"><p>mr</p></div>
+                            <div class = "calculator-input-button"><p id = "clear-text">AC</p></div>
+                            <div class = "calculator-input-button"><p>+/-</p></div>
+                            <div class = "calculator-input-button"><p>%</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#247;</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>2<sup>nd</sup></p></div>
+                            <div class = "calculator-input-button"><p>x<sup>2</sup></p></div>
+                            <div class = "calculator-input-button"><p>x<sup>3</sup></p></div>
+                            <div class = "calculator-input-button"><p>x<sup>y</sup></p></div>
+                            <div class = "calculator-input-button"><p>e<sup>x</sup></p></div>
+                            <div class = "calculator-input-button"><p>10<sup>x</sup></p></div>
+                            <div class = "calculator-input-button"><p>7</p></div>
+                            <div class = "calculator-input-button"><p>8</p></div>
+                            <div class = "calculator-input-button"><p>9</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#215;</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>1/x</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>2</sup>
+                                &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
+                                </span></div>
+                            <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>3</sup>
+                                &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
+                                </span></div>
+                            <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>y</sup>
+                                &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
+                                </span></div>
+                            <div class = "calculator-input-button"><p>ln</p></div>
+                            <div class = "calculator-input-button"><p>log<sub>10</sub></p></div>
+                            <div class = "calculator-input-button"><p>4</p></div>
+                            <div class = "calculator-input-button"><p>5</p></div>
+                            <div class = "calculator-input-button"><p>6</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#8722;</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>x!</p></div>
+                            <div class = "calculator-input-button"><p>sin</p></div>
+                            <div class = "calculator-input-button"><p>cos</p></div>
+                            <div class = "calculator-input-button"><p>tan</p></div>
+                            <div class = "calculator-input-button"><p>e</p></div>
+                            <div class = "calculator-input-button"><p>EE</p></div>
+                            <div class = "calculator-input-button"><p>1</p></div>
+                            <div class = "calculator-input-button"><p>2</p></div>
+                            <div class = "calculator-input-button"><p>3</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>+</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>Rad</p></div>
+                            <div class = "calculator-input-button"><p>sinh</p></div>
+                            <div class = "calculator-input-button"><p>cosh</p></div>
+                            <div class = "calculator-input-button"><p>tanh</p></div>
+                            <div class = "calculator-input-button"><p>&pi;</p></div>
+                            <div class = "calculator-input-button"><p>Rand</p></div>
+                            <div class = "calculator-input-button"><p>0</p></div>
+                            <div class = "calculator-input-button"><p>.</p></div>
+                            <div type = "submit" id = "calculator-equals-button" class = "calculator-input-button" style = "width: 20%; font-size: 30px; background-image: linear-gradient(to right, blue, cyan)"><p>=</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,6 +208,15 @@
                     case "ln":
                         calculatorInputField.value += "ln(";
                         break;
+                    case "sinh":
+                        calculatorInputField.value += "sinh(";
+                        break;
+                    case "cosh":
+                        calculatorInputField.value += "cosh(";
+                        break;
+                    case "tanh":
+                        calculatorInputField.value += "tanh(";
+                        break;
                     default:
                         calculatorInputField.value += inputValue;
                         break;
@@ -216,7 +234,7 @@
                         var outputContainer = document.createElement("div");
                         outputContainer.setAttribute("class", "output-container");
                         var outputText = document.createElement("p");
-                        outputText.innerHTML = `${data.Result}`;
+                        outputText.innerHTML = data.Expression + " = " + `${data.Result}`;
                         outputContainer.appendChild(outputText);
                         calculatorOutputContainer.appendChild(outputContainer);
                     })
