@@ -114,7 +114,7 @@
                 event.preventDefault();
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
-                const loginResponse = fetch('https://frq.dtsivkovski.tk/api/person./authenticate/', {
+                const loginResponse = fetch('https://frq.dtsivkovski.tk/authenticate/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password }),
