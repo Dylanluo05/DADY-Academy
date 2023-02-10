@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        #simulator-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .simulator-background-1-image, .simulator-background-1-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .simulator-background-1-image {
+            height: 800px;
+            background: url("https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .simulator-background-1-overlay {
+            height: 800px;
+            background-color: #160E2C;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        .simulator-background-1-content {
+            height: 800px;
+            position: relative;
+            z-index: 3;
+        }
+
+    </style>
+    <body>
+        <div id = "simulator-background-1">
+            <div class = "simulator-background-1-image"></div>
+            <div class = "simulator-background-1-overlay"></div>
+            <div class = "simulator-background-1-content">
+                <div id = "navbar-content"></div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        .stats-results-container {
+            background-color: black;
+            color: white;
+            max-width: 600px;
+            padding: 10px;
+            margin: auto;
+        }
+    </style>
+    <body>
+        <div id = "navbar-content"></div>
+        <form id = "selection-form">
+            <label for = "parameter-selection">What type of true parameter do you need to find?</label><br>
+            <input type = "radio" name = "parameter-selection" value = "proportion" style = "display: inline"><p style = "display: inline">p</p><br>
+            <input type = "radio" name = "parameter-selection" value = "mean" style = "display: inline"><p style = "display: inline">μ</p><br>
+            <input type = "radio" name = "parameter-selection" value = "difference-proportions" style = "display: inline"><p style = "display: inline">p1 - p2</p><br>
+            <input type = "radio" name = "parameter-selection" value = "difference-means" style = "display: inline"><p style = "display: inline">μ1 - μ2</p><br>
+            <input type = "radio" name = "parameter-selection" value = "mean-differences" style = "display: inline"><p style = "display: inline">μd</p><br>
+            <label for = "procedure-selection">What kind of inference procedure do you need?</label><br>
+            <input type = "radio" name = "procedure-selection" value = "confidence-interval" style = "display: inline"><p style = "display: inline">Confidence Interval</p><br>
+            <input type = "radio" name = "procedure-selection" value = "significance-test"><p style = "display: inline">Significance Test</p><br>
+            <input type = "submit" value = "submit">
+        </form>
+        <form id = "proportion-confidence-form">
+            <h2>Proportion Form</h2>
+            <label for = "true-parameter">Define the true parameter in context</label><br>
+            <input type = "text" name = "true-parameter"><br>
+            <label for = "confidence-level">Define the confidence level (Without the percentage symbol)</label><br>
+            <input type = "text" name = "confidence-level"><br>
+            <label for = "sample-proportion">What is the sample proportion?</label><br>
+            <input type = "text" name = "sample-proportion"><br>
+            <label for = "sample-size">What is the sample size?</label><br>
+            <input type = "text" name = "sample-size"><br>
+            <label for = "population-size">What is the population size, if known. Otherwise, leave blank</label><br>
+            <input type = "text" name = "population-size"><br>
+            <label for = "population-proportion">What is the population proportion, if known. Otherwise, leave blank</label><br>
+            <input type = "text" name = "population-proportion"><br>
+            <label for = "randomization">What type of randomization is in the setting? (Only check one if two apply)</label><br>
+            <input type = "radio" name = "randomization" value = "random-sampling" style = "display: inline;"><p style = "display: inline;">Random sampling</p><br>
+            <input type = "radio" name = "randomization" value = "random-assignment" style = "display: inline;"><p style = "display: inline;">Random Assignment</p><br>
+            <input type = "radio" name = "randomization" value = "not-random" style = "display: inline;"><p style = "display: inline;">None</p><br>
+            <input type = "submit" value = "submit">
+        </form>
+
+        <form id = "mean-confidence-form">
+            <h2>Mean Form</h2>
+        </form>
+
+        <form id = "difference-proportions-confidence-form">
+            <h2>Difference of Proportions Form</h2>
+        </form>
+
+        <form id = "difference-means-confidence-form">
+            <h2>Difference of Means Form</h2>
+        </form>
+
+        <form id = "mean-differences-confidence-form">
+            <h2>Mean Differences Form</h2>
+        </form>
+
+        <div class = "stats-results-container">
+            <p id = "state"></p><br>
+            <p id = "plan"></p><br>
+            <p id = "do"></p><br>
+            <p id = "conclude"></p><br>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+
+            $("#proportion-confidence-form").hide();
+            $("#mean-confidence-form").hide();
+            $("#difference-proportions-confidence-form").hide();
+            $("#difference-means-confidence-form").hide();
+            $("#mean-differences-confidence-form").hide();
+
+            $("#selection-form").on("submit", selectForm);
+            $("#proportion-confidence-form").on("submit", proportionConfidenceForm);
+
+            function selectForm() {
+                event.preventDefault();
+                var formData = $("#selection-form").serializeArray();
+                switch(formData[0].value) {
+                    case "proportion":
+                        if (formData[1].value == "confidence-interval") {
+                            $("#proportion-confidence-form").show();
+                        }
+                        break;
+                    case "mean":
+                        if (formData[1].value == "confidence-interval") {
+                            $("#proportion-confidence-form").show();
+                        }
+                        break;
+                    case "difference-proportions":
+                        if (formData[1].value == "confidence-interval") {
+                            $("#proportion-confidence-form").show();
+                        }
+                        break;
+                    case "difference-means":
+                        if (formData[1].value == "confidence-interval") {
+                            $("#proportion-confidence-form").show();
+                        }
+                        break;
+                    case "mean-differences":
+                        if (formData[1].value == "confidence-interval") {
+                            $("#proportion-confidence-form").show();
+                        }
+                        break;
+                }
+            }
+
+            var state = document.getElementById("state");
+            var plan = document.getElementById("state");
+            var doVar = document.getElementById("do");
+            var conclude = document.getElementById("conclude");
+
+            var trueParameter;
+            var confidenceLevel;
+            var sampleProportion;
+            var sampleSize;
+            var populationSize;
+            var populationProportion;
+            var randomization;
+
+            var standardVariability;
+
+            function proportionConfidenceForm() {
+                event.preventDefault();
+                var formData = $("#proportion-confidence-form").serializeArray();
+                trueParameter = formData[0].value;
+                confidenceLevel = parseInt(formData[1].value);
+                sampleProportion = parseInt(formData[2].value);
+                sampleSize = parseInt(formData[3].value);
+                populationSize = parseInt(formData[4].value) != NaN ? parseInt(formData[4].value) : NaN;
+                populationProportion = parseInt(formData[5].value) != NaN ? parseInt(formData[5].value) : NaN;
+                randomization = formData[6].value != "not-random" ? true : false;
+
+                state.innerHTML = "State: " + "<br>" + "p: " + trueParameter + "<br>";
+                state.innerHTML += "Confidence Level: " + confidenceLevel + "% <br>";
+                state.innerHTML += "Sample Size: " + sampleSize + "  " + "Sample Proportion: " + sampleProportion + "<br>";
+
+                plan.innerHTML = "Plan: " + "<br>" + "Name of procedure: One-Sample Z-Interval for Proportions(p)" + "<br>";
+                if (randomization == true) {
+                    if (formData[6].value == "random-sampling") {
+                        plan.innerHTML += "Conditions: The subjects in the sample were randomly selected, so results can be generalized to the population. ";
+                    } else if (formData[6].value == "random-assignment") {
+                        plan.innerHTML += "Conditions: The subjects in the sample were randomly assigned to treatment groups, so causation can be determined in the treatments. ";
+                    }
+                } else if (randomization == false) {
+                    plan.innerHTML += "Conditions: There is no randomization in the experiment, so results cannot be generalized to the population nor can causation be determined in the treatments."
+                    return;
+                }
+
+                if (populationSize != NaN) {
+                    if (sampleSize <= populationSize/10) {
+                        plan.innerHTML += "n = " + sampleSize + " is less than 10% of the population size(N = " + populationSize + "), so trials can be considered near-independent in the sample. "
+                    } else {
+                        plan.innerHTML += "n = " + sampleSize + " is not less than 10% of the population size(N = " + populationSize + "), so trials cannot be considered near-independent in the sample."
+                        return;
+                    }
+                } else {
+                    plan.innerHTML += "n = " + sampleSize + " is likely less than 10% of the population size, so trials can be considered near-independent in the sample. "
+                }
+
+                if (populationProportion != NaN) {
+                    if (sampleSize * populationProportion >= 10 && sampleSize * (1 - populationProportion) >= 10) {
+                        plan.innerHTML += "n * p = " + sampleSize * populationProportion + " >= 10 and n * (1 - p) = " + sampleSize * (1 - populationProportion) + " >= 10, meaning there are at least 10 successes and 10 failures expected, so the sampling distribution of p-hat should be approximately normal. "; 
+                    } else {
+                        plan.innerHTML += "n * p = " + sampleSize * populationProportion + " and n * (1 - p) = " + sampleSize * (1 - populationProportion) + ", meaning there are not at least 10 successes and 10 failures expected, so it is not guaranteed that the sampling distribution of p-hat is approximately normal.";
+                        return;
+                    }
+                } else {
+                    if (sampleSize * sampleProportion >= 10 && sampleSize * (1 - sampleProportion) >= 10) {
+                        plan.innerHTML += "n * p-hat = " + sampleSize * sampleProportion + " >= 10 and n * (1 - p-hat) = " + sampleSize * (1 - sampleProportion) + " >= 10, meaning there are at least 10 successes and 10 failures expected, so the sampling distribution of p-hat should be approximately normal. "; 
+                    } else {
+                        plan.innerHTML += "n * p-hat = " + sampleSize * sampleProportion + " and n * (1 - p-hat) = " + sampleSize * (1 - sampleProportion) + ", meaning there are not at least 10 successes and 10 failures expected, so it is not guaranteed that the sampling distribution of p-hat is approximately normal.";
+                        return;
+                    }
+                }
+
+                doVar.innerHTML = "Do: " + "<br>" + confidenceLevel + "% Confidence Interval = Statistic +- Standardized Test Statistic * Standard Deviation/Error of Statistic." + "<br>";
+                
+            }
+        </script>
+    </body>
+</html>
