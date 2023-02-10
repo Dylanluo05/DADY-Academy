@@ -8,7 +8,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
         </div>
-        <button type="submit" onclick="authenticate()">Login</button>
+        <button type="submit">Login</button>
       </form>
 </body>
 
@@ -35,23 +35,51 @@
     //     }
     // });
 
-const form = document.getElementById('Login-form');
-form.addEventListener('submit', async (event) => {
+// const form = document.getElementById('Login-form');
+// form.addEventListener('submit', async (event) => {
+//     event.preventDefault();
+//     const email = document.getElementById('email').value;
+//     const password = document.getElementById('password').value;
+//     const loginResponse = fetch('https://frq.dtsivkovski.tk/api/person./authenticate/', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ email, password }),
+//     });
+
+//     // If the login was successful, the server will return a JWT
+//     if (loginResponse.ok) { // Extract the JWT from the response
+//         const jwt = loginResponse.headers.get('Authorization').split(' ')[1];
+//         // Store the JWT in a cookie or in local storage
+//         localStorage.setItem('jwt', jwt);
+//         console.log(jwt)
+//     }
+// });
+
+document.getElementById('login-form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const loginResponse = fetch('https://frq.dtsivkovski.tk/api/person./authenticate/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-    });
-
-    // If the login was successful, the server will return a JWT
-    if (loginResponse.ok) { // Extract the JWT from the response
-        const jwt = loginResponse.headers.get('Authorization').split(' ')[1];
-        // Store the JWT in a cookie or in local storage
-        localStorage.setItem('jwt', jwt);
-        console.log(jwt)
-    }
+    await sendCredentials(email, password);
 });
+
+async function sendCredentials(email, password) {
+    try {
+        const response = await fetch('https://frq.dtsivkovski.tk/authenticate', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        if (!response.ok) throw new Error(response.statusText);
+        const setCookie = response.headers.get('Set-Cookie');
+
+        if (!setCookie) throw new Error('No Set-Cookie header in response');
+        document.cookie = setCookie;
+    } catch (error) {
+                console.error('Incorrect email or password');
+    }
+}
+
 </script>
