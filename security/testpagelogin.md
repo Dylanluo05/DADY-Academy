@@ -46,6 +46,7 @@ function login() {
   fetch(url, options)
   .then(response => {
       // trap error response from Web API
+      console.log(response);
       if (!response.ok) {
           const errorMsg = 'Login error: ' + response.status;
           console.log(errorMsg);
