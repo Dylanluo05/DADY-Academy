@@ -162,6 +162,7 @@ function submitForm() {
   fetch(url, options)
   .then(response => {
       // trap error response from Web API
+      console.log(response);
       if (!response.ok) {
           const errorMsg = 'Login error: ' + response.status;
           console.log(errorMsg);
@@ -171,7 +172,7 @@ function submitForm() {
       // Redirect to Database location
       
       sessionStorage.setItem("username", email);
-      window.location.href = "/DADY-Academy/templates/home";
+    //   window.location.href = "/DADY-Academy/templates/home";
 
 
   })

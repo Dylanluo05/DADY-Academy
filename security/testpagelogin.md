@@ -55,7 +55,7 @@ function login() {
       // Redirect to Database location
       
       sessionStorage.setItem("username", email);
-      window.location.href = "{{site.baseurl}}/home";
+      // window.location.href = "{{site.baseurl}}/home";
 
 
   })
