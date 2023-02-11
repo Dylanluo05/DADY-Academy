@@ -79,7 +79,7 @@
                     <input class = "login-input" type = "email" name = "email" id = "email" placeholder = "Email"><br><br>
                     <input class = "login-input" type = "password" name = "password" id = "password" placeholder = "Password"><br><br>
                     <button class = "login-button" onclick="submitForm()">Log In</button>
-                    <button class="login-button" onclick="logout()">Log Out</button>
+                    <button id="logout" class="login-button" onclick="logout()">Log Out</button>
                 </form>
                 <br>
                 <p style = "color: black; text-align: center;">Need an account?</p>
@@ -146,17 +146,17 @@
 
         function logout() {
         document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        sessionStorage.setItem("username", "Guest");
+        sessionStorage.setItem("username", null);
         sessionStorage.setItem("token", null);
         window.location.reload();
 
         }
 
         if (sessionStorage.getItem("username") == null) {
-        sessionStorage.setItem("username", "Guest");
+            document.getElementById("logout").innerHTML = "Logout";
         }
         else {
-            document.getElementById("user").innerHTML = "Welcome, " + sessionStorage.getItem("username") + "!";
+            document.getElementById("logout").innerHTML = "Logout - " + sessionStorage.getItem("username");
         }
 
     </script>
