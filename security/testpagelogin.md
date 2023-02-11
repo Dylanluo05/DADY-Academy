@@ -34,6 +34,8 @@ function login() {
     })
   };
 
+  console.log(options);
+
   // fetch(url, options)
   //   .then(response => console.log(response.text()))
   //   .then(result => console.log(result))
@@ -53,6 +55,7 @@ function login() {
       // Redirect to Database location
       
       sessionStorage.setItem("username", email);
+      window.location.href = "{{site.baseurl}}/home";
 
 
   })
