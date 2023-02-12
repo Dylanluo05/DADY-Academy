@@ -35,6 +35,8 @@ table .objectcard {
 .objectcardbutton {
     background-color: white;
     border: 1px solid white;
+    margin: 0.5em;
+    padding: 0.75em;
     
 }
 .objectcardbutton:hover {
@@ -55,14 +57,50 @@ table .objectcard {
     color: white;
 }
 
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+}
+input[type=text]:focus {
+  border: 1px solid white;
+}
+
+hr.cardhr {
+    height:2px;
+    border-width:0;
+    color:white;
+    background-color:white
+}
+
 </style>
 
 <div class="objectcards">
 <div class="maincard">
-    <h1 class="maintitle">No Currently Selected Object</h1>
+    <h1 class="maintitle" id="mainTitle">No Currently Selected Object</h1>
     <h3 class="maintitle" id="mainMass"></h3>
     <h3 class="maintitle" id="mainRecKE"></h3>
     <h3 class="maintitle" id="mainRecPE"></h3>
+    <hr class="cardhr">
+    <h3 class="maintitle"> Calculate KE </h3>
+    <div style="white-space: nowrap;">
+        <input placeholder="Velocity (v) value" style="width:65%; display: inline-block;" type="text" id="velocity-input" name="Velocity">
+        <button id="calcKEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate KE </button>
+    </div>
+    <br>
+    <h3 class="maintitle"> Calculate PE </h3>
+    <div style="white-space: nowrap;">
+        <input placeholder="Gravity (g) value" style="width:32%; display: inline-block;" type="text" id="gravity-input" name="Gravity">
+        <input placeholder="Height (h) value" style="width:32%; display: inline-block;" type="text" id="height-input" name="Height">
+        <button id="calcKEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate PE </button>
+    </div>
+
+    
 </div>
 </div>
 
@@ -73,6 +111,11 @@ table .objectcard {
 
 <script>
     const cardholder = document.getElementById("cardholder");
+    const mTitle = document.getElementById("mainTitle");
+    const mMass = document.getElementById("mainMass");
+    const mRecKE = document.getElementById("mainRecKE");
+    const mRecPE = document.getElementById("mainRecPE");
+    const calcKEbutton = document.getElementById("calcKEbutton");
 
     var url = "https://frq.dtsivkovski.tk/api/physics/get/";
     // Uncomment next line for localhost testing
@@ -91,63 +134,147 @@ table .objectcard {
 
     var storedinfo;
 
+    function getAllObjects() {
     // fetch the API
-    fetch(url, options)
-    // response is a RESTful "promise" on any successful fetch
-    .then(response => {
-        // check for response errors and display
-        if (response.status !== 200) {
-            const errorMsg = 'Database response error: ' + response.status;
-            console.log(errorMsg);
-            const tr = document.createElement("tr");
-            const td = document.createElement("td");
-            td.innerHTML = errorMsg;
-            tr.appendChild(td);
-            cardholder.appendChild(tr);
-            return;
-        }
-        // valid response will contain json data
-        response.json().then(data => {
-            console.log(data);
-
-            for (const row of data) {
-                // create card and give classlist, add to cardholder
-                const card = document.createElement("div");
-                card.classList.add("objectcard");
-                cardholder.appendChild(card);
-
-                // create elements for card
-                const h3 = document.createElement("h3");
-                h3.innerHTML = "Object #" + row.id;
-                const mass = document.createElement("p");
-                mass.innerHTML = "Mass: " + row.mass + "kg";
-                const recKE = document.createElement("p");
-                recKE.innerHTML = "Recent KE Calc: " + row.recentKE;
-                const recPE = document.createElement("p");
-                recPE.innerHTML = "Recent PE Calc: " + row.recentPE;
-
-                card.appendChild(h3);
-                card.appendChild(mass);
-                card.appendChild(recKE);
-                card.appendChild(recPE);
-                
-                // create button and give classlist, add to card and
-                const button = document.createElement("button");
-                button.classList.add("objectcardbutton");
-                button.innerHTML = "Select Object";
-                button.addEventListener("click", function() {
-                    selectObj(row.id);
-                });
-                card.appendChild(button);
+        fetch(url, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+            // check for response errors and display
+            if (response.status !== 200) {
+                const errorMsg = 'Database response error: ' + response.status;
+                console.log(errorMsg);
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                td.innerHTML = errorMsg;
+                tr.appendChild(td);
+                cardholder.appendChild(tr);
+                return;
             }
+            // valid response will contain json data
+            response.json().then(data => {
+                console.log(data);
 
-            storedinfo = data;
-        });
-    })
+                //remove existing cardholder
+                while(cardholder.firstChild) {
+                    cardholder.removeChild(cardholder.firstChild);
+                }
+
+                for (const row of data) {
+                    // create card and give classlist, add to cardholder
+                    const card = document.createElement("div");
+                    card.classList.add("objectcard");
+                    cardholder.appendChild(card);
+
+                    // create elements for card
+                    const h3 = document.createElement("h3");
+                    h3.innerHTML = "Object #" + row.id;
+                    const mass = document.createElement("p");
+                    mass.innerHTML = "Mass: " + row.mass + "kg";
+                    const recKE = document.createElement("p");
+                    recKE.innerHTML = "Recent KE Calc: " + row.recentKE;
+                    const recPE = document.createElement("p");
+                    recPE.innerHTML = "Recent PE Calc: " + row.recentPE;
+
+                    card.appendChild(h3);
+                    card.appendChild(mass);
+                    card.appendChild(recKE);
+                    card.appendChild(recPE);
+                    
+                    // create button and give classlist, add to card and
+                    const button = document.createElement("button");
+                    button.classList.add("objectcardbutton");
+                    button.innerHTML = "Select Object";
+                    button.addEventListener("click", function() {
+                        selectObj(row.id);
+                    });
+                    card.appendChild(button);
+                }
+
+                storedinfo = data;
+            });
+        })
+    }
+
+    getAllObjects();
 
 
     function selectObj(id) {
-        console.log(id);
+        console.log("Selected Object - Id: " + id);
+
+        // set innerHTML to selected object values using storedinfo
+        for (const row of storedinfo) {
+            if (row.id == id) {
+                mTitle.innerHTML = "Object #" + row.id;
+                mMass.innerHTML = "Mass: " + row.mass + "kg";
+                mRecKE.innerHTML = "Recent KE Calc: " + row.recentKE;
+                mRecPE.innerHTML = "Recent PE Calc: " + row.recentPE;
+
+                // remove old event listener and add new one
+                calcKEbutton.removeEventListener("click", function() {
+                    calcKE(row.id);
+                });
+                calcKEbutton.addEventListener("click", function() {
+                    calcKE(row.id);
+                });
+
+                // remove old event listener and add new one
+                calcPEbutton.removeEventListener("click", function() {
+                    calcPE(row.id);
+                });
+                calcPEbutton.addEventListener("click", function() {
+                    calcPE(row.id);
+                });
+
+            }
+        }
+    }
+
+    function calcKE(id) {
+        console.log("Calculating KE for Object - Id: " + id);
+
+        // build url for fetch
+        var calcKEurl = "https://frq.dtsivkovski.tk/api/physics/calculateKE/" + id + "/" + document.getElementById("velocity-input").value;
+
+        fetch(calcKEurl, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+            // check for response errors and display
+            if (response.status !== 200) {
+                const errorMsg = 'Database response error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // valid response will contain json data
+            response.json().then(data => {
+                console.log(data);
+                mRecKE.innerHTML = "Recent KE Calc: " + data.recentKE;
+                getAllObjects();
+                });
+        });
+    }
+
+    function calcPE(id) {
+        console.log("Calculating PE for Object - Id: " + id);
+
+        // build url for fetch
+        var calcPEurl = "https://frq.dtsivkovski.tk/api/physics/calculatePE/" + id + "/" + document.getElementById("gravity-input").value + "/" + document.getElementById("height-input").value;
+
+        fetch(calcPEurl, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+            // check for response errors and display
+            if (response.status !== 200) {
+                const errorMsg = 'Database response error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // valid response will contain json data
+            response.json().then(data => {
+                console.log(data);
+                mRecPE.innerHTML = "Recent PE Calc: " + data.recentPE;
+                getAllObjects();
+                });
+        });
     }
 </script>
 
