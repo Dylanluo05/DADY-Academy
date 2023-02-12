@@ -116,6 +116,7 @@ hr.cardhr {
     const mRecKE = document.getElementById("mainRecKE");
     const mRecPE = document.getElementById("mainRecPE");
     const calcKEbutton = document.getElementById("calcKEbutton");
+    const calcPEbutton = document.getElementById("calcPEbutton");
 
     var url = "https://frq.dtsivkovski.tk/api/physics/get/";
     // Uncomment next line for localhost testing
@@ -210,20 +211,14 @@ hr.cardhr {
                 mRecPE.innerHTML = "Recent PE Calc: " + row.recentPE;
 
                 // remove old event listener and add new one
-                calcKEbutton.removeEventListener("click", function() {
+                calcKEbutton.onclick = function() {
                     calcKE(row.id);
-                });
-                calcKEbutton.addEventListener("click", function() {
-                    calcKE(row.id);
-                });
+                };
 
-                // remove old event listener and add new one
-                calcPEbutton.removeEventListener("click", function() {
+                calcPEbutton.onclick = function() {
                     calcPE(row.id);
-                });
-                calcPEbutton.addEventListener("click", function() {
-                    calcPE(row.id);
-                });
+                };
+
 
             }
         }
