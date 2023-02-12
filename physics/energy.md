@@ -311,7 +311,7 @@ hr.cardhr {
             response.json().then(data => {
                 console.log(data);
 
-                var tempId = data.id;
+                var tempId = data[data.length - 1].id;
 
                 getAllObjects();
                 selectObj(tempId);
