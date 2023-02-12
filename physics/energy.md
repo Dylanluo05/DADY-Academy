@@ -213,7 +213,7 @@ hr.cardhr {
                     card.appendChild(recKE);
                     card.appendChild(recPE);
                     
-                    // create button and give classlist, add to card and
+                    // create button and give classlist, add to card
                     const button = document.createElement("button");
                     button.classList.add("objectcardbutton");
                     button.innerHTML = "Select";
@@ -222,6 +222,17 @@ hr.cardhr {
                         selectObj(row.id);
                     });
                     card.appendChild(button);
+
+                    // add deletebutton and give classlist
+                    const deletebutton = document.createElement("button");
+                    deletebutton.classList.add("objectcardbutton");
+                    deletebutton.innerHTML = "Delete";
+                    deletebutton.style.backgroundColor = "red";
+                    deletebutton.style.color = "white";
+                    deletebutton.addEventListener("click", function() {
+                        deleteObj(row.id);
+                    });
+                    card.appendChild(deletebutton);
                 }
 
                 storedinfo = data;
@@ -343,6 +354,35 @@ hr.cardhr {
 
                 getAllObjects();
                 selectObj(tempId);
+                });
+        });
+    }
+
+    function deleteObj(id) {
+
+        if (confirm("Are you sure you want to delete this object?") == false)
+            return;
+
+        console.log("Deleting Object - Id: " + id);
+
+        // build url for fetch
+        var deleteObjurl = "https://frq.dtsivkovski.tk/api/physics/delete/" + id;
+
+        fetch(deleteObjurl, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+            // check for response errors and display
+            if (response.status !== 200) {
+                const errorMsg = 'Database response error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // valid response will contain json data
+            response.json().then(data => {
+                console.log(data);
+
+                getAllObjects();
+                selectObj(data[0].id);
                 });
         });
     }
