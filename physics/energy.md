@@ -58,7 +58,7 @@ table .objectcard {
 </style>
 
 <script>
-    const resultContainer = document.getElementById("objectcards");
+    const cardholder = document.getElementById("objectcards");
 
     var url = "https://frq.dtsivkovski.tk/api/physics/get/";
     // Uncomment next line for localhost testing
@@ -75,6 +75,8 @@ table .objectcard {
     },
     };
 
+    var storedinfo;
+
     // fetch the API
     fetch(url, options)
     // response is a RESTful "promise" on any successful fetch
@@ -87,18 +89,48 @@ table .objectcard {
             const td = document.createElement("td");
             td.innerHTML = errorMsg;
             tr.appendChild(td);
-            resultContainer.appendChild(tr);
+            cardholder.appendChild(tr);
             return;
         }
         // valid response will contain json data
         response.json().then(data => {
             console.log(data);
+            for (const row of data) {
+                // create card and give classlist, add to cardholder
+                const card = document.createElement("div");
+                card.classList.add("objectcard");
+                cardholder.appendChild(card);
+
+                // create elements for card
+                const h3 = document.createElement("h3");
+                h1.innerHTML = "Object #" + row.id;
+                const mass = document.createElement("p");
+                mass.innerHTML = "Mass: " + row.mass + "kg";
+                const recKE = document.createElement("p");
+                recKE.innerHTML = "Recent KE Calc: " + row.recKE;
+                const recPE = document.createElement("p");
+                recPE.innerHTML = "Recent PE Calc: " + row.recPE;
+
+                card.appendChild(h3);
+                card.appendChild(mass);
+                card.appendChild(recKE);
+                card.appendChild(recPE);
+                
+                // create button and give classlist, add to card and
+                const button
+                button.classList.add("objectcardbutton");
+                button.innerHTML = "Select Object";
+                button.onclick = function() {selectObj(row.id)};
+                card.appendChild(button);
+            }
+
+            storedinfo = data;
         });
     })
 
 
     function selectObj(id) {
-
+        
     }
 </script>
 
