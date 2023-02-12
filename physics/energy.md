@@ -46,6 +46,12 @@ table .objectcard {
     background-color: #e5e5e5;
 }
 
+.selectedobjectcardbutton {
+    background-color: #778899;
+    color: white;
+    cursor: default;
+}
+
 .maincard {
     width: 95%;
     margin: 10px;
@@ -101,14 +107,14 @@ hr.cardhr {
     <h3 class="maintitle"> Calculate KE </h3>
     <div style="white-space: nowrap;">
         <input placeholder="Velocity (v) value" style="width:65%; display: inline-block;" type="text" id="velocity-input" name="Velocity">
-        <button id="calcKEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate KE </button>
+        <button id="calcKEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate </button>
     </div>
     <br>
     <h3 class="maintitle"> Calculate PE </h3>
     <div style="white-space: nowrap;">
         <input placeholder="Gravity (g) value" style="width:32%; display: inline-block;" type="text" id="gravity-input" name="Gravity">
         <input placeholder="Height (h) value" style="width:32%; display: inline-block;" type="text" id="height-input" name="Height">
-        <button id="calcPEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate PE </button>
+        <button id="calcPEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate </button>
     </div>
 </div>
 </div>
@@ -126,7 +132,7 @@ hr.cardhr {
     <h1 class="maintitle">Create an object</h1>
     <div style="white-space: nowrap;">
         <input placeholder="Mass (m) value" style="width:65%; display: inline-block;" type="text" id="mass-input" name="Object Mass">
-        <button id="createbutton" style="width:33%; display: inline-block;" class="objectcardbutton" onclick="createObj();"> Create Object </button>
+        <button id="createbutton" style="width:33%; display: inline-block;" class="objectcardbutton" onclick="createObj();"> Create  </button>
     </div>
 </div>
 </div>
@@ -206,7 +212,8 @@ hr.cardhr {
                     // create button and give classlist, add to card and
                     const button = document.createElement("button");
                     button.classList.add("objectcardbutton");
-                    button.innerHTML = "Select Object";
+                    button.innerHTML = "Select";
+                    button.id = "objbutton" + row.id;
                     button.addEventListener("click", function() {
                         selectObj(row.id);
                     });
@@ -220,9 +227,17 @@ hr.cardhr {
 
     getAllObjects();
 
+    var selectedObj;
 
     function selectObj(id) {
         console.log("Selected Object - Id: " + id);
+
+        // remove selected class from button with selectedObj id
+        if (selectedObj != null) {
+            var tempOB = document.getElementById("objbutton" + selectedObj);
+            tempOB.innerHTML = "Select";
+            tempOB.classList.remove("selectedbutton");
+        }
 
         // set innerHTML to selected object values using storedinfo
         for (const row of storedinfo) {
@@ -231,6 +246,11 @@ hr.cardhr {
                 mMass.innerHTML = "Mass: " + row.mass + "kg";
                 mRecKE.innerHTML = "Recent KE Calc: " + row.recentKE;
                 mRecPE.innerHTML = "Recent PE Calc: " + row.recentPE;
+
+                var tempOB = document.getElementById("objbutton" + row.id);
+                tempOB.innerHTML = "Selected";
+                tempOB.classList.add("selectedbutton");
+                selectedObj = row.id;
 
                 // remove old event listener and add new one
                 calcKEbutton.onclick = function() {
