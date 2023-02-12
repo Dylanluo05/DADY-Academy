@@ -94,6 +94,7 @@ table .objectcard {
         response.json().then(data => {
             console.log(data);
         });
+    })
 
 
     function selectObj(id) {
