@@ -117,7 +117,7 @@ table .objectcard {
                 card.appendChild(recPE);
                 
                 // create button and give classlist, add to card and
-                const button;
+                const button = document.createElement("button");
                 button.classList.add("objectcardbutton");
                 button.innerHTML = "Select Object";
                 button.onclick = function() {selectObj(row.id)};
