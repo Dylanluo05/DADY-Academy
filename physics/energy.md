@@ -139,7 +139,7 @@ table .objectcard {
 
                 // create elements for card
                 const h3 = document.createElement("h3");
-                h1.innerHTML = "Object #" + row.id;
+                h3.innerHTML = "Object #" + row.id;
                 const mass = document.createElement("p");
                 mass.innerHTML = "Mass: " + row.mass + "kg";
                 const recKE = document.createElement("p");
