@@ -213,9 +213,14 @@ hr.cardhr {
                     card.appendChild(recKE);
                     card.appendChild(recPE);
                     
+                    const buttonholder = document.createElement("div");
+                    buttonholder.style.whiteSpace = "nowrap";
+
                     // create button and give classlist, add to card
                     const button = document.createElement("button");
                     button.classList.add("objectcardbutton");
+                    button.style.width = "40%";
+                    button.style.display = "inline-block";
                     button.innerHTML = "Select";
                     button.id = "objbutton" + row.id;
                     button.addEventListener("click", function() {
@@ -229,6 +234,8 @@ hr.cardhr {
                     deletebutton.innerHTML = "Delete";
                     deletebutton.style.backgroundColor = "red";
                     deletebutton.style.color = "white";
+                    deletebutton.style.width = "40%";
+                    deletebutton.style.display = "inline-block";
                     deletebutton.addEventListener("click", function() {
                         deleteObj(row.id);
                     });
