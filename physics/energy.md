@@ -58,7 +58,7 @@ table .objectcard {
 </style>
 
 <script>
-    const cardholder = document.getElementById("objectcards");
+    const cardholder = document.getElementById("cardholder");
 
     var url = "https://frq.dtsivkovski.tk/api/physics/get/";
     // Uncomment next line for localhost testing
@@ -145,7 +145,7 @@ table .objectcard {
 
 ## Your objects
 
-<div class="objectcards">
+<div class="objectcards" id="cardholder">
     <div class="objectcard" id="obj26">
         <h3>Object #26</h3>
         <p>Mass: 25kg</p>
