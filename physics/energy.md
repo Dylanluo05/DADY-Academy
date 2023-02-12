@@ -240,7 +240,7 @@ hr.cardhr {
         if (selectedObj != null) {
             var tempOB = document.getElementById("objbutton" + selectedObj);
             tempOB.innerHTML = "Select";
-            tempOB.classList.remove("selectedbutton");
+            tempOB.classList.remove("selectedobjectcardbutton");
             tempOB.classList.add("objectcardbutton");
         }
 
@@ -254,7 +254,7 @@ hr.cardhr {
 
                 var tempOB = document.getElementById("objbutton" + row.id);
                 tempOB.innerHTML = "Selected";
-                tempOB.classList.add("selectedbutton");
+                tempOB.classList.add("selectedobjectcardbutton");
                 tempOB.classList.remove("objectcardbutton");
                 selectedObj = row.id;
 
