@@ -1,5 +1,6 @@
 # Physics Energy Calculator
 
+## Not logged in? - [Login Now](/DADY-Academy/security/testpagelogin)
 
 <style>
 
@@ -34,6 +35,7 @@ table .objectcard {
 
 .objectcardbutton {
     background-color: white;
+    color: black;
     border: 1px solid white;
     margin: 0.5em;
     padding: 0.75em;
