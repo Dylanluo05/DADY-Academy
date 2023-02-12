@@ -168,7 +168,7 @@ table .objectcard {
 
 
     function selectObj(id) {
-
+        console.log(id);
     }
 </script>
 
