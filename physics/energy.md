@@ -143,9 +143,9 @@ table .objectcard {
                 const mass = document.createElement("p");
                 mass.innerHTML = "Mass: " + row.mass + "kg";
                 const recKE = document.createElement("p");
-                recKE.innerHTML = "Recent KE Calc: " + row.recKE;
+                recKE.innerHTML = "Recent KE Calc: " + row.recentKE;
                 const recPE = document.createElement("p");
-                recPE.innerHTML = "Recent PE Calc: " + row.recPE;
+                recPE.innerHTML = "Recent PE Calc: " + row.recentPE;
 
                 card.appendChild(h3);
                 card.appendChild(mass);
@@ -156,7 +156,9 @@ table .objectcard {
                 const button = document.createElement("button");
                 button.classList.add("objectcardbutton");
                 button.innerHTML = "Select Object";
-                button.onclick = function() {selectObj(row.id)};
+                button.addEventListener("click", function() {
+                    selectObj(row.id);
+                });
                 card.appendChild(button);
             }
 
