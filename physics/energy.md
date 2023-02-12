@@ -53,6 +53,15 @@ table .objectcard {
     background-image: linear-gradient(to right, purple, navy);
 }
 
+.createcard {
+    width: 95%;
+    margin: 10px;
+    padding: 2em;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, red, purple);
+}
+
 .maintitle{
     color: white;
 }
@@ -99,14 +108,25 @@ hr.cardhr {
         <input placeholder="Height (h) value" style="width:32%; display: inline-block;" type="text" id="height-input" name="Height">
         <button id="calcPEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate PE </button>
     </div>
-
-    
 </div>
 </div>
+<br>
 
 ## Your objects
 
 <div class="objectcards" id="cardholder">
+</div>
+<br>
+
+
+<div class="objectcards">
+<div class="createcard">
+    <h1 class="maintitle">Create an object</h1>
+    <div style="white-space: nowrap;">
+        <input placeholder="Mass (m) value" style="width:65%; display: inline-block;" type="text" id="mass-input" name="Object Mass">
+        <button id="createbutton" style="width:33%; display: inline-block;" class="objectcardbutton" onclick="createObj();"> Create Object </button>
+    </div>
+</div>
 </div>
 
 <script>
@@ -271,12 +291,36 @@ hr.cardhr {
                 });
         });
     }
+
+    function createObj() {
+        console.log("Creating Object");
+
+        // build url for fetch
+        var createObjurl = "https://frq.dtsivkovski.tk/api/physics/create/" + document.getElementById("mass-input").value;
+
+        fetch(createObjurl, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+            // check for response errors and display
+            if (response.status !== 200) {
+                const errorMsg = 'Database response error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // valid response will contain json data
+            response.json().then(data => {
+                console.log(data);
+
+                var tempId = data.id;
+
+                getAllObjects();
+                selectObj(tempId);
+                });
+        });
+    }
+
 </script>
 
-
-
-
-## Create an object
 
 <!-- <form id="obj-create-form">
     <label for="name-input">Name of Object</label><br>
