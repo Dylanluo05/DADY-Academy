@@ -97,7 +97,7 @@ hr.cardhr {
     <div style="white-space: nowrap;">
         <input placeholder="Gravity (g) value" style="width:32%; display: inline-block;" type="text" id="gravity-input" name="Gravity">
         <input placeholder="Height (h) value" style="width:32%; display: inline-block;" type="text" id="height-input" name="Height">
-        <button id="calcKEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate PE </button>
+        <button id="calcPEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate PE </button>
     </div>
 
     
