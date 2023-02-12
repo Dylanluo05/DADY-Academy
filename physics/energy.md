@@ -57,6 +57,41 @@ table .objectcard {
 
 </style>
 
+<div class="objectcards">
+<div class="maincard">
+    <h1 class="maintitle">No Currently Selected Object</h1>
+    <h3 class="maintitle" id="mainMass"></h3>
+    <h3 class="maintitle" id="mainRecKE"></h3>
+    <h3 class="maintitle" id="mainRecPE"></h3>
+</div>
+</div>
+
+## Your objects
+
+<div class="objectcards" id="cardholder">
+    <div class="objectcard" id="obj26">
+        <h3>Object #26</h3>
+        <p>Mass: 25kg</p>
+        <p>Recent KE Calc: 25000</p>
+        <p>Recent PE Calc: 25000</p>
+        <button class="objectcardbutton" >Select Object</button>
+    </div>
+    <div class="objectcard" id="obj26">
+        <h3>Object #26</h3>
+        <p>Mass: 25kg</p>
+        <p>Recent KE Calc: 25000</p>
+        <p>Recent PE Calc: 25000</p>
+        <button class="objectcardbutton">Select Object</button>
+    </div>
+    <div class="objectcard" id="obj26">
+        <h3>Object #26</h3>
+        <p>Mass: 25kg</p>
+        <p>Recent KE Calc: 25000</p>
+        <p>Recent PE Calc: 25000</p>
+        <button class="objectcardbutton">Select Object</button>
+    </div>
+</div>
+
 <script>
     const cardholder = document.getElementById("cardholder");
 
@@ -95,6 +130,7 @@ table .objectcard {
         // valid response will contain json data
         response.json().then(data => {
             console.log(data);
+
             for (const row of data) {
                 // create card and give classlist, add to cardholder
                 const card = document.createElement("div");
@@ -133,41 +169,6 @@ table .objectcard {
 
     }
 </script>
-
-<div class="objectcards">
-<div class="maincard">
-    <h1 class="maintitle">No Currently Selected Object</h1>
-    <h3 class="maintitle" id="mainMass"></h3>
-    <h3 class="maintitle" id="mainRecKE"></h3>
-    <h3 class="maintitle" id="mainRecPE"></h3>
-</div>
-</div>
-
-## Your objects
-
-<div class="objectcards" id="cardholder">
-    <div class="objectcard" id="obj26">
-        <h3>Object #26</h3>
-        <p>Mass: 25kg</p>
-        <p>Recent KE Calc: 25000</p>
-        <p>Recent PE Calc: 25000</p>
-        <button class="objectcardbutton" >Select Object</button>
-    </div>
-    <div class="objectcard" id="obj26">
-        <h3>Object #26</h3>
-        <p>Mass: 25kg</p>
-        <p>Recent KE Calc: 25000</p>
-        <p>Recent PE Calc: 25000</p>
-        <button class="objectcardbutton">Select Object</button>
-    </div>
-    <div class="objectcard" id="obj26">
-        <h3>Object #26</h3>
-        <p>Mass: 25kg</p>
-        <p>Recent KE Calc: 25000</p>
-        <p>Recent PE Calc: 25000</p>
-        <button class="objectcardbutton">Select Object</button>
-    </div>
-</div>
 
 
 
