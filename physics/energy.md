@@ -233,7 +233,7 @@ hr.cardhr {
                     deletebutton.classList.add("objectcardbutton");
                     deletebutton.innerHTML = "Delete";
                     deletebutton.style.backgroundColor = "red";
-                    deletebutton.style.color = "white";
+                    deletebutton.style.border = "1px solid red";
                     deletebutton.style.width = "40%";
                     deletebutton.style.display = "inline-block";
                     deletebutton.addEventListener("click", function() {
