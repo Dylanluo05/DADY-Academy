@@ -69,27 +69,6 @@ table .objectcard {
 ## Your objects
 
 <div class="objectcards" id="cardholder">
-    <div class="objectcard" id="obj26">
-        <h3>Object #26</h3>
-        <p>Mass: 25kg</p>
-        <p>Recent KE Calc: 25000</p>
-        <p>Recent PE Calc: 25000</p>
-        <button class="objectcardbutton" >Select Object</button>
-    </div>
-    <div class="objectcard" id="obj26">
-        <h3>Object #26</h3>
-        <p>Mass: 25kg</p>
-        <p>Recent KE Calc: 25000</p>
-        <p>Recent PE Calc: 25000</p>
-        <button class="objectcardbutton">Select Object</button>
-    </div>
-    <div class="objectcard" id="obj26">
-        <h3>Object #26</h3>
-        <p>Mass: 25kg</p>
-        <p>Recent KE Calc: 25000</p>
-        <p>Recent PE Calc: 25000</p>
-        <button class="objectcardbutton">Select Object</button>
-    </div>
 </div>
 
 <script>
