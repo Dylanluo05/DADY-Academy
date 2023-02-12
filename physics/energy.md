@@ -47,6 +47,10 @@ table .objectcard {
 }
 
 .selectedobjectcardbutton {
+    border: 1px solid white;
+    margin: 0.5em;
+    padding: 0.75em;
+    background-image: none;
     background-color: #778899;
     color: white;
     cursor: default;
@@ -237,6 +241,7 @@ hr.cardhr {
             var tempOB = document.getElementById("objbutton" + selectedObj);
             tempOB.innerHTML = "Select";
             tempOB.classList.remove("selectedbutton");
+            tempOB.classList.add("objectcardbutton");
         }
 
         // set innerHTML to selected object values using storedinfo
@@ -250,6 +255,7 @@ hr.cardhr {
                 var tempOB = document.getElementById("objbutton" + row.id);
                 tempOB.innerHTML = "Selected";
                 tempOB.classList.add("selectedbutton");
+                tempOB.classList.remove("objectcardbutton");
                 selectedObj = row.id;
 
                 // remove old event listener and add new one
