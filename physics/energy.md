@@ -357,10 +357,8 @@ hr.cardhr {
             response.json().then(data => {
                 console.log(data);
 
-                var tempId = data[data.length - 1].id;
-
                 getAllObjects();
-                selectObj(tempId);
+                selectObj(data.id);
                 });
         });
     }
