@@ -125,6 +125,7 @@ hr.cardhr {
     <div id="history" style="display: none;">
         <table id="histable">
         </table>
+        <button style="border: 1px solid red; background-color: red; display: none;" id="clearhistorybutton" class="objectcardbutton" onclick="scrubHistory()"> Clear History </button>
     </div>
 </div>
 </div>
@@ -262,6 +263,9 @@ hr.cardhr {
 
     function selectObj(id) {
         console.log("Selected Object - Id: " + id);
+
+        // turn on history delete button when selected obj for first time
+        document.getElementById("clearhistorybutton").style.display = "block";
 
         // remove selected class from button with selectedObj id
         if (selectedObj != null) {
@@ -461,6 +465,34 @@ hr.cardhr {
             history.style.display = "none";
             historybutton.innerHTML = "Show History";
         }
+    }
+
+    function scrubHistory() {
+        if (confirm("Are you sure you want to delete all of this object's history?") == false)
+            return;
+
+        console.log("Deleting History - Id: " + selectedObj);
+
+        // build url for fetch
+        var scrubHistoryurl = "https://frq.dtsivkovski.tk/api/physics/scrub/" + selectedObj;
+
+        fetch(scrubHistoryurl, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+            // check for response errors and display
+            if (response.status !== 200) {
+                const errorMsg = 'Database response error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // valid response will contain json data
+            response.json().then(data => {
+                console.log(data);
+
+                getAllObjects();
+                selectObj(data.id);
+                });
+        });
     }
 
 </script>
