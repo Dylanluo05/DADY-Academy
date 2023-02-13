@@ -496,6 +496,9 @@ hr.cardhr {
                     histable.removeChild(histable.firstChild);
                 }
 
+                mRecKE.innerHTML = "Recent KE Calc: 0";
+                mRecPE.innerHTML = "Recent PE Calc: 0";
+
                 });
         });
     }
