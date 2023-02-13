@@ -305,7 +305,7 @@ hr.cardhr {
                 histable.appendChild(th2);
 
                 for (const [key,value] of Object.entries(row.history)) {
-                    console.log(key + " : " + value);
+                    // console.log(key + " : " + value);
 
                     var tr = document.createElement("tr");
                     var tdkey = document.createElement("td");
@@ -344,6 +344,20 @@ hr.cardhr {
                 console.log(data);
                 mRecKE.innerHTML = "Recent KE Calc: " + data.recentKE;
                 getAllObjects();
+
+                // add new row to history table
+                var tr = document.createElement("tr");
+                var tdkey = document.createElement("td");
+                var tdvalue = document.createElement("td");
+
+                tdkey.innerHTML = "KE (v = " + document.getElementById("velocity-input").value + ")";
+                tdvalue.innerHTML = data.recentKE;
+
+                tr.appendChild(tdkey);
+                tr.appendChild(tdvalue);
+                histable.appendChild(tr);
+
+
                 });
         });
     }
@@ -368,6 +382,19 @@ hr.cardhr {
                 console.log(data);
                 mRecPE.innerHTML = "Recent PE Calc: " + data.recentPE;
                 getAllObjects();
+
+                var tr = document.createElement("tr");
+                var tdkey = document.createElement("td");
+                var tdvalue = document.createElement("td");
+
+                tdkey.innerHTML = "PE (g = " + document.getElementById("gravity-input").value + ", h = " + document.getElementById("height-input").value + ")";
+                tdvalue.innerHTML = data.recentPE;
+
+                tr.appendChild(tdkey);
+                tr.appendChild(tdvalue);
+                histable.appendChild(tr);
+
+
                 });
         });
     }
