@@ -491,6 +491,11 @@ hr.cardhr {
 
                 getAllObjects();
                 selectObj(data.id);
+
+                while (histable.firstChild) {
+                    histable.removeChild(histable.firstChild);
+                }
+
                 });
         });
     }
