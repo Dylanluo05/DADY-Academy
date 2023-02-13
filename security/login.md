@@ -129,6 +129,77 @@
 </style>
 
 <script>
+
+function submitForm() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const url = "https://frq.dtsivkovski.tk/authenticate";
+  
+  const options = {
+    method: 'POST', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "email" : email,
+        "password" : password
+    })
+  };
+
+  console.log(options);
+
+  // fetch(url, options)
+  //   .then(response => console.log(response.text()))
+  //   .then(result => console.log(result))
+  //   .catch(error => console.log('error', error));
+
+
+  // Fetch JWT
+  fetch(url, options)
+  .then(response => {
+      // trap error response from Web API
+      if (!response.ok) {
+          const errorMsg = 'Login error: ' + response.status;
+          console.log(errorMsg);
+          return; 
+      }
+      // Success!!!
+      // Redirect to Database location
+      
+      sessionStorage.setItem("username", email);
+    //   window.location.href = "/DADY-Academy/templates/home";
+
+
+  })
+
+  
+}
+
+function logout() {
+  document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  sessionStorage.setItem("username", "Guest");
+  sessionStorage.setItem("token", null);
+  window.location.reload();
+
+}
+
+if (sessionStorage.getItem("username") == null) {
+  sessionStorage.setItem("username", "Guest");
+}
+else {
+    document.getElementById("user").innerHTML = "Welcome, " + sessionStorage.getItem("username") + "!";
+}
+
+
+
+
+</script>
+
+<!--<script>
     // function submitForm() {
     //     $.post('https://frq.dtsivkovski.tk/api/person/authenticate', $("#loginForm").serialize(), function(data) {
     //         console.log(data);
@@ -175,4 +246,4 @@
           console.error('Authentication failed:', error);
         }
     });
-</script>
+</script> -->
