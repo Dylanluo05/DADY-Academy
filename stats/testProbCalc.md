@@ -146,10 +146,10 @@
     const history = document.getElementById("history");
     const histable = document.getElementById("histable");
 
-    // var url = "https://frq.dtsivkovski.tk/api/stats/get/";
+    var url = "https://frq.dtsivkovski.tk/api/stats/get/";
 
     // Uncomment next line for localhost testing
-    url = "http://localhost:8679/api/stats/get/";
+    // url = "http://localhost:8679/api/stats/get/";
 
     // set options for cross origin header request
     const options = {
@@ -310,6 +310,7 @@
 
         // build url for fetch
         var calcSDMurl = "https://frq.dtsivkovski.tk/api/stats/calculateSDM/" + id + "/" + document.getElementById("standardError").value;
+        // var calcSDMurl = "http://localhost:8679/api/stats/calculateSDM/" + id + "/" + document.getElementById("standardError").value;
 
         fetch(calcSDMurl, options)
         // response is a RESTful "promise" on any successful fetch
@@ -346,8 +347,8 @@
         console.log("Creating Object");
 
         // build url for fetch
-        // var createObjurl = "https://frq.dtsivkovski.tk/api/stats/create/" + document.getElementById("N-input").value;
-        var createObjurl = "http://localhost:8679/api/stats/create/" + document.getElementById("N-input").value;
+        var createObjurl = "https://frq.dtsivkovski.tk/api/stats/create/" + document.getElementById("N-input").value;
+        // var createObjurl = "http://localhost:8679/api/stats/create/" + document.getElementById("N-input").value;
 
         fetch(createObjurl, options)
         // response is a RESTful "promise" on any successful fetch
@@ -377,6 +378,7 @@
 
         // build url for fetch
         var deleteObjurl = "https://frq.dtsivkovski.tk/api/stats/delete/" + id;
+        // var deleteObjurl = "http://localhost:8679/api/stats/delete/" + id;
 
         fetch(deleteObjurl, options)
         // response is a RESTful "promise" on any successful fetch
