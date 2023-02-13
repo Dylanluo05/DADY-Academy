@@ -120,6 +120,12 @@ hr.cardhr {
         <input placeholder="Height (h) value" style="width:32%; display: inline-block;" type="text" id="height-input" name="Height">
         <button id="calcPEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate </button>
     </div>
+    <br>
+    <button id="historybutton" class="objectcardbutton" onclick="toggleHistory()"> Show History </button>
+    <div id="history" style="display: none;">
+        <table id="histable">
+        </table>
+    </div>
 </div>
 </div>
 <br>
@@ -149,6 +155,9 @@ hr.cardhr {
     const mRecPE = document.getElementById("mainRecPE");
     const calcKEbutton = document.getElementById("calcKEbutton");
     const calcPEbutton = document.getElementById("calcPEbutton");
+    const historybutton = document.getElementById("historybutton");
+    const history = document.getElementById("history");
+    const histable = document.getElementById("histable");
 
     var url = "https://frq.dtsivkovski.tk/api/physics/get/";
     // Uncomment next line for localhost testing
@@ -285,6 +294,31 @@ hr.cardhr {
                     calcPE(row.id);
                 };
 
+                while (histable.firstChild) {
+                    histable.removeChild(histable.firstChild);
+                }
+                const th1 = document.createElement("th");
+                const th2 = document.createElement("th");
+                th1.innerHTML = "Calculation";
+                th2.innerHTML = "Result";
+                histable.appendChild(th1);
+                histable.appendChild(th2);
+
+                for (const [key,value] of Object.entries(row.history)) {
+                    console.log(key + " : " + value);
+
+                    var tr = document.createElement("tr");
+                    var tdkey = document.createElement("td");
+                    var tdvalue = document.createElement("td");
+
+                    tdkey.innerHTML = key;
+                    tdvalue.innerHTML = value;
+                    tr.appendChild(tdkey);
+                    tr.appendChild(tdvalue);
+                    histable.appendChild(tr);
+                }
+
+
 
             }
         }
@@ -390,6 +424,16 @@ hr.cardhr {
                 selectObj(data[0].id);
                 });
         });
+    }
+
+    function toggleHistory() {
+        if (history.style.display == "none") {
+            history.style.display = "block";
+            historybutton.innerHTML = "Hide History";
+        } else {
+            history.style.display = "none";
+            historybutton.innerHTML = "Show History";
+        }
     }
 
 </script>
