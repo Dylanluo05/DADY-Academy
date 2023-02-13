@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #calculator-background-1 {
+            height: 800px;
+            width: 100%;
+            background-image: linear-gradient(to top right, navy, purple);
+        }
+
+        .calculator-main-container {
+            height: 600px;
+            width: 500px;
+            background-color: #303030;
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+            margin: auto;
+        }
+
+        .calculator-output-container {
+            height: 50%;
+            width: 500px;
+            overflow-y: auto;
+        }
+
+        .calculator-input-container {
+            height: 50%;
+            width: 500px;
+        }
+
+        .calculator-input-field {
+            height: 15%;
+            width: 500px;
+            background-color: #505050;
+            border: 1px solid #404040;
+            border: 1px solid #404040;
+            border-left: none;
+            border-right: none;
+            caret-color: white;
+            color: white;
+            font-size: 30px;
+            padding-left: 10px;
+        }
+
+        .calculator-input-field:focus {
+            outline: none;
+        }
+
+        .calculator-input-buttons-container {
+            height: 85%;
+            width: 500px;
+        }
+        
+        .calculator-input-button {
+            height: 100%;
+            width: 10%;
+            border: 1px solid #404040;
+            background-color: #303030;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .output-container {
+            height: 50px;
+            width: 100%;
+            background-color: #383838;
+            border: 1px solid #404040;
+            padding-left: 10px;
+            color: white;
+        }
+
+    </style>
+    <body>
+        <div id = "calculator-background-1">
+            <div id = "navbar-content"></div>
+            <div class = "calculator-main-container">
+                <div class = "calculator-output-container" id = "calculator-output-container"></div> 
+                <div class = "calculator-input-container">
+                    <input type = "text" class = "calculator-input-field" id = "calculator-input-field">
+                    <div class = " calculator-input-buttons-container">
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>(</p></div>
+                            <div class = "calculator-input-button"><p>)</p></div>
+                            <div class = "calculator-input-button"><p>mc</p></div>
+                            <div class = "calculator-input-button"><p>m+</p></div>
+                            <div class = "calculator-input-button"><p>m-</p></div>
+                            <div class = "calculator-input-button"><p>mr</p></div>
+                            <div class = "calculator-input-button"><p id = "clear-text">AC</p></div>
+                            <div class = "calculator-input-button"><p>+/-</p></div>
+                            <div class = "calculator-input-button"><p>%</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#247;</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>2<sup>nd</sup></p></div>
+                            <div class = "calculator-input-button"><p>x<sup>2</sup></p></div>
+                            <div class = "calculator-input-button"><p>x<sup>3</sup></p></div>
+                            <div class = "calculator-input-button"><p>x<sup>y</sup></p></div>
+                            <div class = "calculator-input-button"><p>e<sup>x</sup></p></div>
+                            <div class = "calculator-input-button"><p>10<sup>x</sup></p></div>
+                            <div class = "calculator-input-button"><p>7</p></div>
+                            <div class = "calculator-input-button"><p>8</p></div>
+                            <div class = "calculator-input-button"><p>9</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#215;</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>1/x</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>2</sup>
+                                &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
+                                </span></div>
+                            <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>3</sup>
+                                &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
+                                </span></div>
+                            <div class = "calculator-input-button" style = "font-size: 12px;"><span style="white-space: nowrap; font-size:larger"><sup>y</sup>
+                                &radic;<span style="text-decoration:overline;">&nbsp;x&nbsp;</span>
+                                </span></div>
+                            <div class = "calculator-input-button"><p>ln</p></div>
+                            <div class = "calculator-input-button"><p>log<sub>10</sub></p></div>
+                            <div class = "calculator-input-button"><p>4</p></div>
+                            <div class = "calculator-input-button"><p>5</p></div>
+                            <div class = "calculator-input-button"><p>6</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>&#8722;</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>x!</p></div>
+                            <div class = "calculator-input-button"><p>sin</p></div>
+                            <div class = "calculator-input-button"><p>cos</p></div>
+                            <div class = "calculator-input-button"><p>tan</p></div>
+                            <div class = "calculator-input-button"><p>e</p></div>
+                            <div class = "calculator-input-button"><p>EE</p></div>
+                            <div class = "calculator-input-button"><p>1</p></div>
+                            <div class = "calculator-input-button"><p>2</p></div>
+                            <div class = "calculator-input-button"><p>3</p></div>
+                            <div class = "calculator-input-button" style = "font-size: 20px;"><p>+</p></div>
+                        </div>
+                        <div style = "height: 20%; width: 100%; display: flex; flex-direction: row">
+                            <div class = "calculator-input-button"><p>Rad</p></div>
+                            <div class = "calculator-input-button"><p>sinh</p></div>
+                            <div class = "calculator-input-button"><p>cosh</p></div>
+                            <div class = "calculator-input-button"><p>tanh</p></div>
+                            <div class = "calculator-input-button"><p>&pi;</p></div>
+                            <div class = "calculator-input-button"><p>Rand</p></div>
+                            <div class = "calculator-input-button"><p>0</p></div>
+                            <div class = "calculator-input-button"><p>.</p></div>
+                            <div type = "submit" id = "calculator-equals-button" class = "calculator-input-button" style = "width: 20%; font-size: 30px; background-image: linear-gradient(to right, blue, cyan)"><p>=</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function(){
+                $("#navbar-content").load("/layouts/navbar.html")
+            });
+
+            var calculatorInputField = document.getElementById("calculator-input-field");
+            var clearText = document.getElementById("clear-text");
+
+            $(".calculator-input-button").on("click", calculatorInput);
+            function calculatorInput() {
+                var inputValue = $(this).children().text();
+                if (inputValue != "AC") {
+                    clearText.innerHTML = "C";
+                }
+                switch (inputValue) {
+                    case "C":
+                        clearText.innerHTML = "AC";
+                        calculatorInputField.value = "";
+                        break;
+                    case "sin":
+                        calculatorInputField.value += "sin(";
+                        break;
+                    case "cos":
+                        calculatorInputField.value += "cos(";
+                        break;
+                    case "tan":
+                        calculatorInputField.value += "tan(";
+                        break;
+                    case "ln":
+                        calculatorInputField.value += "ln(";
+                        break;
+                    case "sinh":
+                        calculatorInputField.value += "sinh(";
+                        break;
+                    case "cosh":
+                        calculatorInputField.value += "cosh(";
+                        break;
+                    case "tanh":
+                        calculatorInputField.value += "tanh(";
+                        break;
+                    default:
+                        calculatorInputField.value += inputValue;
+                        break;
+                }
+            }
+
+            const apiURL = "";
+            var calculatorOutputContainer = document.getElementById("calculator-output-container");
+            var calculatorEqualsButton = document.getElementById("calculator-equals-button");
+            calculatorEqualsButton.addEventListener("click", (event) => {
+                var expression = calculatorInputField.value;
+                fetch(`${apiURL}/${expression}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var outputContainer = document.createElement("div");
+                        outputContainer.setAttribute("class", "output-container");
+                        var outputText = document.createElement("p");
+                        outputText.innerHTML = data.Expression + " = " + `${data.Result}`;
+                        outputContainer.appendChild(outputText);
+                        calculatorOutputContainer.appendChild(outputContainer);
+                    })
+            })
+
+        </script>
+    </body>
+</html>
