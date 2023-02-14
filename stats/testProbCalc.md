@@ -199,7 +199,7 @@
                     const h3 = document.createElement("h3");
                     h3.innerHTML = "Object #" + row.id;
                     const n = document.createElement("p");
-                    n.innerHTML = "n: " + row.n + "kg";
+                    n.innerHTML = "n: " + row.n;
                     const recSDM = document.createElement("p");
                     recSDM.innerHTML = "Recent SDM Calc: " + row.recentSDM;
 
@@ -309,8 +309,8 @@
         console.log("Calculating SDM for Object - Id: " + id);
 
         // build url for fetch
-        // var calcSDMurl = "https://frq.dtsivkovski.tk/api/stats/calculateSDM/" + id + "/" + document.getElementById("standardError").value;
-        var calcSDMurl = "http://localhost:8679/api/stats/calculateSDM/" + id + "/" + document.getElementById("standardError").value;
+        // var calcSDMurl = "https://frq.dtsivkovski.tk/api/stats/calculateSDM/" + id + "/" + document.getElementById("se-input").value;
+        var calcSDMurl = "http://localhost:8679/api/stats/calculateSDM/" + id + "/" + document.getElementById("se-input").value;
 
         fetch(calcSDMurl, options)
         // response is a RESTful "promise" on any successful fetch
