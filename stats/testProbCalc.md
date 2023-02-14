@@ -335,11 +335,20 @@
                 tdkey.innerHTML = "SDM (v = " + document.getElementById("velocity-input").value + ")";
                 tdvalue.innerHTML = data.recentSDM;
 
-                tr.appendChild(tdkey);
-                tr.appendChild(tdvalue);
-                histable.appendChild(tr);
+                for (const [key,value] of Object.entries(row.history)) {
+                    // console.log(key + " : " + value);
 
-                });
+                    var tr = document.createElement("tr");
+                    var tdkey = document.createElement("td");
+                    var tdvalue = document.createElement("td");
+
+                    tdkey.innerHTML = key;
+                    tdvalue.innerHTML = value;
+                    tr.appendChild(tdkey);
+                    tr.appendChild(tdvalue);
+                    histable.appendChild(tr);
+                }
+            });
         });
     }
 
