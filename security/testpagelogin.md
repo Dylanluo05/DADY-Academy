@@ -56,7 +56,7 @@ function login() {
       // Redirect to Database location
       const cookie = response.headers.get('Set-Cookie');
       localStorage.setItem('Cookie', cookie);
-      sessionStorage.setItem("username", email);
+      sessionStorage.setItem("username", inputEmail);
       window.location.href = document.referrer
       // window.location.href = "{{site.baseurl}}/home";
 
