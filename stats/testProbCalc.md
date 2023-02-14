@@ -102,7 +102,7 @@
 <div class="objectcards">
 <div class="maincard">
     <h1 class="maintitle" id="mainTitle">No Currently Selected Object</h1>
-    <h3 class="maintitle" id="mainMass"></h3>
+    <h3 class="maintitle" id="mainSampleSize"></h3>
     <h3 class="maintitle" id="mainRecSDM"></h3>
     <hr class="cardhr">
     <h3 class="maintitle"> Calculate SDM </h3>
@@ -130,8 +130,8 @@
 <div class="createcard">
     <h1 class="maintitle">Create an object</h1>
     <div style="white-space: nowrap;">
-        <input placeholder="Sample Size (n)" style="width:65%; display: inline-block;" type="text" id="N-input" name="Object Mass">
-        <button id="createbutton" style="width:33%; display: inline-block;" class="objectcardbutton" onclick="createObj();"> Create  </button>
+        <input placeholder="Sample Size (n)" style="width:65%; display: inline-block;" type="text" id="N-input" name="Object Sample Size">
+        <button id="createbutton" style="width:33%; display: inline-block;" class="objectcardbutton" onclick="createObj();"> Create </button>
     </div>
 </div>
 </div>
@@ -198,13 +198,13 @@
                     // create elements for card
                     const h3 = document.createElement("h3");
                     h3.innerHTML = "Object #" + row.id;
-                    const mass = document.createElement("p");
-                    mass.innerHTML = "Mass: " + row.mass + "kg";
+                    const n = document.createElement("p");
+                    n.innerHTML = "n: " + row.n + "kg";
                     const recSDM = document.createElement("p");
                     recSDM.innerHTML = "Recent SDM Calc: " + row.recentSDM;
 
                     card.appendChild(h3);
-                    card.appendChild(mass);
+                    card.appendChild(n);
                     card.appendChild(recSDM);
   
                     const buttonholder = document.createElement("div");
@@ -263,7 +263,7 @@
         for (const row of storedinfo) {
             if (row.id == id) {
                 mTitle.innerHTML = "Object #" + row.id;
-                mN.innerHTML = "Sample Size: " + row.mass;
+                mN.innerHTML = "Sample Size: " + row.n;
                 mRecSDM.innerHTML = "Recent SDM Calc: " + row.recentSDM;
 
                 var tempOB = document.getElementById("objbutton" + row.id);
