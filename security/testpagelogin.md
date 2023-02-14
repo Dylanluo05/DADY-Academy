@@ -11,14 +11,18 @@
 
 <button class="button1" onclick="logout()">Logout</button>
 
-
 <script>
 
 function login() {
-  const email = document.getElementById("inputEmail").value;
-  const password = document.getElementById("inputPassword").value;
+  // const email = document.getElementById("inputEmail").value;
+  // const password = document.getElementById("inputPassword").value;
 
   const url = "https://frq.dtsivkovski.tk/authenticate";
+
+  const body = {
+        email: document.getElementById("inputEmail").value,
+        password: document.getElementById("inputPassword").value,
+  };
   
   const options = {
     method: 'POST',
@@ -28,10 +32,7 @@ function login() {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-        "email" : email,
-        "password" : password
-    })
+    body: JSON.stringify(body)
   };
 
   console.log(options);
@@ -48,12 +49,15 @@ function login() {
       if (!response.ok) {
           const errorMsg = 'Login error: ' + response.status;
           console.log(errorMsg);
-          return; 
+          return;
       }
+
       // Success!!!
       // Redirect to Database location
-  
+      const cookie = response.headers.get('Set-Cookie');
+      localStorage.setItem('Cookie', cookie);
       sessionStorage.setItem("username", email);
+      window.location.href = document.referrer
       // window.location.href = "{{site.baseurl}}/home";
 
   })
