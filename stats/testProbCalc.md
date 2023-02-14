@@ -332,22 +332,12 @@
                 var tdkey = document.createElement("td");
                 var tdvalue = document.createElement("td");
 
-                tdkey.innerHTML = "SDM (v = " + document.getElementById("velocity-input").value + ")";
+                tdkey.innerHTML = "SDM (Sx = " + document.getElementById("se-input").value + ")";
                 tdvalue.innerHTML = data.recentSDM;
 
-                for (const [key,value] of Object.entries(row.history)) {
-                    // console.log(key + " : " + value);
-
-                    var tr = document.createElement("tr");
-                    var tdkey = document.createElement("td");
-                    var tdvalue = document.createElement("td");
-
-                    tdkey.innerHTML = key;
-                    tdvalue.innerHTML = value;
-                    tr.appendChild(tdkey);
-                    tr.appendChild(tdvalue);
-                    histable.appendChild(tr);
-                }
+                tr.appendChild(tdkey);
+                tr.appendChild(tdvalue);
+                histable.appendChild(tr);
             });
         });
     }
