@@ -21,9 +21,9 @@ function login() {
   const url = "https://frq.dtsivkovski.tk/authenticate";
   
   const options = {
-    method: 'POST', 
+    method: 'POST',
     mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    cache: 'no-cache', //*default, no-cache, reload, force-cache, only-if-cached
     credentials: 'include', // include, *same-origin, omit
     headers: {
         'Content-Type': 'application/json'
@@ -41,7 +41,6 @@ function login() {
   //   .then(result => console.log(result))
   //   .catch(error => console.log('error', error));
 
-
   // Fetch JWT
   fetch(url, options)
   .then(response => {
@@ -53,17 +52,11 @@ function login() {
       }
       // Success!!!
       // Redirect to Database location
-      
+  
       sessionStorage.setItem("username", email);
       // window.location.href = "{{site.baseurl}}/home";
 
-
   })
-
-
-
-
-
   
 }
 
@@ -75,17 +68,10 @@ function logout() {
 
 }
 
-
-
-
 if (sessionStorage.getItem("username") == null) {
   sessionStorage.setItem("username", "Guest");
 }
 
-
 document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
 
-
-
 </script>
-
