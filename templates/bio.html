@@ -438,14 +438,16 @@
 
                 var dominantCount = 0;
                 
-                for (var key in squareCombinations) {
-                    for (var j = 0; j < squareCombinations[key].length; j++) {
-                        if (squareCombinations[key].substring(j, j + 1).toUpperCase() == squareCombinations[key].substring(j, j + 1)) {
-                            dominantCount++;
-                            break;
-                        }
-                    }
-                }
+                // for (var key in squareCombinations) {
+                //     for (var j = 0; j < squareCombinations[key].length; j++) {
+                //         if (squareCombinations[key].substring(j, j + 1).toUpperCase() == squareCombinations[key].substring(j, j + 1)) {
+                //             dominantCount++;
+                //             break;
+                //         }
+                //     }
+                // }
+
+                
 
                 
                 var dominantPercentageDisplay = document.getElementById("dominant-percentage-display");
