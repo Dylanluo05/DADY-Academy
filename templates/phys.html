@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 70px;
+            font-weight: lighter;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #physics-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .physics-background-1-image, .physics-background-1-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .physics-background-1-image {
+            height: 650px;
+            background: url("https://images.pexels.com/photos/8472938/pexels-photo-8472938.jpeg?auto=compress&cs=tinysrgb&w=800");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .physics-background-1-overlay {
+            height: 650px;
+            background-color: black;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        .physics-background-1-content {
+            height: 650px;
+            position: relative;
+            z-index: 3;
+        }
+
+        #physics-background-2 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .physics-background-2-image, .physics-background-2-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .physics-background-2-image {
+            height: 650px;
+            background: url("https://images.pexels.com/photos/6208704/pexels-photo-6208704.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .physics-background-2-overlay {
+            height: 650px;
+            background-color: #282828;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        .physics-background-2-content {
+            height: 650px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .physics-transition-background {
+            height: 200px;
+            background-color: crimson;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+    <body>
+        <div id = "physics-background-1">
+            <div class = "physics-background-1-image"></div>
+            <div class = "physics-background-1-overlay"></div>
+            <div class = "physics-background-1-content">
+                <div id = "navbar-content"></div>
+                <h1 style = "text-align: center; font-size: 120px; margin-top: 30px;">Physics</h1>
+                <h2 style = "text-align: center; font-size: 30px; font-weight: lighter; margin-top: -30px;">Discover why the matter of this world behaves the way it does</h2>
+                <div style = "width: 700px; display: block; margin: auto; margin-top: 70px;">
+                    <h2 style = "font-size: 21px; font-weight: lighter; text-align: center;">Physics is the study of matter and energy, their fundamental constituents, and their movement and behavior through space and time.</h2>
+                </div>
+            </div>
+        </div>
+        <div class = "physics-transition-background">
+            <h1>Mechanics</h1>
+        </div>
+        <div id = "physics-background-2">
+            <div class = "physics-background-2-image"></div>
+            <div class = "physics-background-2-overlay"></div>
+            <div class = "physics-background-2-content">
+
+            </div>
+        </div>
+        <script>
+            $(function(){
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+        </script>
+    </body>
+</html>

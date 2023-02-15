@@ -20,8 +20,8 @@
         }
 
         h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 48px;
+            font-size: 70px;
+            font-weight: lighter;
             color: white;
             transition-duration: 0.4s;
         }
@@ -30,17 +30,30 @@
             box-sizing: border-box;
         }
 
-        #calculator-background-1 {
-            height: 800px;
+        .calculator-background-1 {
+            height: 500px;
             width: 100%;
-            background-image: linear-gradient(to top right, navy, purple);
+            background-color: black;
+        }
+
+        .calculator-background-2 {
+            height: 500px;
+            width: 100%;
+            font-size: 60px;
+            background-color: maroon;
+        }
+
+        .calculator-background-3 {
+            height: 700px;
+            width: 100%;
+            background-image: linear-gradient(to bottom, black, crimson);
         }
 
         .calculator-main-container {
             height: 600px;
             width: 500px;
             background-color: #303030;
-            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+            /*box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);*/
             margin: auto;
         }
 
@@ -89,6 +102,19 @@
             align-items: center;
             cursor: pointer;
         }
+        
+        .calculator-equals-button {
+            height: 100%;
+            width: 20%;
+            border: 1px solid #404040;
+            font-size: 30px; 
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-image: linear-gradient(to right, blue, cyan);
+        }
 
         .output-container {
             height: 50px;
@@ -99,10 +125,54 @@
             color: white;
         }
 
+        .page-divider {
+            height: 1350px;
+            width: 1px;
+            background-color: white;
+            border: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-left: 150px;
+        }
+
+        td {
+            height: 400px;
+            width: 600px;
+            border: 2px solid white;
+        }
+
+
     </style>
     <body>
-        <div id = "calculator-background-1">
+        <div class = "calculator-background-1">
             <div id = "navbar-content"></div>
+            <div class = "page-divider"></div>
+            <h1 style = "margin-left: 11%;">Scientific</h1>
+            <h1 style = "margin-left: 15%;">Calculator</h1>
+            <img src = "/assets/images/calculator.png" height = "450px" style = "float: right; margin-top: -350px;">
+        </div>
+        <div class = "calculator-background-2">
+            <img src = "/assets/images/tools.png" height = "400px" style = "margin-top: 50px; margin-left: 40px;">
+            <h1 style = "margin-top: -400px; margin-left: 67%;">Calculate</h1>
+            <h1 style = "margin-left: 62%;">Compute</h1>
+            <h1 style = "margin-left: 73%;">Evaluate</h1>
+        </div>
+        <div class = "calculator-background-1">
+            <br><br><br>
+            <h1 style = "margin: 0; font-size: 55px; margin-left: 3%;">A Tool</h1>
+            <h1 style = "font-size: 55px; margin-left: 6%;">that will fulfill all</h1>
+            <h1 style = "font-size: 55px; margin-left: 9%;">your algorithmic needs</h1>
+            <img src = "/assets/images/equations.png" height = "450px" style = "float: right; margin-top: -350px;">
+        </div>
+        <div class = "calculator-background-3">
+            <br><br>
             <div class = "calculator-main-container">
                 <div class = "calculator-output-container" id = "calculator-output-container"></div> 
                 <div class = "calculator-input-container">
@@ -171,7 +241,7 @@
                             <div class = "calculator-input-button"><p>Rand</p></div>
                             <div class = "calculator-input-button"><p>0</p></div>
                             <div class = "calculator-input-button"><p>.</p></div>
-                            <div type = "submit" id = "calculator-equals-button" class = "calculator-input-button" style = "width: 20%; font-size: 30px; background-image: linear-gradient(to right, blue, cyan)"><p>=</p></div>
+                            <div type = "submit" id = "calculator-equals-button" class = "calculator-equals-button"><p>=</p></div>
                         </div>
                     </div>
                 </div>
@@ -223,12 +293,21 @@
                 }
             }
 
-            const apiURL = "";
+            const apiURL = "https://frq.dtsivkovski.tk/api/calculator/";
             var calculatorOutputContainer = document.getElementById("calculator-output-container");
             var calculatorEqualsButton = document.getElementById("calculator-equals-button");
             calculatorEqualsButton.addEventListener("click", (event) => {
                 var expression = calculatorInputField.value;
-                fetch(`${apiURL}/${expression}`)
+                var options = {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'default',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+                fetch(`${apiURL}/${expression}`, options)
                     .then(response => response.json())
                     .then(data => {
                         var outputContainer = document.createElement("div");
@@ -238,6 +317,7 @@
                         outputContainer.appendChild(outputText);
                         calculatorOutputContainer.appendChild(outputContainer);
                     })
+                calculatorInputField.value = "";
             })
 
         </script>
