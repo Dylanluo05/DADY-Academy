@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: black;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: black;
+            transition-duration: 0.4s;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #stem-library-background-1 {
+            height: 2000px;
+            width: 100%;
+            background-image: linear-gradient(to top right, crimson, royalblue);
+        }
+
+        .stem-library-section {
+            width: 30%;
+            height: 100%;
+            padding: 10px;
+            background-color: slategray;
+            margin-left: 2.5%;
+            overflow: auto;
+        }
+
+        .stem-library-box {
+            width: 90%;
+            padding: 5px;
+            background-color: whitesmoke;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.7);
+        }
+        
+        .right-triangle-1 {
+            border-top: 45px solid transparent;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 45px solid lightgray;
+            display: inline-block;
+            z-index: 2;
+        }
+        
+        .rectangle {
+            height: 80px;
+            width: 100px;
+            background-color: white;
+        }
+
+        .right-triangle-2 {
+            border-top: 30px solid transparent;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 30px solid white;
+            display: inline-block;
+        }
+
+        .resource-sorter-container {
+            height: 50px;
+            padding-left: 5px;
+            width: 95%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: auto;
+            background-color: transparent;
+        }
+
+        .resource-sorter {
+            height: 35px;
+            padding: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 15px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        h3 {
+            font-size: 25px;
+            text-align: center;
+        }
+
+    </style>
+    <body>
+        <div id = "stem-library-background-1">
+            <div id = "navbar-content"></div>
+            <div style = "width: 50%; height: 100px; background-color: white; display: block; margin: auto; z-index: 2;">
+                <h1 style = "text-align: center; line-height: 100px;">STEM Library</h1>
+            </div>
+            <div style = "width: 50%; display: block; margin: auto; margin-top: -45px; z-index: 2;">
+                <div class = "right-triangle-1" style = "transform: rotate(45deg); float: left; position: relative; left: 17px;"></div>
+                <div class = "right-triangle-1" style = "transform: rotate(-45deg); float: right; position: relative; right: 17px;"></div>
+            </div>
+            <div style = "width: 60%; position: absolute; display: flex; flex-direction: row; left: 0; margin-right: auto; right: 0; margin-left: auto;">
+                <div class = "rectangle" style = "position: relative; top: 27px; left: 37px;"></div>
+                <div class = "rectangle" style = "position: relative; top: 27px; left: 674px;"></div>
+                <div class = "right-triangle-2" style = "transform: rotate(45deg); position: relative; top: -20px; left: -185px;"></div>
+                <div class = "right-triangle-2" style = "transform: rotate(135deg); position: relative; top: 74.55px; left: -244px;"></div>
+                <div class = "right-triangle-2" style = "transform: rotate(-45deg); position: relative; top: -20px; left: 517px;"></div>
+                <div class = "right-triangle-2" style = "transform: rotate(-135deg); position: relative; top: 74.5px; left: 458px;"></div>
+            </div>
+            <div style = "height: 78%; width: 100%; display: flex; flex-direction: row; margin-top: 200px;">
+                <div class = "stem-library-section">
+                    <h2 style = "color: white; text-align: center; font-size: 30px;">Scientific Articles</h2>
+                    <hr style = "border: 1px solid white;">
+                    <div class = "resource-sorter-container">
+                        <div class = "resource-sorter" style = "margin-left: 0px; background-color: crimson; color: white;"><p>All</p></div>
+                        <div class = "resource-sorter"><p>Most Recent</p></div>
+                        <div class = "resource-sorter"><p>Top Rated</p></div>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Biology Formula Sheet</h3>
+                        <img src = "">
+                    </div>
+                    <div class = "stem-library-box"></div>
+                    <div class  ="stem-library-box"></div>
+                </div>
+                <div class = "stem-library-section">
+                    <h2 style = "color: white; text-align: center; font-size: 30px;">Useful Resources</h2>
+                    <hr style = "border: 1px solid white;">
+                    <div class = "resource-sorter-container">
+                        <div class = "resource-sorter" style = "margin-left: 0px; background-color: crimson; color: white;"><p>All</p></div>
+                        <div class = "resource-sorter"><p>Most Recent</p></div>
+                        <div class = "resource-sorter"><p>Top Rated</p></div>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Biology Formula Sheet</h3>
+                        <img src = "/assets/images/biologyformulas1.png" height = "380px" style = "display: block; margin: auto;">
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Biology Formula Sheet (Continued)</h3>
+                        <img src = "/assets/images/biologyformulas2.png" height = "380px" style = "display: block; margin: auto;">
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Chemistry Formula Sheet</h3>
+                        <img src = "/assets/images/chemistryformulas1.png" height = "380px" style = "display: block; margin: auto;">
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Chemistry Formula Sheet (Continued)</h3>
+                        <img src = "/assets/images/chemistryformulas2.png" height = "380px" style = "display: block; margin: auto;">
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Physics Formula Sheet</h3>
+                        <img src = "/assets/images/physicsformulas1.png" height = "380px" style = "display: block; margin: auto;">
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Physics Formula Sheet (Continued)</h3>
+                        <img src = "/assets/images/physicsformulas2.png" height = "380px" style = "display: block; margin: auto;">
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>AP Physics Formula Sheet (Continued)</h3>
+                        <img src = "/assets/images/physicsformulas3.png" height = "380px" style = "display: block; margin: auto;">
+                    </div>
+                </div>
+                <div class = "stem-library-section" style = "height: 50%;">
+                    <h2 style = "color: white; text-align: center; font-size: 30px;">Test</h2>
+                    <hr style = "border: 1px solid white;">
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+
+            for (var i = 0; i < 3; i++) {
+                $(".resource-sorter").eq(i).on("click", resourceSorter1);
+            }
+            for (var j = 3; j < 6; j++) {
+                $(".resource-sorter").eq(j).on("click", resourceSorter2);
+            }
+
+            function resourceSorter1() {
+                var index = $(this).index();
+                $(".resource-sorter").eq(index).animate({backgroundColor: "#DC143C"}, {duration: 500, queue: false});
+                $(".resource-sorter").eq(index).animate({color: "white"}, {duration: 500, queue: false});
+                for (var i = 0; i < 3; i++) {
+                    if (i == index) {
+                        continue;
+                    }
+                    $(".resource-sorter").eq(i).animate({backgroundColor: "white"}, {duration: 500, queue: false});
+                    $(".resource-sorter").eq(i).animate({color: "black"}, {duration: 500, queue: false});
+                }
+            }
+
+            function resourceSorter2() {
+                var index = $(this).index();
+                $(".resource-sorter").eq(index + 3).animate({backgroundColor: "#DC143C"}, {duration: 500, queue: false});
+                $(".resource-sorter").eq(index + 3).animate({color: "white"}, {duration: 500, queue: false});
+                for (var i = 0; i < 3; i++) {
+                    if (i + 3 == index + 3) {
+                        continue;
+                    }
+                    $(".resource-sorter").eq(i + 3).animate({backgroundColor: "white"}, {duration: 500, queue: false});
+                    $(".resource-sorter").eq(i + 3).animate({color: "black"}, {duration: 500, queue: false});
+                }
+            }
+
+        </script>
+    </body>
+</html>
