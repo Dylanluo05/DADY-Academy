@@ -298,7 +298,16 @@
             var calculatorEqualsButton = document.getElementById("calculator-equals-button");
             calculatorEqualsButton.addEventListener("click", (event) => {
                 var expression = calculatorInputField.value;
-                fetch(`${apiURL}/${expression}`)
+                var options = {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'default',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+                fetch(`${apiURL}/${expression}`, options)
                     .then(response => response.json())
                     .then(data => {
                         var outputContainer = document.createElement("div");
@@ -308,6 +317,7 @@
                         outputContainer.appendChild(outputText);
                         calculatorOutputContainer.appendChild(outputContainer);
                     })
+                calculatorInputField.value = "";
             })
 
         </script>
