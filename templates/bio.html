@@ -387,6 +387,8 @@
             };
 
             var storedinfo;
+            var dominantPercentage = 0;
+            var recessivePercentage = 0;
 
             $("#punnett-square-form").on("submit", punnettUpdate);
             function punnettUpdate() {
@@ -421,6 +423,8 @@
                         square2Combination = data.genoTable[1];
                         square3Combination = data.genoTable[2];
                         square4Combination = data.genoTable[3];
+                        dominantPercentage = data.probDominant * 100;
+                        recessivePercentage = data.probRecessive * 100;
 
                         storedinfo = data;
                     });
@@ -431,8 +435,6 @@
                 square3.innerHTML = square3Combination;
                 square4.innerHTML = square4Combination;
 
-                var dominantPercentage = storedinfo.probDominant * 100;
-                var recessivePercentage = storedinfo.probRecessive * 100;
 
                 var dominantPercentageDisplay = document.getElementById("dominant-percentage-display");
                 var recessivePercentageDisplay = document.getElementById("recessive-percentage-display");
