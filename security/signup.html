@@ -144,10 +144,10 @@
                     </div>
                     <div id = "question-4" class = "question">
                         <label style = "color: black;" id = "stem-interest-label" for = "stem-interest">Check your STEM interests:</label><br>
-                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px" id="bioBool">Biology</p><br>
-                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px" id="chemBool">Chemistry</p><br>
-                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px" id="physBool">Physics</p><br>
-                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest"><p style = "display: inline; color: black; margin-top: 7px" id="statsBool">Statistics</p>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest" id="bioBool"><p style = "display: inline; color: black; margin-top: 7px">Biology</p><br>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest" id="chemBool"><p style = "display: inline; color: black; margin-top: 7px">Chemistry</p><br>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest" id="physBool"><p style = "display: inline; color: black; margin-top: 7px">Physics</p><br>
+                        <input style = "display: inline; margin-top: 7px" type = "checkbox" name = "stem-interest" id="statsBool"><p style = "display: inline; color: black; margin-top: 7px">Statistics</p>
                     </div>
                 </form>
                 <div id = "navigation">
@@ -310,9 +310,11 @@
                 const chem = document.getElementById("chemBool").checked;
                 const phys = document.getElementById("physBool").checked;
 
+                console.log("" + stats + bio + chem + phys);
+
                 const url = "https://frq.dtsivkovski.tk/register";
             
-            const options = {
+            var options = {
                 method: 'POST', 
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -362,9 +364,12 @@
 
             function login() {
 
+                email = document.getElementById("email").value;
+                password = document.getElementById("password").value;
+
                 const url = "https://frq.dtsivkovski.tk/authenticate";
                 
-                const options = {
+                var options = {
                     method: 'POST', 
                     mode: 'cors', // no-cors, *cors, same-origin
                     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -398,7 +403,7 @@
                     // Success!!!
                     
                     sessionStorage.setItem("username", email);
-                    window.location.href = "DADY-Academy/templates/home.html";
+                    window.location.href = "/DADY-Academy/templates/home.html";
                     // window.location.href = "{{site.baseurl}}/home";
 
 
