@@ -349,7 +349,7 @@
                 $("#navbar-content").load("/layouts/navbar.html");
             });
 
-            var url = "https://frq.dtsivkovski.tk/api/physics/get/";
+            var url = "https://frq.dtsivkovski.tk/api/physics/kinematics/get/";
             const options = {
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
@@ -500,7 +500,7 @@
                 }
 
                 // build url for fetch
-                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/calculateKE/" + id +  "/" + document.getElementById("initial-velocity-value").value + "/" + document.getElementById("vi-known").checked + "/" + document.getElementById("final-velocity-value").value + "/" + document.getElementById("vf-known").checked
+                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKE/" + id +  "/" + document.getElementById("initial-velocity-value").value + "/" + document.getElementById("vi-known").checked + "/" + document.getElementById("final-velocity-value").value + "/" + document.getElementById("vf-known").checked
                 + "/" + document.getElementById("acceleration-value").value + "/" + document.getElementById("a-known").checked + "/" + document.getElementById("displacement-value").value + "/" + document.getElementById("d-known").checked + "/" + document.getElementById("time-value").value + "/" + document.getElementById("t-known").checked;
 
                 fetch(calcKinematicsurl, options)
@@ -525,7 +525,7 @@
                 console.log("Creating Object");
 
                 // build url for fetch
-                var createObjurl = "https://frq.dtsivkovski.tk/api/kinematics/create/" + document.getElementById("name-input").value;
+                var createObjurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/create/" + document.getElementById("name-input").value;
 
                 fetch(createObjurl, options)
                 // response is a RESTful "promise" on any successful fetch
@@ -554,7 +554,7 @@
                 console.log("Deleting Object - Id: " + id);
 
                 // build url for fetch
-                var deleteObjurl = "https://frq.dtsivkovski.tk/api/physics/delete/" + id;
+                var deleteObjurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/delete/" + id;
 
                 fetch(deleteObjurl, options)
                 // response is a RESTful "promise" on any successful fetch
