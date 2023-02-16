@@ -34,7 +34,7 @@
       <th>"Moles"</th>
     </tr>
   </thead>
-  <tbody id = "Chemid"></tbody>
+  <tbody id = "ChemId"></tbody>
 </table>  
 
 <script>
@@ -43,7 +43,7 @@ const mass = document.getElementById("mass").value;
 const volume = document.getElementById("volume").value;
 const mw = document.getElementById("molecularWeight").value;
 
-const resultChemData = document.getElementbyId("Chemid");
+const resultChemData = document.getElementById("ChemId");
 
 var url = "https://frq.dtsivkovski.tk/api/Chem/create";
 
