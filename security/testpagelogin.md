@@ -11,6 +11,8 @@
 
 <button class="button1" onclick="logout()">Logout</button>
 
+<button class="button1" onclick="location.href='/DADY-Academy/security/signuppage'">I don't have an account</button>
+
 
 <script>
 

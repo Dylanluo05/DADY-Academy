@@ -33,7 +33,7 @@
 
 <button class="button1" onclick="signup()">Sign Up</button>
 
-<button class="button1" onclick="location.href('/DADY-Academy/security/testpagelogin')">I already have an account</button>
+<button class="button1" onclick="location.href='/DADY-Academy/security/testpagelogin'">I already have an account</button>
 
 
 <script>
