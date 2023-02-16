@@ -95,7 +95,6 @@ function logout() {
   });
   sessionStorage.setItem("username", "Guest");
   sessionStorage.setItem("token", null);
-  window.location.reload();
 
 }
 
