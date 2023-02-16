@@ -19,6 +19,7 @@ function login() {
   const password = document.getElementById("inputPassword").value;
 
   const url = "https://frq.dtsivkovski.tk/authenticate";
+  const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
   
   const options = {
     method: 'POST', 
@@ -32,6 +33,16 @@ function login() {
         "email" : email,
         "password" : password
     })
+  };
+
+  const optionsLogout = {
+    method: 'GET', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
+    headers: {
+        'Content-Type': 'application/json'
+    }
   };
 
   console.log(options);
@@ -68,7 +79,18 @@ function login() {
 }
 
 function logout() {
-  document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  fetch(logoutUrl, optionsLogout).then(response => {
+    console.log(response);
+
+    if (!response.ok) {
+          const errorMsg = 'Login error: ' + response.status;
+          console.log(errorMsg);
+          return; 
+      }
+
+    window.location.reload();
+
+  });
   sessionStorage.setItem("username", "Guest");
   sessionStorage.setItem("token", null);
   window.location.reload();
