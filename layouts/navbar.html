@@ -115,6 +115,10 @@
         </div>
         <div id = "right-sidebar">
             <p id = "right-sidebar-close-button">x</p>
+            <br/>
+            <div>
+                <p id="usernavbarwelcome">Welcome!</p>
+            </div>
             <div class = "right-sidebar-link-container" style = "margin-top: -15px;">
                 <a class = "right-sidebar-link" href = "/DADY-Academy/security/login.html">Login</a>
             </div>
@@ -154,6 +158,14 @@
                 $("#right-sidebar").children().animate({opacity: "0"}, {duration: 200, queue: true});
                 $("#right-sidebar").animate({width: "0px"}, {duration: 500, queue: true});
             }
+
+
+            if (sessionStorage.getItem("username") == null) {
+                document.getElementById("usernavbarwelcome").innerHTML = "Welcome!";
+            }
+
+
+            document.getElementById("usernavbarwelcome").innerHTML = "Welcome, " + sessionStorage.getItem("username") + "!";
 
         </script>
     </body>
