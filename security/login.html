@@ -32,7 +32,7 @@
         }
 
         .login-container {
-            height: 60vh;
+            height: 70vh;
             width: 25%;
             padding: 10px;
             background-color: whitesmoke;
@@ -76,16 +76,18 @@
                 <form>
                     <input class = "login-input" type = "email" name = "email" id = "email" placeholder = "Email"><br><br>
                     <input class = "login-input" type = "password" name = "password" id = "password" placeholder = "Password"><br><br>
-                    <input type = "submit" class = "login-button">
+                    <input type = "submit" class = "login-button" onclick="login()">
                 </form>
                 <br>
+                <button class="login-button" onclick="logout()">Logout</button>
+                <br>
                 <p style = "color: black; text-align: center;">Need an account?</p>
-                <a style = "color: blue; display: block; text-align: center; margin-top: -10px;" href = "/security/signup.html">Sign Up</a>
+                <a style = "color: blue; display: block; text-align: center; margin-top: -10px;" href = "/DADY-Academy/security/signup.html">Sign Up</a>
             </div>
         </div>
         <script>
             $(function() {
-                $("#navbar-content").load("/layouts/navbar.html");
+                $("#navbar-content").load("/DADY-Academy/layouts/navbar.html");
             });
 
             // const form = document.getElementById("login-form");
@@ -108,27 +110,92 @@
             //         alert("Invalid credentials");
             //     }
             // });
+function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-            const form = document.getElementById('Login-form');
-            form.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                const loginResponse = fetch('https://frq.dtsivkovski.tk/api/person./authenticate/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password }),
-                });
+  const url = "https://frq.dtsivkovski.tk/authenticate";
+  
+  const options = {
+    method: 'POST', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "email" : email,
+        "password" : password
+    })
+  };
 
-                // If the login was successful, the server will return a JWT
-                if (loginResponse.ok) { // Extract the JWT from the response
-                    const jwt = loginResponse.headers.get('Authorization').split(' ')[1];
-                    // Store the JWT in a cookie or in local storage
-                    localStorage.setItem('jwt', jwt);
-                    console.log(jwt)
-                }
-            });
+  console.log(options);
 
+  // fetch(url, options)
+  //   .then(response => console.log(response.text()))
+  //   .then(result => console.log(result))
+  //   .catch(error => console.log('error', error));
+
+
+  // Fetch JWT
+  fetch(url, options)
+  .then(response => {
+      // trap error response from Web API
+      if (!response.ok) {
+          const errorMsg = 'Login error: ' + response.status;
+          console.log(errorMsg);
+          return; 
+      }
+      // Success!!!
+      
+      sessionStorage.setItem("username", email);
+      window.location.reload();
+      // window.location.href = "{{site.baseurl}}/home";
+
+
+  })
+
+  
+}
+
+function logout() {
+  
+  const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
+  const optionsLogout = {
+    method: 'GET', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
+    headers: {
+        'Content-Type': 'application/json'
+    }
+  };
+
+
+  fetch(logoutUrl, optionsLogout).then(response => {
+    console.log(response);
+
+    if (!response.ok) {
+          const errorMsg = 'Login error: ' + response.status;
+          console.log(errorMsg);
+          return; 
+      }
+
+    window.location.reload();
+
+  });
+  sessionStorage.setItem("username", "Guest");
+  sessionStorage.setItem("token", null);
+
+}
+
+
+
+
+if (sessionStorage.getItem("username") == null) {
+  sessionStorage.setItem("username", "Guest");
+}
         </script>
     </body>
 </html>
