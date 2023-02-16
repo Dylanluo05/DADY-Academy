@@ -70,8 +70,8 @@
 <br>
 
 
-  <html>
-  <head>
+<html>
+<head>
     <style>
       table {
         font-family: arial, sans-serif;
@@ -121,6 +121,8 @@
     </table>
   </body>
 </html>
+
+<script>
 
 
 
