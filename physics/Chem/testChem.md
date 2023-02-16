@@ -1,108 +1,5 @@
 # Chem
 
-<body>
-<h1>Density and Moles Calculator</h1>
-    <form>
-      <label for="mass">Mass (g):</label>
-      <input type="number" id="mass" name="mass"><br><br>
-      <label for="volume">Volume (m^3):</label>
-      <input type="number" id="volume" name="volume"><br><br>
-      <label for="mw">Molecular weight (g):</label>
-      <input type="number" id="molecularWeight" name="mw"><br><br>
-      <button type="button" onclick="calculate()">Calculate Density and Moles</button>
-    </form>
-    <br><br>
-    <p id="result"></p>
-</body>
-
-<table>
-  <thead>
-    <tr>
-      <th>"id"</th>
-      <th>"User"</th>
-      <th>"mass"</th>
-      <th>"volume"</th>
-      <th>"Molecular Weight"</th>
-      <th>"Density"</th>
-      <th>"Moles"</th>
-    </tr>
-  </thead>
-  <tbody id = "ChemId"></tbody>
-</table>  
-
-<br><br>
-
-<script>
-  
-  const mass = document.getElementById("mass").value;
-  const volume = document.getElementById("volume").value;
-  const mw = document.getElementById("molecularWeight").value;
-  const resultChemData = document.getElementById("ChemId");
-
-  function calculate() {
-    
-    var url = "http://localhost:8679/api/Chem/create?mass=" + mass + "&volume=" + volume + "&molecularWeight=" + mw;
-
-    // const body = {
-    //   mass: mass,
-    //   volume: volume,
-    //   molecularWeight: molecularWeight
-    // };
-
-    fetch(url, {
-      method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'include', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error('Error calculating density');
-      }
-    })
-    .then(data => {
-      for(const rs of data) {
-        const tr = document.createElement("tr");
-        const id = document.createElement("td");
-        const user = document.createElement("td");
-        const mass = document.createElement("td");
-        const vol = document.createElement("td");
-        const mw = document.createElement("td");
-        const den = document.createElement("td");
-        const mole = document.createElement("td");
-
-        id.innerHTML = rs.id;
-        user.innerHTML = rs.owner;
-        mass.innerHTML = rs.mass;
-        vol.innerHTML = rs.volume;
-        mw.innerHTML = rs.molecularWeight;
-        den.innerHTML = rs.density;
-        mole.innerHTML = rs.mole;
-
-        tr.appendChild(id);
-        tr.appendChild(user);
-        tr.appendChild(mass);
-        tr.appendChild(vol);
-        tr.appendChild(mw);
-        tr.appendChild(den);
-        tr.appendChild(mole);
-
-        resultChemData.appendChild(tr);
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
-
-  }
-</script>
-
-
 <style>
   /* Existing styles */
   h1 {
@@ -156,32 +53,81 @@
   }
 </style>
 
-  <body>
-    <table>
+<body>
+<h1>Density and Moles Calculator</h1>
+<form id="input-form">
+  <label for="mass">Mass:</label>
+  <input type="number" id="mass" name="mass" required>
+  <br>
+  <label for="volume">Volume:</label>
+  <input type="number" id="volume" name="volume" required>
+  <br>
+  <label for="molecular-weight">Molecular weight:</label>
+  <input type="number" id="molecular-weight" name="molecular-weight" required>
+  <br>
+  <button type="submit">Calculate</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mass</th>
+      <th>Volume</th>
+      <th>Molecular weight</th>
+      <th>Density</th>
+      <th>Moles</th>
+    </tr>
+  </thead>
+  <tbody id="result-table-body"></tbody>
+</table>
+
+
+<br><br>
+
+<script>
+    const API_URL = "http://localhost:8679/api/Chem/create/"; // replace with actual API URL
+
+// function to handle form submission
+function handleFormSubmit(event) {
+  event.preventDefault(); // prevent default form submission behavior
+
+  // get input values from form
+  const mass = parseFloat(document.getElementById("mass").value);
+  const volume = parseFloat(document.getElementById("volume").value);
+  const molecularWeight = parseFloat(document.getElementById("molecular-weight").value);
+
+  // send input values to API and get results
+  const formData = new FormData();
+  formData.append("mass", mass);
+  formData.append("volume", volume);
+  formData.append("molecularWeight", molecularWeight);
+  fetch(API_URL, {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(result => {
+    // display results in table
+    const tableBody = document.getElementById("result-table-body");
+    tableBody.innerHTML = `
       <tr>
-        <th>Element</th>
-        <th>Symbol</th>
-        <th>Atomic Number</th>
+        <td>${mass}</td>
+        <td>${volume}</td>
+        <td>${molecularWeight}</td>
+        <td>${result.density}</td>
+        <td>${result.moles}</td>
       </tr>
-      <tr>
-        <td>Hydrogen</td>
-        <td>H</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Helium</td>
-        <td>He</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Lithium</td>
-        <td>Li</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Beryllium</td>
-        <td>Be</td>
-        <td>4</td>
-      </tr>
-      <!-- Add more rows for the rest of the elements in the periodic table -->
-    </table>
+    `;
+  })
+  .catch(error => {
+    console.error(error);
+    alert("An error occurred. Please try again later.");
+  });
+}
+
+// add event listener to form submit button
+const form = document.getElementById("input-form");
+form.addEventListener("submit", handleFormSubmit);
+
+</script>
+
