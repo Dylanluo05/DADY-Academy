@@ -43,16 +43,22 @@
             background-color: slategray;
             margin-left: 2.5%;
             overflow: auto;
+            padding-bottom: 20px;
         }
 
         .stem-library-box {
             width: 90%;
-            padding: 5px;
+            padding: 10px;
             background-color: whitesmoke;
-            display: block;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             margin: auto;
             margin-top: 20px;
             box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.7);
+            padding-bottom: 20px;
         }
         
         .right-triangle-1 {
@@ -106,6 +112,40 @@
             text-align: center;
         }
 
+        h4 {
+            font-weight: lighter;
+            margin-top: -10px;
+        }
+
+        .article-button {
+            height: 30px;
+            width: 250px;
+            background-color: white;
+            border: 2px solid royalblue;
+            color: royalblue;
+            margin-top: 10px;
+            transition-duration: 0.7s;
+        }
+
+        .article-button:hover {
+            background-color: royalblue;
+            color: white;
+        }
+
+        .study-guide-button {
+            height: 25px;
+            width: 200px;
+            background-color: crimson;
+            margin-top: -10px;
+            border: none;
+            color: white;
+            transition-duration: 0.7s;
+        }
+
+        .study-guide-button:hover {
+            background-color: coral;
+        }
+
     </style>
     <body>
         <div id = "stem-library-background-1">
@@ -135,11 +175,47 @@
                         <div class = "resource-sorter"><p>Top Rated</p></div>
                     </div>
                     <div class = "stem-library-box">
-                        <h3>AP Biology Formula Sheet</h3>
-                        <img src = "">
+                        <h3>Does adversity make you stronger? Scientists say not always</h3>
+                        <h4>By: Lindsey Tanner</h4>
+                        <img src = "https://storage.googleapis.com/afs-prod/media/2917ea338901469ab9011b5d37bc45ef/1000.jpeg" height = "200px;">
+                        <button class = "article-button" onclick = "location.href = 'https://apnews.com/article/resilience-stories-explained-fcab30647e942eaad904a5fb7b3879ae'">Link to article</button>
                     </div>
-                    <div class = "stem-library-box"></div>
-                    <div class  ="stem-library-box"></div>
+                    <div class = "stem-library-box">
+                        <h3>Don't feed the bears! But birds OK, new Tahoe research shows</h3>
+                        <h4>By: Scott Sonner</h4>
+                        <img src = "https://storage.googleapis.com/afs-prod/media/95e23d38fa934f609e22d99a416fc648/1000.webp" height = "200px;">
+                        <button class = "article-button" onclick = "location.href = 'https://apnews.com/article/science-biology-nevada-california-canada-99b2971884975062712acb75b69c4765'">Link to article</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>Nobel Prize for 3 chemists who made molecules ‘click’</h3>
+                        <h4>By: David Keyton, Frank Jordans, and Christina Larson</h4>
+                        <img src = "https://storage.googleapis.com/afs-prod/media/3b4f6c8254d6436eadf5146a1af03b56/1000.jpeg" height = "200px;">
+                        <button class = "article-button" onclick = "location.href = 'https://apnews.com/article/science-health-stockholm-chemistry-fd3521c6436c94fd6dd73f4e53d86d09'">Link to article</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>An ocean first: Underwater drone tracks CO2 in Alaska gulf</h3>
+                        <h4>By: Mark Thiessen</h4>
+                        <img src = "https://storage.googleapis.com/afs-prod/media/7945f18fd40c4630a330e66e5d190f8e/1000.jpeg" height = "200px;">
+                        <button class = "article-button" onclick = "location.href = 'https://apnews.com/article/climate-science-alaska-gulf-of-and-environment-a7870c0b8009db7be45185e825752736'">Link to article</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>3 physicists share Nobel Prize for work on quantum science</h3>
+                        <h4>By: Seth Borenstein, Maddie Burakoff, and Frank Jordans</h4>
+                        <img src = "https://storage.googleapis.com/afs-prod/media/0455e6e68fa345978d0a74c77558d1ca/1000.jpeg" height = "200px;">
+                        <button class = "article-button" onclick = "location.href = 'https://apnews.com/article/science-health-stockholm-nobel-prizes-e5dbe8322b2cfe33d2dc4ad1af393518'">Link to article</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>Key particle weighs in a bit heavy, confounding physicists</h3>
+                        <h4>By: Seth Borenstein</h4>
+                        <img src = "https://storage.googleapis.com/afs-prod/media/2f501d7c9e40437fa0fcd76d84581474/1000.jpeg" height = "200px;">
+                        <button class = "article-button" onclick = "location.href = 'https://apnews.com/article/science-physics-ae5eafd6a2e48f88f940e37b30e76d96'">Link to article</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h3>Are we alone? Nobel Prize goes to 3 who tackled cosmic query</h3>
+                        <h4>By: Seth Borenstein and David Keyton</h4>
+                        <img src = "https://storage.googleapis.com/afs-prod/media/79795e3dc5da4de0a01eff1f25b8b580/1000.jpeg" height = "200px;">
+                        <button class = "article-button" onclick = "location.href = 'https://apnews.com/article/ap-top-news-planets-international-news-science-nj-state-wire-2695caa732944d789a121b2b23d124ce'">Link to article</button>
+                    </div>
                 </div>
                 <div class = "stem-library-section">
                     <h2 style = "color: white; text-align: center; font-size: 30px;">Useful Resources</h2>
@@ -151,42 +227,67 @@
                     </div>
                     <div class = "stem-library-box">
                         <h3>AP Biology Formula Sheet</h3>
-                        <img src = "/assets/images/biologyformulas1.png" height = "380px" style = "display: block; margin: auto;">
+                        <img src = "/DADY-Academy/assets/images/biologyformulas1.png" height = "350px" style = "display: block; margin: auto;">
                     </div>
                     <div class = "stem-library-box">
                         <h3>AP Biology Formula Sheet (Continued)</h3>
-                        <img src = "/assets/images/biologyformulas2.png" height = "380px" style = "display: block; margin: auto;">
+                        <img src = "/DADY-Academy/assets/images/biologyformulas2.png" height = "350px" style = "display: block; margin: auto;">
                     </div>
                     <div class = "stem-library-box">
                         <h3>AP Chemistry Formula Sheet</h3>
-                        <img src = "/assets/images/chemistryformulas1.png" height = "380px" style = "display: block; margin: auto;">
+                        <img src = "/DADY-Academy/assets/images/chemistryformulas1.png" height = "350px" style = "display: block; margin: auto;">
                     </div>
                     <div class = "stem-library-box">
                         <h3>AP Chemistry Formula Sheet (Continued)</h3>
-                        <img src = "/assets/images/chemistryformulas2.png" height = "380px" style = "display: block; margin: auto;">
+                        <img src = "/DADY-Academy/assets/images/chemistryformulas2.png" height = "350px" style = "display: block; margin: auto;">
                     </div>
                     <div class = "stem-library-box">
                         <h3>AP Physics Formula Sheet</h3>
-                        <img src = "/assets/images/physicsformulas1.png" height = "380px" style = "display: block; margin: auto;">
+                        <img src = "/DADY-Academy/assets/images/physicsformulas1.png" height = "350px" style = "display: block; margin: auto;">
                     </div>
                     <div class = "stem-library-box">
                         <h3>AP Physics Formula Sheet (Continued)</h3>
-                        <img src = "/assets/images/physicsformulas2.png" height = "380px" style = "display: block; margin: auto;">
+                        <img src = "/DADY-Academy/assets/images/physicsformulas2.png" height = "350px" style = "display: block; margin: auto;">
                     </div>
                     <div class = "stem-library-box">
                         <h3>AP Physics Formula Sheet (Continued)</h3>
-                        <img src = "/assets/images/physicsformulas3.png" height = "380px" style = "display: block; margin: auto;">
+                        <img src = "/DADY-Academy/assets/images/physicsformulas3.png" height = "350px" style = "display: block; margin: auto;">
                     </div>
                 </div>
                 <div class = "stem-library-section" style = "height: 50%;">
-                    <h2 style = "color: white; text-align: center; font-size: 30px;">Test</h2>
+                    <h2 style = "color: white; text-align: center; font-size: 30px;">Study Guides</h2>
                     <hr style = "border: 1px solid white;">
+                    <div class = "resource-sorter-container">
+                        <div class = "resource-sorter" style = "margin-left: 0px; background-color: crimson; color: white;"><p>All</p></div>
+                        <div class = "resource-sorter"><p>Most Recent</p></div>
+                        <div class = "resource-sorter"><p>Top Rated</p></div>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h4 style = "margin-top: 20px; font-size: 25px;">EBSCO AP Biology Study Guide</h3>
+                        <button class = "study-guide-button" onclick = "location.href = 'https://support.ebsco.com/LEX/AP-Biology-Study-Guide.pdf'">Take Me There!</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h4 style = "margin-top: 20px; font-size: 25px;">EBSCO AP Chemistry Study Guide</h3>
+                        <button class = "study-guide-button" onclick = "location.href = 'https://support.ebsco.com/LEX/AP-Chemistry_Study-Guide.pdf'">Take Me There!</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h4 style = "margin-top: 20px; font-size: 25px;">Fiveable AP Chemistry Review Library</h3>
+                        <button class = "study-guide-button" onclick = "location.href = 'https://library.fiveable.me/ap-chem'">Take Me There!</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h4 style = "margin-top: 20px; font-size: 25px;">Albert AP Physics 1 Review Guide</h3>
+                        <button class = "study-guide-button" onclick = "location.href = 'https://www.albert.io/blog/ap-physics-1-review/'">Take Me There!</button>
+                    </div>
+                    <div class = "stem-library-box">
+                        <h4 style = "margin-top: 20px; font-size: 25px;">Study.com AP Physics C: Mechanics Exam Prep</h3>
+                        <button class = "study-guide-button" onclick = "location.href = 'https://study.com/academy/course/ap-physics-c.html'">Take Me There!</button>
+                    </div>
                 </div>
             </div>
         </div>
         <script>
             $(function() {
-                $("#navbar-content").load("/layouts/navbar.html");
+                $("#navbar-content").load("/DADY-Academy/layouts/navbar.html");
             });
 
             for (var i = 0; i < 3; i++) {
@@ -194,6 +295,9 @@
             }
             for (var j = 3; j < 6; j++) {
                 $(".resource-sorter").eq(j).on("click", resourceSorter2);
+            }
+            for (var x = 6; x < 9; x++) {
+                $(".resource-sorter").eq(x).on("click", resourceSorter3);
             }
 
             function resourceSorter1() {
@@ -219,6 +323,19 @@
                     }
                     $(".resource-sorter").eq(i + 3).animate({backgroundColor: "white"}, {duration: 500, queue: false});
                     $(".resource-sorter").eq(i + 3).animate({color: "black"}, {duration: 500, queue: false});
+                }
+            }
+
+            function resourceSorter3() {
+                var index = $(this).index();
+                $(".resource-sorter").eq(index + 6).animate({backgroundColor: "#DC143C"}, {duration: 500, queue: false});
+                $(".resource-sorter").eq(index + 6).animate({color: "white"}, {duration: 500, queue: false});
+                for (var i = 0; i < 3; i++) {
+                    if (i + 6 == index + 6) {
+                        continue;
+                    }
+                    $(".resource-sorter").eq(i + 6).animate({backgroundColor: "white"}, {duration: 500, queue: false});
+                    $(".resource-sorter").eq(i + 6).animate({color: "black"}, {duration: 500, queue: false});
                 }
             }
 

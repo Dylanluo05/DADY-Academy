@@ -1,6 +1,5 @@
 # Chem
 
-
 <html>
   <head>
     <title>Density and Moles Calculator</title>
@@ -34,7 +33,7 @@
       <th>"Moles"</th>
     </tr>
   </thead>
-  <tbody id = "Chemid"></tbody>
+  <tbody id = "ChemId"></tbody>
 </table>  
 
 <script>
@@ -43,9 +42,9 @@ const mass = document.getElementById("mass").value;
 const volume = document.getElementById("volume").value;
 const mw = document.getElementById("molecularWeight").value;
 
-const resultChemData = document.getElementbyId("Chemid");
+const resultChemData = document.getElementById("ChemId");
 
-var url = "https://frq.dtsivkovski.tk/api/Chem/create/";
+var url = "https://frq.dtsivkovski.tk/api/Chem/create";
 
 const body = {
   mass: mass,
@@ -106,81 +105,122 @@ fetch(url, {
 
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
+  /* Existing styles */
+  h1 {
+    color: blue;
+    text-align: center;
+  }
+  form {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  label {
+    margin-right: 10px;
+  }
+  #result {
     text-align: center;
   }
   
-  input[type="number"] {
-    width: 150px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
+  /* Additional styles */
+  input[type="obj"],
+  input[type="number"],
+  button {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    margin-bottom: 10px;
   }
   
   button {
-    width: 150px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #4CAF50;
+    background-color: blue;
     color: white;
-  }
-  
-  button:hover {
-    background-color: #45a049;
+    cursor: pointer;
   }
 </style>
 
 
-<table id="periodic-table">
-  <tr>
-    <td class="element" id="H"></td>
-    <td class="element" id="He"></td>
-  </tr>
-  <tr>
-    <td class="element" id="Li"></td>
-    <td class="element" id="Be"></td>
-  </tr>
-</table>
-
- <title>Chemical Calculations Cheat Sheet</title>
 </head>
 <body>
-  <h1>Chemical Calculations Cheat Sheet</h1>
-  
-  <h2>Molar mass</h2>
-  <p>The molar mass of a substance is the mass of one mole of that substance.</p>
-  
-  <h2>Molar volume</h2>
-  <p>The molar volume of a gas is the volume occupied by one mole of that gas at standard temperature and pressure (STP).</p>
-  
-  <h2>Ideal gas law</h2>
-  
-<p>The ideal gas law states that the pressure, volume, and temperature of a gas are related by the equation:</p>
-  
-  <p>PV = nRT</p>
-  
-  <p>Where:</p>
-  <ul>
-    <li>P = pressure (in atm)</li>
-    <li>V = volume (in L)</li>
-    <li>n = number of moles of gas</li>
-    <li>R = ideal gas constant (0.0821 L atm/mol K)</li>
-    <li>T = temperature (in K)</li>
-  </ul>
-  
-  <h2>Density</h2>
-  <p>Density is the mass per unit volume of a substance. It can be calculated using the equation:</p>
-  
-  <p>density = mass/volume</p>
-  
-  <p>The SI unit of density is kg/m<sup>3</sup>.</p>
-  
-</body>
+  <h1>Density Calculator</h1>
+  <form>
+    <label for="obj">Object name (g):</label>
+    <input type="obj" id="obj" name="obj"><br><br>
+    <label for="mass">Mass (g):</label>
+    <input type="number" id="mass" name="mass"><br><br>
+    <label for="volume">Volume (mL):</label>
+    <input type="number" id="volume" name="volume"><br><br>
+    <button type="button" onclick="calculateDensity()">Calculate Density</button>
+  </form>
+  <br><br>
+
+  <h1>Moles Calculator</h1>
+
+  <form>
+    <label for="obj">Object name (g):</label>
+    <input type="obj" id="obj" name="obj"><br><br>
+    <label for="mass">Molecular weight (g):</label>
+    <input type="number" id="mass" name="mass"><br><br>
+    
+    <button type="button" onclick="calculatemoles()">Calculate Moles</button>
+  </form>
+
+<br>
+<br>
+<br>
+
+
+  <html>
+  <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Element</th>
+        <th>Symbol</th>
+        <th>Atomic Number</th>
+      </tr>
+      <tr>
+        <td>Hydrogen</td>
+        <td>H</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Helium</td>
+        <td>He</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Lithium</td>
+        <td>Li</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>Beryllium</td>
+        <td>Be</td>
+        <td>4</td>
+      </tr>
+      <!-- Add more rows for the rest of the elements in the periodic table -->
+    </table>
+  </body>
 </html>
 

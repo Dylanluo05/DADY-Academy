@@ -11,6 +11,8 @@
 
 <button class="button1" onclick="logout()">Logout</button>
 
+<button class="button1" onclick="location.href='/DADY-Academy/security/signuppage'">I don't have an account</button>
+
 
 <script>
 
@@ -19,7 +21,6 @@ function login() {
   const password = document.getElementById("inputPassword").value;
 
   const url = "https://frq.dtsivkovski.tk/authenticate";
-  const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
   
   const options = {
     method: 'POST', 
@@ -33,16 +34,6 @@ function login() {
         "email" : email,
         "password" : password
     })
-  };
-
-  const optionsLogout = {
-    method: 'GET', 
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'include', // include, *same-origin, omit
-    headers: {
-        'Content-Type': 'application/json'
-    }
   };
 
   console.log(options);
@@ -79,6 +70,19 @@ function login() {
 }
 
 function logout() {
+  
+  const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
+  const optionsLogout = {
+    method: 'GET', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
+    headers: {
+        'Content-Type': 'application/json'
+    }
+  };
+
+
   fetch(logoutUrl, optionsLogout).then(response => {
     console.log(response);
 
@@ -93,7 +97,6 @@ function logout() {
   });
   sessionStorage.setItem("username", "Guest");
   sessionStorage.setItem("token", null);
-  window.location.reload();
 
 }
 
