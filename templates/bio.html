@@ -389,17 +389,17 @@
             var storedinfo;
             var dominantPercentage = 0;
             var recessivePercentage = 0;
+            var square1Combination = "";
+            var square2Combination = "";
+            var square3Combination = "";
+            var square4Combination = "";
 
             $("#punnett-square-form").on("submit", punnettUpdate);
             function punnettUpdate() {
                 event.preventDefault();
                 var formData = $("#punnett-square-form").serializeArray();
                 console.log(formData);
-                var square1Combination = "";
-                var square2Combination = "";
-                var square3Combination = "";
-                var square4Combination = "";
-                var squareCombinations = [];
+                
 
                 var url = "https://frq.dtsivkovski.tk/api/bio/punnett/create/" + formData[0].value + "/" + formData[1].value + "/" + formData[2].value + "/" + formData[3].value;
 
@@ -420,11 +420,12 @@
                     response.json().then(data => {
                         console.log(data);
                         console.log("" + data.genoTable[0] + data.genoTable[1] + data.genoTable[2] + data.genoTable[3]);
-                        square1Combination = data.genoTable[0];
-                        square2Combination = data.genoTable[1];
-                        square3Combination = data.genoTable[2];
-                        square4Combination = data.genoTable[3];
-                        dominantPercentage = data.probDominant * 100;
+                        document.getElementById("square-1").innerHTML = data.genoTable[0];
+                        document.getElementById("square-2").innerHTML = data.genoTable[1];
+                        document.getElementById("square-3").innerHTML = data.genoTable[2];
+                        document.getElementById("square-4").innerHTML = data.genoTable[3];
+                        document.getElementById("dominant-percentage-display").innerHTML = "Chance of inheriting dominant trait: " + data.probDominant * 100 + "%";
+                        document.getElementById("recessive-percentage-display").innerHTML = "Chance of inheriting recessive trait: " + data.probRecessive * 100 + "%";
                         recessivePercentage = data.probRecessive * 100;
 
                         console.log(square1Combination);
@@ -438,13 +439,13 @@
                 // square2.innerHTML = square2Combination;
                 // square3.innerHTML = square3Combination;
                 // square4.innerHTML = square4Combination;
-                square1.innerHTML = "Hello World";
+                // square1.innerHTML = "Hello World";
 
 
-                var dominantPercentageDisplay = document.getElementById("dominant-percentage-display");
-                var recessivePercentageDisplay = document.getElementById("recessive-percentage-display");
-                dominantPercentageDisplay.innerHTML = "Chance of inheriting dominant trait: " + dominantPercentage + "%";
-                recessivePercentageDisplay.innerHTML = "Chance of inheriting recessive trait: " + recessivePercentage + "%"; 
+                // var dominantPercentageDisplay = document.getElementById("dominant-percentage-display");
+                // var recessivePercentageDisplay = document.getElementById("recessive-percentage-display");
+                // dominantPercentageDisplay.innerHTML = "Chance of inheriting dominant trait: " + dominantPercentage + "%";
+                // recessivePercentageDisplay.innerHTML = "Chance of inheriting recessive trait: " + recessivePercentage + "%"; 
                 document.getElementById("punnett-square-form").reset();
             }
             var hardyWeinbergInputs = document.getElementById("hardy-weinberg-inputs");
