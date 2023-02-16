@@ -1,6 +1,6 @@
 # Physics Energy Calculator
 
-## Not logged in? - [Login Now](/DADY-Academy/security/login)
+## Looking for the [Kinematics Calculator](/DADY-Academy/templates/phys.html)?
 
 <style>
 
