@@ -14,8 +14,8 @@
 <button class="button1" onclick="location.href='/DADY-Academy/security/signuppage'">I don't have an account</button>
 
 
-<script>
 
+<script>
 function login() {
   const email = document.getElementById("inputEmail").value;
   const password = document.getElementById("inputPassword").value;
