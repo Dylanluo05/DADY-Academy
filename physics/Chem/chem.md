@@ -45,7 +45,7 @@ const mw = document.getElementById("molecularWeight").value;
 
 const resultChemData = document.getElementbyId("Chemid");
 
-var url = "https://frq.dtsivkovski.tk/api/Chem/create/";
+var url = "https://frq.dtsivkovski.tk/api/Chem/create";
 
 const body = {
   mass: mass,
