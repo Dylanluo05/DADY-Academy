@@ -419,6 +419,7 @@
                     // valid response will contain json data
                     response.json().then(data => {
                         console.log(data);
+                        console.log("" + data.genoTable[0] + data.genoTable[1] + data.genoTable[2] + data.genoTable[3]);
                         square1Combination = data.genoTable[0];
                         square2Combination = data.genoTable[1];
                         square3Combination = data.genoTable[2];
