@@ -160,7 +160,7 @@ hr.cardhr {
     const history = document.getElementById("history");
     const histable = document.getElementById("histable");
 
-    var url = "https://frq.dtsivkovski.tk/api/physics/get/";
+    var url = "https://frq.dtsivkovski.tk/api/physics/energy/get/";
     // Uncomment next line for localhost testing
     // url = "http://localhost:8085/api/person/";
 
@@ -332,7 +332,7 @@ hr.cardhr {
         console.log("Calculating KE for Object - Id: " + id);
 
         // build url for fetch
-        var calcKEurl = "https://frq.dtsivkovski.tk/api/physics/calculateKE/" + id + "/" + document.getElementById("velocity-input").value;
+        var calcKEurl = "https://frq.dtsivkovski.tk/api/physics/energy/calculateKE/" + id + "/" + document.getElementById("velocity-input").value;
 
         fetch(calcKEurl, options)
         // response is a RESTful "promise" on any successful fetch
@@ -370,7 +370,7 @@ hr.cardhr {
         console.log("Calculating PE for Object - Id: " + id);
 
         // build url for fetch
-        var calcPEurl = "https://frq.dtsivkovski.tk/api/physics/calculatePE/" + id + "/" + document.getElementById("gravity-input").value + "/" + document.getElementById("height-input").value;
+        var calcPEurl = "https://frq.dtsivkovski.tk/api/physics/energy/calculatePE/" + id + "/" + document.getElementById("gravity-input").value + "/" + document.getElementById("height-input").value;
 
         fetch(calcPEurl, options)
         // response is a RESTful "promise" on any successful fetch
@@ -407,7 +407,7 @@ hr.cardhr {
         console.log("Creating Object");
 
         // build url for fetch
-        var createObjurl = "https://frq.dtsivkovski.tk/api/physics/create/" + document.getElementById("mass-input").value;
+        var createObjurl = "https://frq.dtsivkovski.tk/api/physics/energy/create/" + document.getElementById("mass-input").value;
 
         fetch(createObjurl, options)
         // response is a RESTful "promise" on any successful fetch
@@ -436,7 +436,7 @@ hr.cardhr {
         console.log("Deleting Object - Id: " + id);
 
         // build url for fetch
-        var deleteObjurl = "https://frq.dtsivkovski.tk/api/physics/delete/" + id;
+        var deleteObjurl = "https://frq.dtsivkovski.tk/api/physics/energy/delete/" + id;
 
         fetch(deleteObjurl, options)
         // response is a RESTful "promise" on any successful fetch
@@ -474,7 +474,7 @@ hr.cardhr {
         console.log("Deleting History - Id: " + selectedObj);
 
         // build url for fetch
-        var scrubHistoryurl = "https://frq.dtsivkovski.tk/api/physics/scrub/" + selectedObj;
+        var scrubHistoryurl = "https://frq.dtsivkovski.tk/api/physics/energy/scrub/" + selectedObj;
 
         fetch(scrubHistoryurl, options)
         // response is a RESTful "promise" on any successful fetch
