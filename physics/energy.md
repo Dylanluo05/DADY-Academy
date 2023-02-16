@@ -1,6 +1,6 @@
 # Physics Energy Calculator
 
-## Not logged in? - [Login Now](/DADY-Academy/security/testpagelogin)
+## Not logged in? - [Login Now](/DADY-Academy/security/login)
 
 <style>
 
