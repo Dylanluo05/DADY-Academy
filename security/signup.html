@@ -310,9 +310,11 @@
                 const chem = document.getElementById("chemBool").checked;
                 const phys = document.getElementById("physBool").checked;
 
+                console.log("" + stats + bio + chem + phys);
+
                 const url = "https://frq.dtsivkovski.tk/register";
             
-            const options = {
+            var options = {
                 method: 'POST', 
                 mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -364,7 +366,7 @@
 
                 const url = "https://frq.dtsivkovski.tk/authenticate";
                 
-                const options = {
+                var options = {
                     method: 'POST', 
                     mode: 'cors', // no-cors, *cors, same-origin
                     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
