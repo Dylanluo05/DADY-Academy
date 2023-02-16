@@ -43,18 +43,20 @@
     
     var url = "http://localhost:8679/api/Chem/create?mass=" + mass + "&volume=" + volume + "&molecularWeight=" + mw;
 
-    const body = {
-      mass: mass,
-      volume: volume,
-      molecularWeight: molecularWeight
-    };
+    // const body = {
+    //   mass: mass,
+    //   volume: volume,
+    //   molecularWeight: molecularWeight
+    // };
 
     fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        }
     })
     .then(response => {
       if (response.ok) {
