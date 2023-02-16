@@ -1,11 +1,7 @@
 # Chem
 
-<html>
-  <head>
-    <title>Density and Moles Calculator</title>
-  </head>
-  <body>
-    <h1>Density and Moles Calculator</h1>
+<body>
+<h1>Density and Moles Calculator</h1>
     <form>
       <label for="mass">Mass (g):</label>
       <input type="number" id="mass" name="mass"><br><br>
@@ -17,9 +13,7 @@
     </form>
     <br><br>
     <p id="result"></p>
-
-  </body>
-</html>
+</body>
 
 <table>
   <thead>
@@ -35,6 +29,8 @@
   </thead>
   <tbody id = "ChemId"></tbody>
 </table>  
+
+<br><br>
 
 <script>
 function calculate() {
@@ -139,59 +135,24 @@ fetch(url, {
     color: white;
     cursor: pointer;
   }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 </style>
 
-
-</head>
-<body>
-  <h1>Density Calculator</h1>
-  <form>
-    <label for="obj">Object name (g):</label>
-    <input type="obj" id="obj" name="obj"><br><br>
-    <label for="mass">Mass (g):</label>
-    <input type="number" id="mass" name="mass"><br><br>
-    <label for="volume">Volume (mL):</label>
-    <input type="number" id="volume" name="volume"><br><br>
-    <button type="button" onclick="calculateDensity()">Calculate Density</button>
-  </form>
-  <br><br>
-
-  <h1>Moles Calculator</h1>
-
-  <form>
-    <label for="obj">Object name (g):</label>
-    <input type="obj" id="obj" name="obj"><br><br>
-    <label for="mass">Molecular weight (g):</label>
-    <input type="number" id="mass" name="mass"><br><br>
-    
-    <button type="button" onclick="calculatemoles()">Calculate Moles</button>
-  </form>
-
-<br>
-<br>
-<br>
-
-
-  <html>
-  <head>
-    <style>
-      table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-    </style>
-  </head>
   <body>
     <table>
       <tr>
@@ -221,6 +182,5 @@ fetch(url, {
       </tr>
       <!-- Add more rows for the rest of the elements in the periodic table -->
     </table>
-  </body>
-</html>
+
 
