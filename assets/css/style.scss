@@ -30,7 +30,7 @@ a {
 }
 
 blockquote {
-  border-left: 3px solid $jellow;
+  border-left: 3px solid $red;
 }
 
 input[type=text], input[type=email], input[type=password], input[type=number], select {
@@ -38,7 +38,7 @@ input[type=text], input[type=email], input[type=password], input[type=number], s
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: 2px solid $jellow;
+  border: 2px solid white;
   border-radius: 4px;
   background-color: black;
   color: white;
