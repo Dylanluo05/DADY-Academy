@@ -289,17 +289,18 @@
                 }
             }
 
-            const name = "";
-            const email = "";
+            
+            var email = "";
+            var password = "";
 
             function signup() {
                 event.preventDefault();
 
-                name = document.getElementById("name").value;
+                const name = document.getElementById("name").value;
                 email = document.getElementById("email").value;
                 
-                const password = document.getElementById("password").value;
-                const cpassword = document.getElementById("cpassword").value;
+                password = document.getElementById("password").value;
+                var cpassword = document.getElementById("cpassword").value;
                 if (password != cpassword) {
                     alert("Passwords do not match!");
                     return;
