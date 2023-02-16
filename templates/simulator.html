@@ -22,7 +22,7 @@
         h1 {
             font-family: 'Oswald', sans-serif;
             font-size: 48px;
-            color: white;
+            color: black;
             transition-duration: 0.4s;
         }
 
@@ -62,6 +62,39 @@
             z-index: 3;
         }
 
+        .simulator-selection-container-outer, .simulator-selection-container-inner {
+            position: absolute;
+            top: 75px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .simulator-selection-container-outer {
+            height: 80%;
+            width: 60%;
+            background-color: gray;
+            opacity: 0.7;
+            display: flex;
+            margin: auto;
+            z-index: 1;
+        }
+
+        .simulator-selection-container-inner {
+            height: 65%;
+            width: 50%;
+            background-color: white;
+            display: block;
+            margin: auto;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        .subject-image {
+            height: 150px;
+            width: 250px;
+        }
+
     </style>
     <body>
         <div id = "simulator-background-1">
@@ -69,6 +102,14 @@
             <div class = "simulator-background-1-overlay"></div>
             <div class = "simulator-background-1-content">
                 <div id = "navbar-content"></div>
+                <div class = "simulator-selection-container-outer"></div>
+                <div class = "simulator-selection-container-inner">
+                    <h1 style = "text-align: center; margin-top: -5px;">Simulator</h1>
+                    <img class = "subject-image" src = "/assets/images/biology.jpg">
+                    <img class = "subject-image" src = "/assets/images/chemistry.jpg">
+                    <img class = "subject-image" src = "/assets/images/statistics.jpg">
+                    <img class = "subject-image" src = "/assets/images/physics.jpg">
+                </div>   
             </div>
         </div>
         <script>
