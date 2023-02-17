@@ -44,7 +44,7 @@
         }
 
         .physics-background-1-image {
-            height: 650px;
+            height: 500px;
             background: url("https://images.pexels.com/photos/8472938/pexels-photo-8472938.jpeg?auto=compress&cs=tinysrgb&w=800");
             background-size: cover;
             background-position: center center;
@@ -54,14 +54,14 @@
         }
 
         .physics-background-1-overlay {
-            height: 650px;
+            height: 500px;
             background-color: black;
             opacity: 0.7;
             z-index: 2;
         }
 
         .physics-background-1-content {
-            height: 650px;
+            height: 500px;
             position: relative;
             z-index: 3;
         }
@@ -80,7 +80,7 @@
         }
 
         .physics-background-2-image {
-            height: 850px;
+            height: 1500px;
             background: url("https://images.pexels.com/photos/6208704/pexels-photo-6208704.jpeg?auto=compress&cs=tinysrgb&w=600");
             background-size: cover;
             background-position: center center;
@@ -90,14 +90,14 @@
         }
 
         .physics-background-2-overlay {
-            height: 850px;
+            height: 1500px;
             background-color: #282828;
             opacity: 0.7;
             z-index: 2;
         }
 
         .physics-background-2-content {
-            height: 850px;
+            height: 1500px;
             position: relative;
             z-index: 3;
         }
@@ -153,9 +153,6 @@
             color: white;
         }
 
-
-
-
         .objectcards {
             display: flex;
             flex-wrap: wrap;
@@ -186,16 +183,15 @@
         }
 
         .objectcardbutton {
-            background-color: white;
-            color: black;
-            border: 1px solid white;
+            background-color: navy;
+            color: white;
+            border: none;
             margin: 0.5em;
             padding: 0.75em;
-            background-image: none;
+            transition-duration: 0.7s;
         }
         .objectcardbutton:hover {
-            border: 1px solid white;
-            background-color: #e5e5e5;
+            background-color: royalblue;
         }
 
         .selectedobjectcardbutton {
@@ -209,25 +205,25 @@
         }
 
         .maincard {
-            width: 95%;
+            width: 45%;
             margin: 10px;
             padding: 2em;
-            border: 1px solid white;
-            border-radius: 10px;
-            background-image: linear-gradient(to right, purple, navy);
+            border: none;
+            background-color: white;
         }
 
         .createcard {
-            width: 95%;
+            width: 40%;
             margin: 10px;
             padding: 2em;
             border: 1px solid white;
             border-radius: 10px;
-            background-image: linear-gradient(to right, red, purple);
         }
 
         .maintitle{
-            color: white;
+            font-size: 40px;
+            font-weight: lighter;
+            color: black;
         }
 
         input[type=text] {
@@ -247,8 +243,7 @@
         hr.cardhr {
             height:2px;
             border-width:0;
-            color:white;
-            background-color:white
+            background-color: black;
         }
 
     </style>
@@ -273,78 +268,57 @@
             <div class = "physics-background-2-overlay"></div>
             <div class = "physics-background-2-content">
                 <h2 style = "margin: 0; position: relative; top: 50px; text-align: center; font-size: 50px; font-weight: lighter;">Kinematics</h2>
-                <form id = "kinematics-form">
-                    <label for = "known-values">Which values are known?</label>  
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "checkbox" name = "known-values" value = "initial-velocity"><p>Initial Velocity</p> 
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "checkbox" name = "known-values" value = "final-velocity"><p>Final Velocity</p>
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "checkbox" name = "known-values" value = "acceleration"><p>Acceleration</p>
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "checkbox" name = "known-values" value = "displacement"><p>Displacement</p>
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "checkbox" name = "known-values" value = "time"><p>Time</p>
-                    </div>
-                    <label for = "initial-velocity-value">What is the value of the initial velocity (If known, otherwise leave blank)</label>
-                    <input type = "text" name = "initial-velocity-value" class = "kinematics-input">
-                    <label for = "final-velocity-value">What is the value of the final velocity (If known, otherwise leave blank)</label>
-                    <input type = "text" name = "final-velocity-value" class = "kinematics-input">
-                    <label for = "acceleration-value">What is the value of the acceleration (If known, otherwise leave blank)</label>
-                    <input type = "text" name = "acceleration-value" class = "kinematics-input">
-                    <label for = "displacement-value">What is the value of the displacement (If known, otherwise leave blank)</label>
-                    <input type = "text" name = "displacement-value" class = "kinematics-input">
-                    <label for = "time-value">What is the value of the time (If known, otherwise leave blank)</label>
-                    <input type = "text" name = "time-value" class = "kinematics-input">
-                    <label for = "unknown-value">What is the value you want to find?</label>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "radio" name = "unknown-value" value = "initial-velocity"><p>Initial Velocity</p> 
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "radio" name = "unknown-value" value = "final-velocity"><p>Final Velocity</p>
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "radio" name = "unknown-value" value = "acceleration"><p>Acceleration</p>
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "radio" name = "unknown-value" value = "displacement"><p>Displacement</p>
-                    </div>
-                    <div style = "width: 150px; display: block; margin: auto;">
-                        <input type = "radio" name = "unknown-value" value = "time"><p>Time</p>
-                    </div>
-                    <input type = "submit" id = "kinematics-button" value = "Calculate">
-                </form>
-
-                <div class="objectcards">
+                <div class="objectcards" style = "margin-top: 60px;">
                     <div class="maincard">
                         <h1 class="maintitle" id="mainTitle">No Currently Selected Object</h1>
-                        <h3 class="maintitle" id="mainMass"></h3>
-                        <h3 class="maintitle" id="mainRecKE"></h3>
-                        <h3 class="maintitle" id="mainRecPE"></h3>
+                        <h3 class="maintitle" id="mainName"></h3>
+                        <h3 class="maintitle" id="mainKinematics"></h3>
                         <hr class="cardhr">
-                        <h3 class="maintitle"> Calculate KE </h3>
-                        <div style="white-space: nowrap;">
-                            <input placeholder="Velocity (v) value" style="width:65%; display: inline-block;" type="text" id="velocity-input" name="Velocity">
-                            <button id="calcKEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate </button>
+                        <h3 class="maintitle"> Calculate Kinematics </h3>
+                        <label for = "known-values" style = "margin-top: -15px;">Which values are known?</label>  
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "checkbox" name = "known-values" id = "vi-known" value = "initial-velocity"><p>Initial Velocity</p> 
                         </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "checkbox" name = "known-values" id = "vf-known" value = "final-velocity"><p>Final Velocity</p>
+                        </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "checkbox" name = "known-values" id = "a-known" value = "acceleration"><p>Acceleration</p>
+                        </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "checkbox" name = "known-values" id = "x-known" value = "displacement"><p>Displacement</p>
+                        </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "checkbox" name = "known-values" id = "t-known" value = "time"><p>Time</p>
+                        </div>
+                        <label for = "initial-velocity-value">What is the value of the initial velocity (If known, otherwise leave blank)</label>
+                        <input type = "text" name = "initial-velocity-value" id = "initial-velocity-value" class = "kinematics-input">
+                        <label for = "final-velocity-value">What is the value of the final velocity (If known, otherwise leave blank)</label>
+                        <input type = "text" name = "final-velocity-value" id = "final-velocity-value" class = "kinematics-input">
+                        <label for = "acceleration-value">What is the value of the acceleration (If known, otherwise leave blank)</label>
+                        <input type = "text" name = "acceleration-value" id = "acceleration-value" class = "kinematics-input">
+                        <label for = "displacement-value">What is the value of the displacement (If known, otherwise leave blank)</label>
+                        <input type = "text" name = "displacement-value" id = "displacement-value" class = "kinematics-input">
+                        <label for = "time-value">What is the value of the time (If known, otherwise leave blank)</label>
+                        <input type = "text" name = "time-value" id = "time-value" class = "kinematics-input">
+                        <label for = "unknown-value">What is the value you want to find?</label>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "radio" name = "unknown-value" id = "initial-velocity-unknown" value = "Initial Velocity"><p>Initial Velocity</p> 
+                        </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "radio" name = "unknown-value" id = "final-velocity-unknown" value = "Final Velocity"><p>Final Velocity</p>
+                        </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "radio" name = "unknown-value" id = "acceleration-unknown" value = "Acceleration"><p>Acceleration</p>
+                        </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "radio" name = "unknown-value" id = "displacement-unknown" value = "Displacement"><p>Displacement</p>
+                        </div>
+                        <div style = "width: 150px; display: block; margin: auto;">
+                            <input type = "radio" name = "unknown-value" id = "time-unknown" value = "Time"><p>Time</p>
+                        </div>
+                        <input type = "submit" id = "kinematics-button" value = "Calculate">
                         <br>
-                        <h3 class="maintitle"> Calculate PE </h3>
-                        <div style="white-space: nowrap;">
-                            <input placeholder="Gravity (g) value" style="width:32%; display: inline-block;" type="text" id="gravity-input" name="Gravity">
-                            <input placeholder="Height (h) value" style="width:32%; display: inline-block;" type="text" id="height-input" name="Height">
-                            <button id="calcPEbutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate </button>
-                        </div>
-                        <br>
-                        <button id="historybutton" class="objectcardbutton" onclick="toggleHistory()"> Show History </button>
-                        <div id="history" style="display: none;">
-                            <table id="histable">
-                            </table>
-                            <button style="border: 1px solid red; background-color: red; display: none;" id="clearhistorybutton" class="objectcardbutton" onclick="scrubHistory()"> Clear History </button>
-                        </div>
                     </div>
                 </div>
                 <br>
@@ -356,9 +330,9 @@
                     
                 <div class="objectcards">
                     <div class="createcard">
-                        <h1 class="maintitle">Create an object</h1>
+                        <h1 class="maintitle" style = "color: white">Create an object</h1>
                         <div style="white-space: nowrap;">
-                            <input placeholder="Mass (m) value" style="width:65%; display: inline-block;" type="text" id="mass-input" name="Object Mass">
+                            <input placeholder="Name of object" style="width:65%; display: inline-block;" type="text" id="name-input" name="Object Mass">
                             <button id="createbutton" style="width:33%; display: inline-block;" class="objectcardbutton" onclick="createObj();"> Create  </button>
                         </div>
                     </div>
@@ -367,10 +341,10 @@
         </div>
         <script>
             $(function(){
-                $("#navbar-content").load("/layouts/navbar.html");
+                $("#navbar-content").load("/DADY-Academy/layouts/navbar.html");
             });
 
-            var url = "https://frq.dtsivkovski.tk/api/physics/get/";
+            var url = "https://frq.dtsivkovski.tk/api/physics/kinematics/get/";
             const options = {
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
@@ -384,14 +358,9 @@
             var storedinfo;
             var cardholder = document.getElementById("cardholder");
             var mTitle = document.getElementById("mainTitle");
-            var mMass = document.getElementById("mainMass");
-            var mRecKE = document.getElementById("mainRecKE");
-            var mRecPE = document.getElementById("mainRecPE");
-            var calcKEbutton = document.getElementById("calcKEbutton");
-            var calcPEbutton = document.getElementById("calcPEbutton");
-            var historybutton = document.getElementById("historybutton");
-            var history = document.getElementById("history");
-            var histable = document.getElementById("histable");
+            var mName = document.getElementById("mainName");
+            var mKinematics = document.getElementById("mainKinematics");
+            var calcKinematicsButton = document.getElementById("calcKinematicsButton");
 
             function getAllObjects() {
             // fetch the API
@@ -427,17 +396,14 @@
                             // create elements for card
                             const h3 = document.createElement("h3");
                             h3.innerHTML = "Object #" + row.id;
-                            const mass = document.createElement("p");
-                            mass.innerHTML = "Mass: " + row.mass + "kg";
-                            const recKE = document.createElement("p");
-                            recKE.innerHTML = "Recent KE Calc: " + row.recentKE;
-                            const recPE = document.createElement("p");
-                            recPE.innerHTML = "Recent PE Calc: " + row.recentPE;
+                            const name = document.createElement("p");
+                            name.innerHTML = "Name: " + row.name;
+                            const kinematics = document.createElement("p");
+                            kinematics.innerHTML = "Recent KE Calc: " + row.recentKinematics;
 
                             card.appendChild(h3);
-                            card.appendChild(mass);
-                            card.appendChild(recKE);
-                            card.appendChild(recPE);
+                            card.appendChild(name);
+                            card.appendChild(kinematics);
                             
                             const buttonholder = document.createElement("div");
                             buttonholder.style.whiteSpace = "nowrap";
@@ -495,9 +461,8 @@
                 for (const row of storedinfo) {
                     if (row.id == id) {
                         mTitle.innerHTML = "Object #" + row.id;
-                        mMass.innerHTML = "Mass: " + row.mass + "kg";
-                        mRecKE.innerHTML = "Recent KE Calc: " + row.recentKE;
-                        mRecPE.innerHTML = "Recent PE Calc: " + row.recentPE;
+                        mName.innerHTML = "Name: " + row.name;
+                        mKinematics.innerHTML = "Recent KE Calc: " + row.recentKinematics;
 
                         var tempOB = document.getElementById("objbutton" + row.id);
                         tempOB.innerHTML = "Selected";
@@ -506,51 +471,34 @@
                         selectedObj = row.id;
 
                         // remove old event listener and add new one
-                        calcKEbutton.onclick = function() {
-                            calcKE(row.id);
+                        calcKinematicsButton.onclick = function() {
+                            calcKinematics(row.id);
                         };
-
-                        calcPEbutton.onclick = function() {
-                            calcPE(row.id);
-                        };
-
-                        while (histable.firstChild) {
-                            histable.removeChild(histable.firstChild);
-                        }
-                        const th1 = document.createElement("th");
-                        const th2 = document.createElement("th");
-                        th1.innerHTML = "Calculation";
-                        th2.innerHTML = "Result";
-                        histable.appendChild(th1);
-                        histable.appendChild(th2);
-
-                        for (const [key,value] of Object.entries(row.history)) {
-                            // console.log(key + " : " + value);
-
-                            var tr = document.createElement("tr");
-                            var tdkey = document.createElement("td");
-                            var tdvalue = document.createElement("td");
-
-                            tdkey.innerHTML = key;
-                            tdvalue.innerHTML = value;
-                            tr.appendChild(tdkey);
-                            tr.appendChild(tdvalue);
-                            histable.appendChild(tr);
-                        }
-
-
-
                     }
                 }
             }
 
-            function calcKE(id) {
+            function calcKinematics(id) {
                 console.log("Calculating KE for Object - Id: " + id);
 
-                // build url for fetch
-                var calcKEurl = "https://frq.dtsivkovski.tk/api/physics/calculateKE/" + id + "/" + document.getElementById("velocity-input").value;
+                var unknownValue;
+                if (document.getElementById("initial-velocity-unknown").checked == true) {
+                    unknownValue = document.getElementById("initial-velocity-unknown").value;
+                } else if (document.getElementById("final-velocity-unknown").checked == true) {
+                    unknownValue = document.getElementById("final-velocity-unknown").value;
+                } else if (document.getElementById("acceleration-unknown").checked == true) {
+                    unknownValue = document.getElementById("acceleration-unknown").value;
+                } else if (document.getElementById("displacement-unknown").checked == true) {
+                    unknownValue = document.getElementById("displacement-unknown").value;
+                } else if (document.getElementById("time-unknown").checked == true) {
+                    unknownValue = document.getElementById("time-unknown").value;
+                }
 
-                fetch(calcKEurl, options)
+                // build url for fetch
+                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKE/" + id +  "/" + document.getElementById("initial-velocity-value").value + "/" + document.getElementById("vi-known").checked + "/" + document.getElementById("final-velocity-value").value + "/" + document.getElementById("vf-known").checked
+                + "/" + document.getElementById("acceleration-value").value + "/" + document.getElementById("a-known").checked + "/" + document.getElementById("displacement-value").value + "/" + document.getElementById("d-known").checked + "/" + document.getElementById("time-value").value + "/" + document.getElementById("t-known").checked;
+
+                fetch(calcKinematicsurl, options)
                 // response is a RESTful "promise" on any successful fetch
                 .then(response => {
                     // check for response errors and display
@@ -562,59 +510,8 @@
                     // valid response will contain json data
                     response.json().then(data => {
                         console.log(data);
-                        mRecKE.innerHTML = "Recent KE Calc: " + data.recentKE;
+                        mKinematics.innerHTML = "Recent KE Calc: " + data.recentKE;
                         getAllObjects();
-
-                        // add new row to history table
-                        var tr = document.createElement("tr");
-                        var tdkey = document.createElement("td");
-                        var tdvalue = document.createElement("td");
-
-                        tdkey.innerHTML = "KE (v = " + document.getElementById("velocity-input").value + ")";
-                        tdvalue.innerHTML = data.recentKE;
-
-                        tr.appendChild(tdkey);
-                        tr.appendChild(tdvalue);
-                        histable.appendChild(tr);
-
-
-                        });
-                });
-            }
-
-            function calcPE(id) {
-                console.log("Calculating PE for Object - Id: " + id);
-
-                // build url for fetch
-                var calcPEurl = "https://frq.dtsivkovski.tk/api/physics/calculatePE/" + id + "/" + document.getElementById("gravity-input").value + "/" + document.getElementById("height-input").value;
-
-                fetch(calcPEurl, options)
-                // response is a RESTful "promise" on any successful fetch
-                .then(response => {
-                    // check for response errors and display
-                    if (response.status !== 200) {
-                        const errorMsg = 'Database response error: ' + response.status;
-                        console.log(errorMsg);
-                        return;
-                    }
-                    // valid response will contain json data
-                    response.json().then(data => {
-                        console.log(data);
-                        mRecPE.innerHTML = "Recent PE Calc: " + data.recentPE;
-                        getAllObjects();
-
-                        var tr = document.createElement("tr");
-                        var tdkey = document.createElement("td");
-                        var tdvalue = document.createElement("td");
-
-                        tdkey.innerHTML = "PE (g = " + document.getElementById("gravity-input").value + ", h = " + document.getElementById("height-input").value + ")";
-                        tdvalue.innerHTML = data.recentPE;
-
-                        tr.appendChild(tdkey);
-                        tr.appendChild(tdvalue);
-                        histable.appendChild(tr);
-
-
                         });
                 });
             }
@@ -623,7 +520,7 @@
                 console.log("Creating Object");
 
                 // build url for fetch
-                var createObjurl = "https://frq.dtsivkovski.tk/api/physics/create/" + document.getElementById("mass-input").value;
+                var createObjurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/create/" + document.getElementById("name-input").value;
 
                 fetch(createObjurl, options)
                 // response is a RESTful "promise" on any successful fetch
@@ -652,7 +549,7 @@
                 console.log("Deleting Object - Id: " + id);
 
                 // build url for fetch
-                var deleteObjurl = "https://frq.dtsivkovski.tk/api/physics/delete/" + id;
+                var deleteObjurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/delete/" + id;
 
                 fetch(deleteObjurl, options)
                 // response is a RESTful "promise" on any successful fetch
@@ -673,51 +570,6 @@
                 });
             }
 
-            function toggleHistory() {
-                if (history.style.display == "none") {
-                    history.style.display = "block";
-                    historybutton.innerHTML = "Hide History";
-                } else {
-                    history.style.display = "none";
-                    historybutton.innerHTML = "Show History";
-                }
-            }
-
-            function scrubHistory() {
-                if (confirm("Are you sure you want to delete all of this object's history?") == false)
-                    return;
-
-                console.log("Deleting History - Id: " + selectedObj);
-
-                // build url for fetch
-                var scrubHistoryurl = "https://frq.dtsivkovski.tk/api/physics/scrub/" + selectedObj;
-
-                fetch(scrubHistoryurl, options)
-                // response is a RESTful "promise" on any successful fetch
-                .then(response => {
-                    // check for response errors and display
-                    if (response.status !== 200) {
-                        const errorMsg = 'Database response error: ' + response.status;
-                        console.log(errorMsg);
-                        return;
-                    }
-                    // valid response will contain json data
-                    response.json().then(data => {
-                        console.log(data);
-
-                        getAllObjects();
-                        selectObj(data.id);
-
-                        while (histable.firstChild) {
-                            histable.removeChild(histable.firstChild);
-                        }
-
-                        mRecKE.innerHTML = "Recent KE Calc: 0";
-                        mRecPE.innerHTML = "Recent PE Calc: 0";
-
-                        });
-                });
-            }
         </script>
     </body>
 </html>

@@ -89,7 +89,6 @@
             $(function() {
                 $("#navbar-content").load("/DADY-Academy/layouts/navbar.html");
             });
-
             // const form = document.getElementById("login-form");
             // form.addEventListener("submit", async (event) => {
             //     event.preventDefault();
@@ -111,6 +110,7 @@
             //     }
             // });
 function login() {
+    event.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -150,7 +150,7 @@ function login() {
       // Success!!!
       
       sessionStorage.setItem("username", email);
-      window.location.reload();
+      window.location.href = "/DADY-Academy/templates/home.html";
       // window.location.href = "{{site.baseurl}}/home";
 
 

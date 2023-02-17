@@ -1,11 +1,7 @@
 # Chem
 
-<html>
-  <head>
-    <title>Density and Moles Calculator</title>
-  </head>
-  <body>
-    <h1>Density and Moles Calculator</h1>
+<body>
+<h1>Density and Moles Calculator</h1>
     <form>
       <label for="mass">Mass (g):</label>
       <input type="number" id="mass" name="mass"><br><br>
@@ -17,9 +13,7 @@
     </form>
     <br><br>
     <p id="result"></p>
-
-  </body>
-</html>
+</body>
 
 <table>
   <thead>
@@ -36,7 +30,10 @@
   <tbody id = "ChemId"></tbody>
 </table>  
 
+<br><br>
+
 <script>
+<<<<<<< HEAD
 function calculate() {
 const mass = document.getElementById("mass").value;
 const volume = document.getElementById("volume").value;
@@ -99,8 +96,80 @@ fetch(url, {
 .catch(error => {
   console.error(error);
 });
+=======
+  
+  const mass = document.getElementById("mass").value;
+  const volume = document.getElementById("volume").value;
+  const mw = document.getElementById("molecularWeight").value;
+  const resultChemData = document.getElementById("ChemId");
+>>>>>>> 720d99bc8cadf95ef9aa7b00e0d593537bd933af
 
-}
+  function calculate() {
+    
+
+    var url = "https://frq.dtsivkovski.tk/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
+    //var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
+
+    // const body = {
+    //   mass: mass,
+    //   volume: volume,
+    //   molecularWeight: molecularWeight
+    // };
+
+    const optionsPOST = {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify(body)
+    };
+
+    fetch(url, optionsPOST)
+      .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Error calculating density');
+      }
+    })
+    .then(data => {
+      for(const rs of data) {
+        const tr = document.createElement("tr");
+        const id = document.createElement("td");
+        const user = document.createElement("td");
+        const mass = document.createElement("td");
+        const vol = document.createElement("td");
+        const mw = document.createElement("td");
+        const den = document.createElement("td");
+        const mole = document.createElement("td");
+
+        id.innerHTML = rs.id;
+        user.innerHTML = rs.owner;
+        mass.innerHTML = rs.mass;
+        vol.innerHTML = rs.volume;
+        mw.innerHTML = rs.molecularWeight;
+        den.innerHTML = rs.density;
+        mole.innerHTML = rs.mole;
+
+        tr.appendChild(id);
+        tr.appendChild(user);
+        tr.appendChild(mass);
+        tr.appendChild(vol);
+        tr.appendChild(mw);
+        tr.appendChild(den);
+        tr.appendChild(mole);
+
+        resultChemData.appendChild(tr);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+  }
 </script>
 
 
@@ -139,59 +208,24 @@ fetch(url, {
     color: white;
     cursor: pointer;
   }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr {
+    background-color: #000000;
+  }
 </style>
 
-
-</head>
-<body>
-  <h1>Density Calculator</h1>
-  <form>
-    <label for="obj">Object name (g):</label>
-    <input type="obj" id="obj" name="obj"><br><br>
-    <label for="mass">Mass (g):</label>
-    <input type="number" id="mass" name="mass"><br><br>
-    <label for="volume">Volume (mL):</label>
-    <input type="number" id="volume" name="volume"><br><br>
-    <button type="button" onclick="calculateDensity()">Calculate Density</button>
-  </form>
-  <br><br>
-
-  <h1>Moles Calculator</h1>
-
-  <form>
-    <label for="obj">Object name (g):</label>
-    <input type="obj" id="obj" name="obj"><br><br>
-    <label for="mass">Molecular weight (g):</label>
-    <input type="number" id="mass" name="mass"><br><br>
-    
-    <button type="button" onclick="calculatemoles()">Calculate Moles</button>
-  </form>
-
-<br>
-<br>
-<br>
-
-
-  <html>
-  <head>
-    <style>
-      table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-    </style>
-  </head>
   <body>
     <table>
       <tr>
@@ -221,6 +255,5 @@ fetch(url, {
       </tr>
       <!-- Add more rows for the rest of the elements in the periodic table -->
     </table>
-  </body>
-</html>
+
 
