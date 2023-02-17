@@ -93,8 +93,8 @@
         tr.appendChild(den);
         tr.appendChild(mole);
 
-      }
         resultChemData.appendChild(tr);
+      }
     })
     .catch(error => {
       console.log(error);
