@@ -34,6 +34,9 @@
 
 <script>
   function calculate() {
+
+    const resultChemData = document.createElement("ChemId");
+
     var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
     //var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
 
