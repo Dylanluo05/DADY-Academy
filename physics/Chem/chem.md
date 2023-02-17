@@ -17,7 +17,7 @@
 
 <table>
   <thead>
-    <tr>
+    <tr id="tr">
       <th>"id"</th>
       <th>"User"</th>
       <th>"mass"</th>
@@ -36,6 +36,7 @@
   function calculate() {
 
     const resultChemData = document.createElement("ChemId");
+    const tr = document.createElement("tr");
 
     var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
     //var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
