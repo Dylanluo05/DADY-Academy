@@ -41,7 +41,7 @@
 
   function calculate() {
     
-    var url = "http://localhost:8679/api/Chem/create";
+    var url = "http://localhost:8679/api/Chem/create?mass=" + mass + "&volume=" + volume + "&molecularWeight=" + mw;
 
     const params = {
       mass: mass,
@@ -49,14 +49,19 @@
       molecularWeight: molecularWeight
     };
 
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(params)
-    })
-    .then(response => {
+    const optionsPOST = {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params)
+    };
+
+    fetch(url, optionsPOST)
+      .then(response => {
       if (response.ok) {
         return response.json();
       } else {
