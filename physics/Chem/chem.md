@@ -43,7 +43,7 @@
     
     var url = "http://localhost:8679/api/Chem/create";
 
-    const body = {
+    const params = {
       mass: mass,
       volume: volume,
       molecularWeight: molecularWeight
@@ -54,7 +54,7 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(params)
     })
     .then(response => {
       if (response.ok) {
