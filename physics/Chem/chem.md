@@ -33,72 +33,7 @@
 <br><br>
 
 <script>
-function calculate() {
-const mass = document.getElementById("mass").value;
-const volume = document.getElementById("volume").value;
-const mw = document.getElementById("molecularWeight").value;
-
-const resultChemData = document.getElementById("ChemId");
-
-var url = "http://localhost:8679/api/Chem/create";
-
-const body = {
-  mass: mass,
-  volume: volume,
-  molecularWeight: molecularWeight
-};
-
-fetch(url, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(body)
-})
-.then(response => {
-  if (response.ok) {
-    return response.json();
-  } else {
-    throw new Error('Error calculating density');
-  }
-})
-.then(data => {
-  for(const rs of data) {
-    const tr = document.createElement("tr");
-    const id = document.createElement("td");
-    const user = document.createElement("td");
-    const mass = document.createElement("td");
-    const vol = document.createElement("td");
-    const mw = document.createElement("td");
-    const den = document.createElement("td");
-    const mole = document.createElement("td");
-
-    id.innerHTML = rs.id;
-    user.innerHTML = rs.owner;
-    mass.innerHTML = rs.mass;
-    vol.innerHTML = rs.volume;
-    mw.innerHTML = rs.molecularWeight;
-    den.innerHTML = rs.density;
-    mole.innerHTML = rs.mole;
-
-    tr.appendChild(id);
-    tr.appendChild(user);
-    tr.appendChild(mass);
-    tr.appendChild(vol);
-    tr.appendChild(mw);
-    tr.appendChild(den);
-    tr.appendChild(mole);
-
-    resultChemData.appendChild(tr);
-  }
-})
-.catch(error => {
-  console.error(error);
-});
-
   function calculate() {
-    
-
     var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
     //var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
 
