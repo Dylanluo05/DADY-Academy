@@ -33,7 +33,6 @@
 <br><br>
 
 <script>
-<<<<<<< HEAD
 function calculate() {
 const mass = document.getElementById("mass").value;
 const volume = document.getElementById("volume").value;
@@ -96,13 +95,6 @@ fetch(url, {
 .catch(error => {
   console.error(error);
 });
-=======
-  
-  const mass = document.getElementById("mass").value;
-  const volume = document.getElementById("volume").value;
-  const mw = document.getElementById("molecularWeight").value;
-  const resultChemData = document.getElementById("ChemId");
->>>>>>> 720d99bc8cadf95ef9aa7b00e0d593537bd933af
 
   function calculate() {
     
