@@ -41,7 +41,6 @@
 
   function calculate() {
     
-
     var url = "https://frq.dtsivkovski.tk/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
     //var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
 
@@ -151,7 +150,7 @@
   }
 
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
   }
@@ -190,5 +189,3 @@
       </tr>
       <!-- Add more rows for the rest of the elements in the periodic table -->
     </table>
-
-
