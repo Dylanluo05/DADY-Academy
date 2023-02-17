@@ -41,7 +41,7 @@
 
   function calculate() {
     
-    var url = "http://localhost:8679/api/Chem/create?mass=" + mass + "&volume=" + volume + "&molecularWeight=" + molecularWeight;
+    var url = "http://localhost:8679/api/Chem/create?mass=" + mass + "&volume=" + volume + "&molecularWeight=" + mw;
 
     const body = {
       mass: mass,
