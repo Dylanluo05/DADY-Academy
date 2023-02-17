@@ -44,7 +44,7 @@
         }
 
         .physics-background-1-image {
-            height: 650px;
+            height: 500px;
             background: url("https://images.pexels.com/photos/8472938/pexels-photo-8472938.jpeg?auto=compress&cs=tinysrgb&w=800");
             background-size: cover;
             background-position: center center;
@@ -54,14 +54,14 @@
         }
 
         .physics-background-1-overlay {
-            height: 650px;
+            height: 500px;
             background-color: black;
             opacity: 0.7;
             z-index: 2;
         }
 
         .physics-background-1-content {
-            height: 650px;
+            height: 500px;
             position: relative;
             z-index: 3;
         }
@@ -80,7 +80,7 @@
         }
 
         .physics-background-2-image {
-            height: 850px;
+            height: 1500px;
             background: url("https://images.pexels.com/photos/6208704/pexels-photo-6208704.jpeg?auto=compress&cs=tinysrgb&w=600");
             background-size: cover;
             background-position: center center;
@@ -90,14 +90,14 @@
         }
 
         .physics-background-2-overlay {
-            height: 850px;
+            height: 1500px;
             background-color: #282828;
             opacity: 0.7;
             z-index: 2;
         }
 
         .physics-background-2-content {
-            height: 850px;
+            height: 1500px;
             position: relative;
             z-index: 3;
         }
@@ -153,9 +153,6 @@
             color: white;
         }
 
-
-
-
         .objectcards {
             display: flex;
             flex-wrap: wrap;
@@ -186,16 +183,15 @@
         }
 
         .objectcardbutton {
-            background-color: white;
-            color: black;
-            border: 1px solid white;
+            background-color: navy;
+            color: white;
+            border: none;
             margin: 0.5em;
             padding: 0.75em;
-            background-image: none;
+            transition-duration: 0.7s;
         }
         .objectcardbutton:hover {
-            border: 1px solid white;
-            background-color: #e5e5e5;
+            background-color: royalblue;
         }
 
         .selectedobjectcardbutton {
@@ -209,25 +205,25 @@
         }
 
         .maincard {
-            width: 95%;
+            width: 45%;
             margin: 10px;
             padding: 2em;
-            border: 1px solid white;
-            border-radius: 10px;
-            background-image: linear-gradient(to right, purple, navy);
+            border: none;
+            background-color: white;
         }
 
         .createcard {
-            width: 95%;
+            width: 40%;
             margin: 10px;
             padding: 2em;
             border: 1px solid white;
             border-radius: 10px;
-            background-image: linear-gradient(to right, red, purple);
         }
 
         .maintitle{
-            color: white;
+            font-size: 40px;
+            font-weight: lighter;
+            color: black;
         }
 
         input[type=text] {
@@ -247,8 +243,7 @@
         hr.cardhr {
             height:2px;
             border-width:0;
-            color:white;
-            background-color:white
+            background-color: black;
         }
 
     </style>
@@ -273,14 +268,14 @@
             <div class = "physics-background-2-overlay"></div>
             <div class = "physics-background-2-content">
                 <h2 style = "margin: 0; position: relative; top: 50px; text-align: center; font-size: 50px; font-weight: lighter;">Kinematics</h2>
-                <div class="objectcards" style = "margin-top: 100px;">
+                <div class="objectcards" style = "margin-top: 60px;">
                     <div class="maincard">
                         <h1 class="maintitle" id="mainTitle">No Currently Selected Object</h1>
                         <h3 class="maintitle" id="mainName"></h3>
                         <h3 class="maintitle" id="mainKinematics"></h3>
                         <hr class="cardhr">
                         <h3 class="maintitle"> Calculate Kinematics </h3>
-                        <label for = "known-values">Which values are known?</label>  
+                        <label for = "known-values" style = "margin-top: -15px;">Which values are known?</label>  
                         <div style = "width: 150px; display: block; margin: auto;">
                             <input type = "checkbox" name = "known-values" id = "vi-known" value = "initial-velocity"><p>Initial Velocity</p> 
                         </div>
@@ -335,7 +330,7 @@
                     
                 <div class="objectcards">
                     <div class="createcard">
-                        <h1 class="maintitle">Create an object</h1>
+                        <h1 class="maintitle" style = "color: white">Create an object</h1>
                         <div style="white-space: nowrap;">
                             <input placeholder="Name of object" style="width:65%; display: inline-block;" type="text" id="name-input" name="Object Mass">
                             <button id="createbutton" style="width:33%; display: inline-block;" class="objectcardbutton" onclick="createObj();"> Create  </button>
@@ -346,7 +341,7 @@
         </div>
         <script>
             $(function(){
-                $("#navbar-content").load("/layouts/navbar.html");
+                $("#navbar-content").load("/DADY-Academy/layouts/navbar.html");
             });
 
             var url = "https://frq.dtsivkovski.tk/api/physics/kinematics/get/";
