@@ -41,7 +41,8 @@
 
   function calculate() {
     
-    var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
+    var url = "https://frq.dtsivkovski.tk/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
+    //var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
 
     // const body = {
     //   mass: mass,
@@ -149,13 +150,13 @@
   }
 
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
   }
 
-  tr:nth-child(even) {
-    background-color: #dddddd;
+  tr {
+    background-color: #000000;
   }
 </style>
 
