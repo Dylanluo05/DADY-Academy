@@ -21,7 +21,7 @@
 
         h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: 48px;
+            font-size: 35px;
             color: black;
             transition-duration: 0.4s;
         }
@@ -91,8 +91,40 @@
         }
 
         .subject-image {
-            height: 150px;
-            width: 250px;
+            height: 185px;
+            display: block; 
+            margin: auto;
+        }
+
+        .subject-container {
+            height: 400px;
+            width: 700px;
+            display: block;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            height: 200px;
+            width: 350px;
+        }
+
+        .image-overlap {
+            height: 185px;
+            background-color: gray;
+            opacity: 0.7;
+            position: absolute;
+            left: 75px;
+            z-index: 1;
+        }
+
+        .image-content {
+            height: 185px;
+            position: absolute;
+            z-index: 2;
+            left: 75px;
+            text-align: center;
+            line-height: 130px;
         }
 
     </style>
@@ -105,10 +137,40 @@
                 <div class = "simulator-selection-container-outer"></div>
                 <div class = "simulator-selection-container-inner">
                     <h1 style = "text-align: center; margin-top: -5px;">Simulator</h1>
-                    <img class = "subject-image" src = "/assets/images/biology.jpg">
-                    <img class = "subject-image" src = "/assets/images/chemistry.jpg">
-                    <img class = "subject-image" src = "/assets/images/statistics.jpg">
-                    <img class = "subject-image" src = "/assets/images/physics.jpg">
+                    <table class = "subject-container">
+                        <tr>
+                            <td>
+                                <div class = "image-overlap" style = "width: 279px;"></div>
+                                <div class = "image-content" style = "width: 279px;">
+                                    <h1 style = "font-family: 'Raleway', sans-serif; color: white;">Biology</h1>
+                                </div>
+                                <img class = "subject-image" src = "/assets/images/biology2.png">
+                            </td>
+                            <td>
+                                <div class = "image-overlap" style = "width: 279px; left: 425px;"></div>
+                                <div class = "image-content" style = "width: 279px; left: 425px">
+                                    <h1 style = "font-family: 'Raleway', sans-serif; color: white;">Chemistry</h1>
+                                </div>
+                                <img class = "subject-image" src = "/assets/images/chemistry2.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class = "image-overlap" style = "width: 279px;"></div>
+                                <div class = "image-content" style = "width: 279px;">
+                                    <h1 style = "font-family: 'Raleway', sans-serif; color: white;">Statistics</h1>
+                                </div>
+                                <img class = "subject-image" src = "/assets/images/stats2.png">
+                            </td>
+                            <td>
+                                <div class = "image-overlap" style = "width: 262px; left: 433px;"></div>
+                                <div class = "image-content" style = "width: 262px; left: 433px">
+                                    <h1 style = "font-family: 'Raleway', sans-serif; color: white;">Physics</h1>
+                                </div>
+                                <img class = "subject-image" src = "/assets/images/physics2.png">
+                            </td>
+                        </tr>
+                    </table>
                 </div>   
             </div>
         </div>
@@ -116,6 +178,36 @@
             $(function() {
                 $("#navbar-content").load("/layouts/navbar.html");
             });
+
+            $(".image-content").hover(overlayAnimation1, overlayAnimation2);
+
+            var index;
+
+            function overlayAnimation1() {
+                var identifier = $(this).children().text();
+                switch (identifier) {
+                    case "Biology":
+                        index = 0;
+                        break;
+                    case "Chemistry":
+                        index = 1;
+                        break;
+                    case "Statistics":
+                        index = 2;
+                        break;
+                    case "Physics":
+                        index = 3;
+                        break;
+                }
+                console.log(index);
+                $(".image-overlap").eq(index).animate({opacity: "0.3"}, {duration: 200});
+            }
+
+            function overlayAnimation2() {
+                console.log(index);
+                $(".image-overlap").eq(index).animate({opacity: "0.7"}, {duration: 200});
+            }
+
         </script>
     </body>
 </html>
