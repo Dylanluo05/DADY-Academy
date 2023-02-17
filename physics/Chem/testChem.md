@@ -159,8 +159,18 @@
     url = "http://localhost:8679/api/chemTest/get/";
 
     // set options for cross origin header request
-    const options = {
+    const optionsGET = {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
+
+    const optionsPOST = {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'include', // include, *same-origin, omit
@@ -173,7 +183,7 @@
 
     function getAllObjects() {
     // fetch the API
-        fetch(url, options)
+        fetch(url, optionsGET)
         // response is a RESTful "promise" on any successful fetch
         .then(response => {
             // check for response errors and display
@@ -397,7 +407,7 @@
         // build url for fetch
         var createObjurl = "http://localhost:8679/api/chemTest/create/" + document.getElementById("m-input").value;
 
-        fetch(createObjurl, options)
+        fetch(createObjurl, optionsPOST)
         // response is a RESTful "promise" on any successful fetch
         .then(response => {
             // check for response errors and display
