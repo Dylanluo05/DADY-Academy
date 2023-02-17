@@ -107,11 +107,11 @@
     <hr class="cardhr">
     <h3 class="maintitle"> Calculate SDM </h3>
     <div style="white-space: nowrap;">
-        <input placeholder="Standard Error (Sx)" style="width:65%; display: inline-block;" type="text" id="density-input" name="Density">
+        <input placeholder="Volume" style="width:65%; display: inline-block;" type="text" id="density-input" name="Density">
         <button id="calcDensitybutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate </button>
     </div>
     <div style="white-space: nowrap;">
-        <input placeholder="Standard Error (Sx)" style="width:65%; display: inline-block;" type="text" id="mole-input" name="Mole">
+        <input placeholder="Molecular Weight" style="width:65%; display: inline-block;" type="text" id="mole-input" name="Mole">
         <button id="calcMolebutton" style="width:33%; display: inline-block;" class="objectcardbutton"> Calculate </button>
     </div>
     <br>
