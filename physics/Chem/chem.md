@@ -33,15 +33,9 @@
 <br><br>
 
 <script>
-  
-  const mass = document.getElementById("mass").value;
-  const volume = document.getElementById("volume").value;
-  const mw = document.getElementById("molecularWeight").value;
-  const resultChemData = document.getElementById("ChemId");
-
   function calculate() {
-    
     var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
+    //var url = "http://localhost:8679/api/Chem/create?mass=" + document.getElementById("mass").value + "&volume=" + document.getElementById("volume").value + "&molecularWeight=" + document.getElementById("molecularWeight").value;
 
     // const body = {
     //   mass: mass,
@@ -154,8 +148,8 @@
     padding: 8px;
   }
 
-  tr:nth-child(even) {
-    background-color: #dddddd;
+  tr {
+    background-color: #000000;
   }
 </style>
 
