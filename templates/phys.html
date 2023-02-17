@@ -121,14 +121,14 @@
         }
         
         label {
-            color: black;
+            color: white;
             display: block;
             text-align: center;
         }
 
         p {
             display: inline;
-            color: black;
+            color: white;
         }
 
         .kinematics-input {
@@ -209,7 +209,9 @@
             margin: 10px;
             padding: 2em;
             border: none;
-            background-color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 10px;
         }
 
         .createcard {
@@ -223,27 +225,28 @@
         .maintitle{
             font-size: 40px;
             font-weight: lighter;
-            color: black;
+            color: white;
         }
 
         input[type=text] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 1px solid white;
-        border-radius: 4px;
-        background-color: black;
-        color: white;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid white;
+            border-radius: 4px;
+            background-color: white;
+            color: black;
         }
+
         input[type=text]:focus {
-        border: 1px solid white;
+            border: 1px solid white;
         }
 
         hr.cardhr {
             height:2px;
             border-width:0;
-            background-color: black;
+            background-color: white;
         }
 
     </style>
@@ -399,7 +402,7 @@
                             const name = document.createElement("p");
                             name.innerHTML = "Name: " + row.name;
                             const kinematics = document.createElement("p");
-                            kinematics.innerHTML = "Recent KE Calc: " + row.recentKinematics;
+                            kinematics.innerHTML = "Recent Kinematics Calc: " + row.recentKinematics;
 
                             card.appendChild(h3);
                             card.appendChild(name);
@@ -462,7 +465,7 @@
                     if (row.id == id) {
                         mTitle.innerHTML = "Object #" + row.id;
                         mName.innerHTML = "Name: " + row.name;
-                        mKinematics.innerHTML = "Recent KE Calc: " + row.recentKinematics;
+                        mKinematics.innerHTML = "Recent Kinematics Calc: " + row.recentKinematics;
 
                         var tempOB = document.getElementById("objbutton" + row.id);
                         tempOB.innerHTML = "Selected";
@@ -479,7 +482,7 @@
             }
 
             function calcKinematics(id) {
-                console.log("Calculating KE for Object - Id: " + id);
+                console.log("Calculating Kinematics for Object - Id: " + id);
 
                 var unknownValue;
                 if (document.getElementById("initial-velocity-unknown").checked == true) {
@@ -495,7 +498,7 @@
                 }
 
                 // build url for fetch
-                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKE/" + id +  "/" + document.getElementById("initial-velocity-value").value + "/" + document.getElementById("vi-known").checked + "/" + document.getElementById("final-velocity-value").value + "/" + document.getElementById("vf-known").checked
+                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKinematics/" + id +  "/" + document.getElementById("initial-velocity-value").value + "/" + document.getElementById("vi-known").checked + "/" + document.getElementById("final-velocity-value").value + "/" + document.getElementById("vf-known").checked
                 + "/" + document.getElementById("acceleration-value").value + "/" + document.getElementById("a-known").checked + "/" + document.getElementById("displacement-value").value + "/" + document.getElementById("d-known").checked + "/" + document.getElementById("time-value").value + "/" + document.getElementById("t-known").checked;
 
                 fetch(calcKinematicsurl, options)
@@ -510,7 +513,7 @@
                     // valid response will contain json data
                     response.json().then(data => {
                         console.log(data);
-                        mKinematics.innerHTML = "Recent KE Calc: " + data.recentKE;
+                        mKinematics.innerHTML = "Recent Kinematics Calc: " + data.recentKinematics;
                         getAllObjects();
                         });
                 });
