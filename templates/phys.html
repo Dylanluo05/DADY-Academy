@@ -531,7 +531,7 @@
 
                 // build url for fetch
                 var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKinematics/" + id +  "/" + viValue + "/" + document.getElementById("vi-known").checked + "/" + vfValue + "/" + document.getElementById("vf-known").checked
-                + "/" + aValue + "/" + document.getElementById("a-known").checked + "/" + xValue + "/" + document.getElementById("x-known").checked + "/" + tValue + "/" + document.getElementById("t-known").checked;
+                + "/" + aValue + "/" + document.getElementById("a-known").checked + "/" + xValue + "/" + document.getElementById("x-known").checked + "/" + tValue + "/" + document.getElementById("t-known").checked + "/" + unknownValue;
 
                 fetch(calcKinematicsurl, options)
                 // response is a RESTful "promise" on any successful fetch
