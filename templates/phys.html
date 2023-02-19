@@ -497,9 +497,41 @@
                     unknownValue = document.getElementById("time-unknown").value;
                 }
 
+                var viValue;
+                var vfValue;
+                var aValue;
+                var xValue;
+                var tValue;
+
+                if (document.getElementById("initial-velocity-value").value == "") {
+                    viValue = 0;
+                } else {
+                    viValue = document.getElementById("initial-velocity-value").value;
+                }
+                if (document.getElementById("final-velocity-value").value == "") {
+                    vfValue = 0;
+                } else {
+                    vfValue = document.getElementById("final-velocity-value").value;
+                }
+                if (document.getElementById("acceleration-value").value == "") {
+                    aValue = 0;
+                } else {
+                    aValue = document.getElementById("acceleration-value").value;
+                }
+                if (document.getElementById("displacement-value").value == "") {
+                    xValue = 0;
+                } else {
+                    xValue = document.getElementById("displacement-value").value;
+                }
+                if (document.getElementById("time-value").value == "") {
+                    tValue = 0;
+                } else {
+                    tValue = document.getElementById("time-value").value;
+                }
+
                 // build url for fetch
-                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKinematics/" + id +  "/" + document.getElementById("initial-velocity-value").value + "/" + document.getElementById("vi-known").checked + "/" + document.getElementById("final-velocity-value").value + "/" + document.getElementById("vf-known").checked
-                + "/" + document.getElementById("acceleration-value").value + "/" + document.getElementById("a-known").checked + "/" + document.getElementById("displacement-value").value + "/" + document.getElementById("x-known").checked + "/" + document.getElementById("time-value").value + "/" + document.getElementById("t-known").checked;
+                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKinematics/" + id +  "/" + viValue + "/" + document.getElementById("vi-known").checked + "/" + vfValue + "/" + document.getElementById("vf-known").checked
+                + "/" + aValue + "/" + document.getElementById("a-known").checked + "/" + xValue + "/" + document.getElementById("x-known").checked + "/" + tValue + "/" + document.getElementById("t-known").checked;
 
                 fetch(calcKinematicsurl, options)
                 // response is a RESTful "promise" on any successful fetch
