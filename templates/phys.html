@@ -159,6 +159,7 @@
             justify-content: center;
             align-items: center;
             align-content: center;
+            padding: 10px;
         }
 
         .objectcard {
@@ -399,9 +400,9 @@
 
                             // create elements for card
                             const h3 = document.createElement("h3");
-                            h3.innerHTML = "Object #" + row.id;
+                            h3.innerHTML = "Object #" + row.id + "<br>";
                             const name = document.createElement("p");
-                            name.innerHTML = "Name: " + row.name;
+                            name.innerHTML = "Name: " + row.name + "<br>";
                             const kinematics = document.createElement("p");
                             kinematics.innerHTML = "Recent Kinematics Calc: " + row.finalAnswer;
 
