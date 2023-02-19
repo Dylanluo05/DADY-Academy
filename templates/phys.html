@@ -402,7 +402,7 @@
                             const name = document.createElement("p");
                             name.innerHTML = "Name: " + row.name;
                             const kinematics = document.createElement("p");
-                            kinematics.innerHTML = "Recent Kinematics Calc: " + row.recentKinematics;
+                            kinematics.innerHTML = "Recent Kinematics Calc: " + row.finalAnswer;
 
                             card.appendChild(h3);
                             card.appendChild(name);
@@ -465,7 +465,7 @@
                     if (row.id == id) {
                         mTitle.innerHTML = "Object #" + row.id;
                         mName.innerHTML = "Name: " + row.name;
-                        mKinematics.innerHTML = "Recent Kinematics Calc: " + row.recentKinematics;
+                        mKinematics.innerHTML = "Recent Kinematics Calc: " + row.finalAnswer;
 
                         var tempOB = document.getElementById("objbutton" + row.id);
                         tempOB.innerHTML = "Selected";
@@ -545,7 +545,7 @@
                     // valid response will contain json data
                     response.json().then(data => {
                         console.log(data);
-                        mKinematics.innerHTML = "Recent Kinematics Calc: " + data.recentKinematics;
+                        mKinematics.innerHTML = "Recent Kinematics Calc: " + data.finalAnswer;
                         getAllObjects();
                         });
                 });
