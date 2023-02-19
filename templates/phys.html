@@ -159,14 +159,11 @@
             justify-content: center;
             align-items: center;
             align-content: center;
-            padding: 10px;
         }
 
         .objectcard {
-            width: 200px;
-            height: 200px;
             margin: 10px;
-            padding: 2em;
+            padding: 10px;
             border: 1px solid white;
             border-radius: 10px;
             color: white;
@@ -191,8 +188,22 @@
             padding: 0.75em;
             transition-duration: 0.7s;
         }
+
         .objectcardbutton:hover {
             background-color: #FF3131;
+        }
+
+        .objectcardbutton2 {
+            background-color: red;
+            color: white;
+            border: none;
+            margin: 0.5em;
+            padding: 0.75em;
+            transition-duration: 0.7s;
+        }
+
+        .objectcardbutton2:hover {
+            background-color: orangered;
         }
 
         .selectedobjectcardbutton {
@@ -404,7 +415,7 @@
                             const name = document.createElement("p");
                             name.innerHTML = "Name: " + row.name + "<br>";
                             const kinematics = document.createElement("p");
-                            kinematics.innerHTML = "Recent Kinematics Calc: " + row.finalAnswer;
+                            kinematics.innerHTML = "Recent Kinematics Calc: " + row.finalAnswer + "<br>";
 
                             card.appendChild(h3);
                             card.appendChild(name);
@@ -427,10 +438,8 @@
 
                             // add deletebutton and give classlist
                             const deletebutton = document.createElement("button");
-                            deletebutton.classList.add("objectcardbutton");
+                            deletebutton.classList.add("objectcardbutton2");
                             deletebutton.innerHTML = "Delete";
-                            deletebutton.style.backgroundColor = "red";
-                            deletebutton.style.border = "1px solid red";
                             deletebutton.style.width = "40%";
                             deletebutton.style.display = "inline-block";
                             deletebutton.addEventListener("click", function() {
