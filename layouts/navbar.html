@@ -103,9 +103,9 @@
         <div id = "navbar-container">
             <img src = "/DADY-Academy/assets/images/dady-academy-logo-transparent.png" height = "80px" width = "110px" style = "margin-left: 30px;">
             <a class = "navlink" href="/DADY-Academy/templates/home.html">Home</a>
-            <a class = "navlink" href="/DADY-Academy/templates/simulator.html">Simulator</a>
+            <!-- <a class = "navlink" href="/DADY-Academy/templates/simulator.html">Simulator</a> -->
             <a class = "navlink" href="/DADY-Academy/templates/subject-lobby.html">Subject Lobby</a>
-            <a class = "navlink" href="/DADY-Academy/templates/calculator.html">Scientific Calculator</a>
+            <!-- <a class = "navlink" href="/DADY-Academy/templates/calculator.html">Scientific Calculator</a> -->
             <a class = "navlink" href="/DADY-Academy/templates/stem-library.html">STEM Library</a>
             <div id = "menu">
                 <div class = "menu-line"></div>
@@ -115,6 +115,10 @@
         </div>
         <div id = "right-sidebar">
             <p id = "right-sidebar-close-button">x</p>
+            <br/>
+            <div>
+                <p id="usernavbarwelcome">Welcome!</p>
+            </div>
             <div class = "right-sidebar-link-container" style = "margin-top: -15px;">
                 <a class = "right-sidebar-link" href = "/DADY-Academy/security/login.html">Login</a>
             </div>
@@ -154,6 +158,14 @@
                 $("#right-sidebar").children().animate({opacity: "0"}, {duration: 200, queue: true});
                 $("#right-sidebar").animate({width: "0px"}, {duration: 500, queue: true});
             }
+
+
+            if (sessionStorage.getItem("username") == null) {
+                document.getElementById("usernavbarwelcome").innerHTML = "Welcome!";
+            }
+
+
+            document.getElementById("usernavbarwelcome").innerHTML = "Welcome, " + sessionStorage.getItem("username") + "!";
 
         </script>
     </body>

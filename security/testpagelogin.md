@@ -14,13 +14,14 @@
 <button class="button1" onclick="location.href='/DADY-Academy/security/signuppage'">I don't have an account</button>
 
 
-<script>
 
+<script>
 function login() {
   const email = document.getElementById("inputEmail").value;
   const password = document.getElementById("inputPassword").value;
 
-  const url = "https://frq.dtsivkovski.tk/authenticate";
+  // const url = "https://frq.dtsivkovski.tk/authenticate";
+  const url = "http://localhost:8679/authenticate";
   
   const options = {
     method: 'POST', 
