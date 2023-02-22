@@ -1,6 +1,9 @@
 ## Team DADY Project
 
-[Runtime](https://dylanluo05.github.io/DADY-Academy/)
+Click on the image below to explore the page!
+[![image](https://user-images.githubusercontent.com/89223402/220761054-93fa11f8-0279-45d3-b05a-bd829e423820.png)](https://dylanluo05.github.io/DADY-Academy/)
+
+## About
 
 What is DADY Academy? It's a tools website for different STEM classes, specifically Physics, Biology, Chemistry, and Statistics. They are specifically created to be useful based on what we have experienced and may have needed while we were taking these classes. Why DADY? It's our names: Dylan, Aryan, Daniel, and Yash (and then Rohan joined later). Enjoy!
 
