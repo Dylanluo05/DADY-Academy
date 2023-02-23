@@ -18,13 +18,14 @@
 <table>
   <thead>
     <tr>
-      <th>"id"</th>
-      <th>"User"</th>
-      <th>"mass"</th>
-      <th>"volume"</th>
-      <th>"Molecular Weight"</th>
-      <th>"Density"</th>
-      <th>"Moles"</th>
+      <th>id</th>
+      <th>User</th>
+      <th>mass</th>
+      <th>volume</th>
+      <th>Molecular Weight</th>
+      <th>Density</th>
+      <th>Moles</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody id = "ChemId"></tbody>
@@ -153,7 +154,7 @@
     border: 1px solid #000000;
     text-align: left;
     padding: 8px;
-  }
+  } 
 
   tr {
     background-color: #000000;
