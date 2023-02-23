@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 35px;
+            color: black;
+            transition-duration: 0.4s;
+        }
+
+        #phys-sim-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .phys-sim-background-1-image, .phys-sim-background-1-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .phys-sim-background-1-image {
+            height: 700px;
+            width: 80%;
+            background: url("https://wallpaperaccess.com/full/31367.jpg");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .phys-sim-background-1-overlay {
+            height: 700px;
+            width: 80%;
+            background-color: white;
+            opacity: 0.5;
+            z-index: 2;
+        }
+
+        .phys-sim-background-1-content {
+            height: 700px;
+            width: 80%;
+            position: relative;
+            z-index: 3;
+        }
+
+    </style>
+    <body>
+        <div id = "navbar-content"></div>
+        <div id = "phys-sim-background-1">
+            <div class = "phys-sim-background-1-image"></div>
+            <div class = "phys-sim-background-1-overlay"></div>
+            <div class = "phys-sim-background-1-content"></div>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+        </script>
+    </body>
+</html>

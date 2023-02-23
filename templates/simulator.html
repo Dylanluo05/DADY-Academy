@@ -180,6 +180,24 @@
             });
 
             $(".image-content").hover(overlayAnimation1, overlayAnimation2);
+            $(".image-content").click(redirection);
+
+            function redirection() {
+                switch ($(this).children().text()) {
+                    case "Biology":
+                        location.href = "/templates/simulator/bio-sim.html"
+                        break;
+                    case "Chemistry":
+                        location.href = "/templates/simulator/chem-sim.html"
+                        break;
+                    case "Statistics":
+                        location.href = "/templates/simulator/stats-sim.html"
+                        break;
+                    case "Physics":
+                        location.href = "/templates/simulator/phys-sim.html"
+                        break;
+                }
+            }
 
             var index;
 

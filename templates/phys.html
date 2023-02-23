@@ -80,7 +80,7 @@
         }
 
         .physics-background-2-image {
-            height: 1500px;
+            height: 1600px;
             background: url("https://images.pexels.com/photos/6208704/pexels-photo-6208704.jpeg?auto=compress&cs=tinysrgb&w=600");
             background-size: cover;
             background-position: center center;
@@ -90,14 +90,14 @@
         }
 
         .physics-background-2-overlay {
-            height: 1500px;
+            height: 1600px;
             background-color: #282828;
             opacity: 0.7;
             z-index: 2;
         }
 
         .physics-background-2-content {
-            height: 1500px;
+            height: 1600px;
             position: relative;
             z-index: 3;
         }
@@ -136,7 +136,7 @@
             margin: auto;
         }
 
-        #kinematics-button {
+        #calcKinematicsButton {
             height: 30px;
             width: 250px;
             background-color: white;
@@ -162,13 +162,11 @@
         }
 
         .objectcard {
-            width: 200px;
-            height: 200px;
             margin: 10px;
-            padding: 2em;
+            padding: 10px;
             border: 1px solid white;
             border-radius: 10px;
-            background-image: linear-gradient(to right, purple, navy);
+            color: white;
             text-align: center;
         }
 
@@ -183,15 +181,29 @@
         }
 
         .objectcardbutton {
-            background-color: navy;
+            background-color: crimson;
             color: white;
             border: none;
             margin: 0.5em;
             padding: 0.75em;
             transition-duration: 0.7s;
         }
+
         .objectcardbutton:hover {
-            background-color: royalblue;
+            background-color: #FF3131;
+        }
+
+        .objectcardbutton2 {
+            background-color: red;
+            color: white;
+            border: none;
+            margin: 0.5em;
+            padding: 0.75em;
+            transition-duration: 0.7s;
+        }
+
+        .objectcardbutton2:hover {
+            background-color: orangered;
         }
 
         .selectedobjectcardbutton {
@@ -223,7 +235,7 @@
         }
 
         .maintitle{
-            font-size: 40px;
+            font-size: 20px;
             font-weight: lighter;
             color: white;
         }
@@ -294,6 +306,7 @@
                         <div style = "width: 150px; display: block; margin: auto;">
                             <input type = "checkbox" name = "known-values" id = "t-known" value = "time"><p>Time</p>
                         </div>
+                        <br>
                         <label for = "initial-velocity-value">What is the value of the initial velocity (If known, otherwise leave blank)</label>
                         <input type = "text" name = "initial-velocity-value" id = "initial-velocity-value" class = "kinematics-input">
                         <label for = "final-velocity-value">What is the value of the final velocity (If known, otherwise leave blank)</label>
@@ -398,11 +411,11 @@
 
                             // create elements for card
                             const h3 = document.createElement("h3");
-                            h3.innerHTML = "Object #" + row.id;
+                            h3.innerHTML = "Object #" + row.id + "<br>";
                             const name = document.createElement("p");
-                            name.innerHTML = "Name: " + row.name;
+                            name.innerHTML = "Name: " + row.name + "<br>";
                             const kinematics = document.createElement("p");
-                            kinematics.innerHTML = "Recent Kinematics Calc: " + row.recentKinematics;
+                            kinematics.innerHTML = "Recent Kinematics Calc: " + "<br>" + row.finalAnswer + "<br>";
 
                             card.appendChild(h3);
                             card.appendChild(name);
@@ -425,10 +438,8 @@
 
                             // add deletebutton and give classlist
                             const deletebutton = document.createElement("button");
-                            deletebutton.classList.add("objectcardbutton");
+                            deletebutton.classList.add("objectcardbutton2");
                             deletebutton.innerHTML = "Delete";
-                            deletebutton.style.backgroundColor = "red";
-                            deletebutton.style.border = "1px solid red";
                             deletebutton.style.width = "40%";
                             deletebutton.style.display = "inline-block";
                             deletebutton.addEventListener("click", function() {
@@ -465,7 +476,7 @@
                     if (row.id == id) {
                         mTitle.innerHTML = "Object #" + row.id;
                         mName.innerHTML = "Name: " + row.name;
-                        mKinematics.innerHTML = "Recent Kinematics Calc: " + row.recentKinematics;
+                        mKinematics.innerHTML = "Recent Kinematics Calc: " + row.finalAnswer;
 
                         var tempOB = document.getElementById("objbutton" + row.id);
                         tempOB.innerHTML = "Selected";
@@ -497,9 +508,41 @@
                     unknownValue = document.getElementById("time-unknown").value;
                 }
 
+                var viValue;
+                var vfValue;
+                var aValue;
+                var xValue;
+                var tValue;
+
+                if (document.getElementById("initial-velocity-value").value == "") {
+                    viValue = 0;
+                } else {
+                    viValue = document.getElementById("initial-velocity-value").value;
+                }
+                if (document.getElementById("final-velocity-value").value == "") {
+                    vfValue = 0;
+                } else {
+                    vfValue = document.getElementById("final-velocity-value").value;
+                }
+                if (document.getElementById("acceleration-value").value == "") {
+                    aValue = 0;
+                } else {
+                    aValue = document.getElementById("acceleration-value").value;
+                }
+                if (document.getElementById("displacement-value").value == "") {
+                    xValue = 0;
+                } else {
+                    xValue = document.getElementById("displacement-value").value;
+                }
+                if (document.getElementById("time-value").value == "") {
+                    tValue = 0;
+                } else {
+                    tValue = document.getElementById("time-value").value;
+                }
+
                 // build url for fetch
-                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKinematics/" + id +  "/" + document.getElementById("initial-velocity-value").value + "/" + document.getElementById("vi-known").checked + "/" + document.getElementById("final-velocity-value").value + "/" + document.getElementById("vf-known").checked
-                + "/" + document.getElementById("acceleration-value").value + "/" + document.getElementById("a-known").checked + "/" + document.getElementById("displacement-value").value + "/" + document.getElementById("d-known").checked + "/" + document.getElementById("time-value").value + "/" + document.getElementById("t-known").checked;
+                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKinematics/" + id +  "/" + viValue + "/" + document.getElementById("vi-known").checked + "/" + vfValue + "/" + document.getElementById("vf-known").checked
+                + "/" + aValue + "/" + document.getElementById("a-known").checked + "/" + xValue + "/" + document.getElementById("x-known").checked + "/" + tValue + "/" + document.getElementById("t-known").checked + "/" + unknownValue;
 
                 fetch(calcKinematicsurl, options)
                 // response is a RESTful "promise" on any successful fetch
@@ -513,7 +556,7 @@
                     // valid response will contain json data
                     response.json().then(data => {
                         console.log(data);
-                        mKinematics.innerHTML = "Recent Kinematics Calc: " + data.recentKinematics;
+                        mKinematics.innerHTML = "Recent Kinematics Calc: " + data.finalAnswer;
                         getAllObjects();
                         });
                 });
