@@ -120,7 +120,7 @@
     var url = "https://frq.dtsivkovski.tk/api/Chem/delete/" + id;
     alert(url);
 
-    const optionsPOST = {
+    const optionsDEL = {
         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
@@ -130,6 +130,19 @@
         },
         // body: JSON.stringify(body)
     };
+
+    fetch(url, optionsDEL)
+      .then(response => {
+      if (response.ok) {
+        return response.json();
+        alert("deleted the id");
+      } else {
+        throw new Error('Error deleting id');
+      }
+    })
+
+    
+    
 
     
 
