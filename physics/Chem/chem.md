@@ -139,16 +139,19 @@
         },
         // body: JSON.stringify(body)
     };
-/*
+
     fetch(url, optionsDEL)
       .then(response => {
       if (response.ok) {
-        return response.json();
         alert("deleted the id");
+        return response.json();
       } else {
         throw new Error('Error deleting id');
       }
-    })*/
+    }).catch(error => {
+      console.log(error);
+    });
+    
   }
 </script>
 
