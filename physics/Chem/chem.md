@@ -131,19 +131,22 @@
 
     const optionsDEL = {
         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+        'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+        },
     };
 
     fetch(url, optionsDEL)
       .then(response => {
       if (response.ok) {
         alert("deleted the id");
-        return response.json();
+        //return response.json();
       } else {
         throw new Error('Error deleting id');
-      }
-    }).catch(error => {
-      console.log(error);
-    });
+      }});
+    //}).catch(error => {
+      //console.log(error);
+    //});/
 
   }
 </script>
