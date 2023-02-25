@@ -96,6 +96,7 @@
           button.innerHTML = "Delete";
           button.id = "delButton-"+i;
           button.addEventListener("click", function() {
+              event.preventDefault();
               deleteChem(this,rs.id);
           });
         del.appendChild(button);
@@ -137,10 +138,10 @@
     };
 
     fetch(url, optionsDEL)
-      .then(response => {
-      if (response.ok) {
+      .then(res => {
+      if (res.ok) {
         alert("deleted the id");
-        //return response.json();
+        //return res.json();
       } else {
         throw new Error('Error deleting id');
       }});
