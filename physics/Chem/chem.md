@@ -15,7 +15,7 @@
     <p id="result"></p>
 </body>
 
-<table>
+<table id="ChemData">
   <thead>
     <tr>
       <th>id</th>
@@ -39,6 +39,7 @@
   const volume = document.getElementById("volume").value;
   const mw = document.getElementById("molecularWeight").value;
   const resultChemData = document.getElementById("ChemId");
+  const chemTable = document.getElementById("ChemData");
 
   function calculate() {
     
@@ -61,6 +62,8 @@
         },
         // body: JSON.stringify(body)
     };
+
+    var i = 0;
 
     fetch(url, optionsPOST)
       .then(response => {
@@ -93,7 +96,7 @@
           button.innerHTML = "Delete";
           button.id = "delButton";
           button.addEventListener("click", function() {
-              deleteRow(rs.id);
+              deleteChem(rs.id, i);
           });
         del.appendChild(button);
         //del.innerHTML = <button onclick="deleteTable()">Delete</button>;
@@ -108,6 +111,8 @@
         tr.appendChild(del);
 
         resultChemData.appendChild(tr);
+
+        i++;
       }
     })
     .catch(error => {
@@ -116,9 +121,11 @@
 
   }
 
-  function deleteRow(id) {
+  function deleteChem(id, i) {
     var url = "https://frq.dtsivkovski.tk/api/Chem/delete/" + id;
     alert(url);
+
+    chemTable.deleteRow(i);
 
     const optionsDEL = {
         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
@@ -140,13 +147,6 @@
         throw new Error('Error deleting id');
       }
     })
-
-    
-    
-
-    
-
-
   }
 </script>
 
