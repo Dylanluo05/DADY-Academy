@@ -80,6 +80,7 @@
         const mw = document.createElement("td");
         const den = document.createElement("td");
         const mole = document.createElement("td");
+        const del = document.createElement("td");
 
         id.innerHTML = rs.id;
         user.innerHTML = rs.owner;
@@ -88,6 +89,14 @@
         mw.innerHTML = rs.molecularWeight;
         den.innerHTML = rs.density;
         mole.innerHTML = rs.mole;
+        const button = document.createElement("button");
+          button.innerHTML = "Delete";
+          button.id = "delbutton" + row.id;
+          button.addEventListener("click", function() {
+              deleteRow(rs.id);
+          });
+        del.appendChild(button);
+        //del.innerHTML = <button onclick="deleteTable()">Delete</button>;
 
         tr.appendChild(id);
         tr.appendChild(user);
@@ -96,6 +105,7 @@
         tr.appendChild(mw);
         tr.appendChild(den);
         tr.appendChild(mole);
+        tr.appendChild(del);
 
         resultChemData.appendChild(tr);
       }
@@ -105,7 +115,29 @@
     });
 
   }
+
+  function deleteRow(id) {
+    var url = "https://frq.dtsivkovski.tk/api/Chem/delete/" + id;
+    alert(url);
+
+    const optionsPOST = {
+        method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify(body)
+    };
+
+    
+
+
+  }
 </script>
+
+
 
 
 <style>
