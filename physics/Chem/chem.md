@@ -91,7 +91,7 @@
         mole.innerHTML = rs.mole;
         const button = document.createElement("button");
           button.innerHTML = "Delete";
-          button.id = "delbutton" + row.id;
+          button.id = "delButton";
           button.addEventListener("click", function() {
               deleteRow(rs.id);
           });
