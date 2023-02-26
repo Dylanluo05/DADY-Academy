@@ -152,8 +152,8 @@
     */
 
    (async () => {
-      await fetch(url, {method: 'GET'});
-      alert("Getted");
+      await fetch("https://frq.dtsivkovski.tk/api/Chem/delete/"+id, {method: 'delete'});
+      alert("deleted");
 
    })();
     
