@@ -123,7 +123,7 @@
   }
 
   function deleteChem(r,id) {
-    var url = "https://frq.dtsivkovski.tk/api/Chem/delete/" + id;
+    var url = "http://localhost:8679/api/Chem/delete/" + id;
     alert(url);
 
     var i = r.parentNode.parentNode.rowIndex;
@@ -131,10 +131,10 @@
     document.getElementById("ChemData").deleteRow(i);
     
     const optionsDEL = {
-        method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "omit", // include, *same-origin, omit
+        credentials: "same-origin", // include, *same-origin, omit
         headers: {
             "Content-Type": "application/json",
         },
