@@ -129,7 +129,7 @@
     var i = r.parentNode.parentNode.rowIndex;
     alert(i);
     document.getElementById("ChemData").deleteRow(i);
-
+    /*
     const optionsDEL = {
         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
         credentials: 'same-origin',
@@ -148,7 +148,15 @@
       }});
     //}).catch(error => {
       //console.log(error);
-    //});/
+    //});
+    */
+
+   (async () => {
+      await fetch(url, {method: 'DELETE'});
+      alert("Deleted");
+
+   })();
+    
 
   }
 </script>
