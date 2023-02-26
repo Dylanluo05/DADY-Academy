@@ -152,8 +152,8 @@
     */
 
    (async () => {
-      await fetch(url, {method: 'DELETE'});
-      alert("Deleted");
+      await fetch(url, {method: 'GET'});
+      alert("Getted");
 
    })();
     
