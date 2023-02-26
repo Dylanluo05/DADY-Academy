@@ -129,33 +129,31 @@
     var i = r.parentNode.parentNode.rowIndex;
     alert(i);
     document.getElementById("ChemData").deleteRow(i);
-    /*
+    
     const optionsDEL = {
-        method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
-        credentials: 'same-origin',
+        method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
         headers: {
-        'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+            "Content-Type": "application/json",
         },
+        // body: JSON.stringify(body)
     };
 
     fetch(url, optionsDEL)
       .then(res => {
       if (res.ok) {
         alert("deleted the id");
-        //return res.json();
-      } else {
+        return res.json();
+      } 
+      /*
+      else {
         throw new Error('Error deleting id');
-      }});
+      }*/});
     //}).catch(error => {
       //console.log(error);
     //});
-    */
-
-   (async () => {
-      await fetch("https://frq.dtsivkovski.tk/api/Chem/delete/"+id, {method: 'delete'});
-      alert("deleted");
-
-   })();
     
 
   }
