@@ -132,6 +132,7 @@
 
     const optionsDEL = {
         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+        credentials: 'same-origin',
         headers: {
         'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
         },
