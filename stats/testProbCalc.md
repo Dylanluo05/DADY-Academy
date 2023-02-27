@@ -202,10 +202,13 @@
                     n.innerHTML = "n: " + row.n;
                     const recSDM = document.createElement("p");
                     recSDM.innerHTML = "Recent SDM Calc: " + row.recentSDM;
+                    const updateN = document.createElement("input");
+                    updateN.setAttribute("placeholder", "Update your sample size");
 
                     card.appendChild(h3);
                     card.appendChild(n);
                     card.appendChild(recSDM);
+                    card.appendChild(updateN);
   
                     const buttonholder = document.createElement("div");
                     buttonholder.style.whiteSpace = "nowrap";
@@ -234,6 +237,18 @@
                         deleteObj(row.id);
                     });
                     card.appendChild(deletebutton);
+
+                    const updatebutton = document.createElement("button");
+                    updatebutton.classList.add("objectcardbutton");
+                    updatebutton.innerHTML = "update";
+                    updatebutton.style.backgroundColor = "red";
+                    updatebutton.style.border = "1px solid red";
+                    updatebutton.style.width = "40%";
+                    updatebutton.style.display = "inline-block";
+                    // updatebutton.addEventListener("click", function() {
+                    //     deleteObj(row.id);
+                    // });
+                    card.appendChild(updatebutton);
                 }
 
                 storedinfo = data;
