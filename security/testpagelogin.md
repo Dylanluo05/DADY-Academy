@@ -54,20 +54,16 @@ function login() {
           console.log(errorMsg);
           return; 
       }
+
+      const cookie = response.headers.get('Set-Cookie');
+      // Set the cookie using the document.cookie property
+      document.cookie = cookie;
       // Success!!!
-      
       sessionStorage.setItem("username", email);
-      window.location.reload();
+      window.location.href = "https://dylanluo05.github.io/DADY-Academy/templates/home";
       // window.location.href = "{{site.baseurl}}/home";
 
-
   })
-
-
-
-
-
-  
 }
 
 function logout() {
@@ -101,17 +97,12 @@ function logout() {
 
 }
 
-
-
-
 if (sessionStorage.getItem("username") == null) {
   sessionStorage.setItem("username", "Guest");
 }
 
 
 document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
-
-
 
 </script>
 
