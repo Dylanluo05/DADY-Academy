@@ -57,7 +57,7 @@ function login() {
 
       const cookie = response.headers.get('Set-Cookie');
       // Set the cookie using the document.cookie property
-      document.cookie = cookie;
+      document.cookie = "jwt=" + cookie;
       // Success!!!
       sessionStorage.setItem("username", email);
       window.location.href = "https://dylanluo05.github.io/DADY-Academy/templates/home";
