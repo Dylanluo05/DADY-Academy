@@ -55,11 +55,11 @@ function login() {
           return; 
       }
 
-      const cookie = response.headers.get('Set-Cookie');
-      // Set the cookie using the document.cookie property
-      document.cookie = "jwt=" + cookie;
-      console.log(cookie);
       // Success!!!
+          // const cookie = response.headers.get('Set-Cookie');
+          // // Set the cookie using the document.cookie property
+          // document.cookie = "jwt=" + cookie;
+          // console.log(cookie);
       sessionStorage.setItem("username", email);
       window.location.href = "https://dylanluo05.github.io/DADY-Academy/templates/home";
       // window.location.href = "{{site.baseurl}}/home";
