@@ -161,6 +161,15 @@
             'Content-Type': 'application/json',
         },
     };
+    const optionsPOST = {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
 
     var storedinfo;
 
@@ -362,9 +371,9 @@
 
         // build url for fetch
         // var createObjurl = "https://frq.dtsivkovski.tk/api/stats/create/" + document.getElementById("N-input").value;
-        var createObjurl = "http://localhost:8679/api/stats/create/" + document.getElementById("N-input").value;
+        var createObjurl = "http://localhost:8679/api/stats/create?sampleSize=" + document.getElementById("N-input").value;
 
-        fetch(createObjurl, options)
+        fetch(createObjurl, optionsPOST)
         // response is a RESTful "promise" on any successful fetch
         .then(response => {
             // check for response errors and display
