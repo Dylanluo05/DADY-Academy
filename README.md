@@ -1,7 +1,19 @@
 ## Team DADY Project
 
-Click on the image below to explore the page!
+### Usage - Website
+
+Click on the image below to explore our deployed site!
 [![image](https://user-images.githubusercontent.com/89223402/220761054-93fa11f8-0279-45d3-b05a-bd829e423820.png)](https://dylanluo05.github.io/DADY-Academy/)
+
+### Usage - Localhost
+
+Feel free to clone this project and run it locally, using these commands (as an example):
+```bash
+git clone https://github.com/Dylanluo05/DADY-Academy.git
+cd DADY-Academy
+bundle install
+bundle exec jekyll serve
+```
 
 ### About
 
