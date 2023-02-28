@@ -398,9 +398,6 @@
                             outputText.innerHTML = row.expression + " = " + row.finalAnswer;
                             outputText.id = "output-text-" + row.id;
                             outputContainer.appendChild(outputText);
-                            
-                            const buttonholder = document.createElement("div");
-                            buttonholder.style.whiteSpace = "nowrap";
 
                             // create button and give classlist, add to card
                             const button = document.createElement("button");
@@ -441,7 +438,7 @@
                 // remove selected class from button with selectedObj id
                 if (selectedObj != null) {
                     var tempOB = document.getElementById("objbutton" + selectedObj);
-                    tempOB.innerHTML = "Select";
+                    tempOB.innerHTML = "Confirm Update";
                     tempOB.classList.remove("button-1");
                     tempOB.classList.add("button-3");
                 }
@@ -450,11 +447,11 @@
                     if (row.id == id) {
                         calculatorInputField.value = row.expression;
                         var tempOB = document.getElementById("objbutton" + row.id);
-                        tempOB.innerHTML = "Selected";
-                        tempOB.classList.add("button-1");
-                        tempOB.classList.remove("button-3");
+                        tempOB.innerHTML = "Confirm Update";
+                        tempOB.classList.add("button-3");
+                        tempOB.classList.remove("button-1");
                         selectedObj = row.id;
-                        calculatorEqualsButton.onclick = function() {
+                        tempOB.onclick = function() {
                             calculate(row.id);
                         };
                     }
