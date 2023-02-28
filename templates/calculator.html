@@ -190,10 +190,10 @@
             <div class = "page-divider"></div>
             <h1 style = "margin-left: 11%;">Scientific</h1>
             <h1 style = "margin-left: 15%;">Calculator</h1>
-            <img src = "/assets/images/calculator.png" height = "450px" style = "float: right; margin-top: -350px;">
+            <img src = "/DADY-Academy/assets/images/calculator.png" height = "450px" style = "float: right; margin-top: -350px;">
         </div>
         <div class = "calculator-background-2">
-            <img src = "/assets/images/tools.png" height = "400px" style = "margin-top: 50px; margin-left: 40px;">
+            <img src = "/DADY-Academy/assets/images/tools.png" height = "400px" style = "margin-top: 50px; margin-left: 40px;">
             <h1 style = "margin-top: -400px; margin-left: 67%;">Calculate</h1>
             <h1 style = "margin-left: 62%;">Compute</h1>
             <h1 style = "margin-left: 73%;">Evaluate</h1>
@@ -203,7 +203,7 @@
             <h1 style = "margin: 0; font-size: 55px; margin-left: 3%;">A Tool</h1>
             <h1 style = "font-size: 55px; margin-left: 6%;">that will fulfill all</h1>
             <h1 style = "font-size: 55px; margin-left: 9%;">your algorithmic needs</h1>
-            <img src = "/assets/images/equations.png" height = "450px" style = "float: right; margin-top: -350px;">
+            <img src = "/DADY-Academy/assets/images/equations.png" height = "450px" style = "float: right; margin-top: -350px;">
         </div>
         <div class = "calculator-background-3">
             <br><br>
@@ -388,8 +388,6 @@
                             // create button and give classlist, add to card
                             const button = document.createElement("button");
                             button.classList.add("button-1");
-                            button.style.width = "40%";
-                            button.style.display = "inline-block";
                             button.innerHTML = "Update";
                             button.id = "objbutton" + row.id;
                             button.addEventListener("click", function() {
@@ -401,8 +399,6 @@
                             const deletebutton = document.createElement("button");
                             deletebutton.classList.add("button-2");
                             deletebutton.innerHTML = "Delete";
-                            deletebutton.style.width = "40%";
-                            deletebutton.style.display = "inline-block";
                             deletebutton.addEventListener("click", function() {
                                 deleteObj(row.id);
                             });
