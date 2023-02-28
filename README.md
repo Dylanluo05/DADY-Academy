@@ -24,3 +24,7 @@ Our goal is to create a website that we would want to use - as it is applicable 
 ### Credits
 
 Credit goes to [John Mortensen](https://github.com/jm1021) for a template used to set up the frontend for this project, we have made use of some of the initial website theming and layouts and built upon it.
+
+### License
+
+Our project uses an MIT License.
