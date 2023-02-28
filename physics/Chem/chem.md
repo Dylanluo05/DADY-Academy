@@ -15,16 +15,17 @@
     <p id="result"></p>
 </body>
 
-<table>
+<table id="ChemData">
   <thead>
     <tr>
-      <th>"id"</th>
-      <th>"User"</th>
-      <th>"mass"</th>
-      <th>"volume"</th>
-      <th>"Molecular Weight"</th>
-      <th>"Density"</th>
-      <th>"Moles"</th>
+      <th>id</th>
+      <th>User</th>
+      <th>mass</th>
+      <th>volume</th>
+      <th>Molecular Weight</th>
+      <th>Density</th>
+      <th>Moles</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody id = "ChemId"></tbody>
@@ -38,6 +39,7 @@
   const volume = document.getElementById("volume").value;
   const mw = document.getElementById("molecularWeight").value;
   const resultChemData = document.getElementById("ChemId");
+//  const chemTable = document.getElementById("ChemData");
 
   function calculate() {
     
@@ -61,6 +63,8 @@
         // body: JSON.stringify(body)
     };
 
+    var i = 0;
+
     fetch(url, optionsPOST)
       .then(response => {
       if (response.ok) {
@@ -79,6 +83,7 @@
         const mw = document.createElement("td");
         const den = document.createElement("td");
         const mole = document.createElement("td");
+        const del = document.createElement("td");
 
         id.innerHTML = rs.id;
         user.innerHTML = rs.owner;
@@ -87,6 +92,15 @@
         mw.innerHTML = rs.molecularWeight;
         den.innerHTML = rs.density;
         mole.innerHTML = rs.mole;
+        const button = document.createElement("button");
+          button.innerHTML = "Delete";
+          button.id = "delButton-"+i;
+          button.addEventListener("click", function() {
+              event.preventDefault();
+              deleteChem(this,rs.id);
+          });
+        del.appendChild(button);
+        //del.innerHTML = <button onclick="deleteTable()">Delete</button>;
 
         tr.appendChild(id);
         tr.appendChild(user);
@@ -95,8 +109,11 @@
         tr.appendChild(mw);
         tr.appendChild(den);
         tr.appendChild(mole);
+        tr.appendChild(del);
 
         resultChemData.appendChild(tr);
+
+        i++;
       }
     })
     .catch(error => {
@@ -104,7 +121,46 @@
     });
 
   }
+
+  function deleteChem(r,id) {
+    //var url = "http://localhost:8679/api/Chem/delete/" + id;
+    var url = "https://frq.dtsivkovski.tk/api/Chem/delete/" + id;
+    alert(url);
+
+    var i = r.parentNode.parentNode.rowIndex;
+    alert(i);
+    document.getElementById("ChemData").deleteRow(i);
+    
+    const optionsDEL = {
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+        },
+        // body: JSON.stringify(body)
+    };
+
+    fetch(url, optionsDEL)
+      .then(res => {
+      if (res.ok) {
+        alert("deleted the id");
+        return res.json();
+      } 
+      /*
+      else {
+        throw new Error('Error deleting id');
+      }*/});
+    //}).catch(error => {
+      //console.log(error);
+    //});
+    
+
+  }
 </script>
+
+
 
 
 <style>
@@ -153,7 +209,7 @@
     border: 1px solid #000000;
     text-align: left;
     padding: 8px;
-  }
+  } 
 
   tr {
     background-color: #000000;
