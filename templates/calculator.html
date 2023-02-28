@@ -156,8 +156,8 @@
             background-color: navy;
             color: white;
             border: none;
-            position: absolute;
-            right: 625px;
+            position: relative;
+            right: 675px;
             cursor: pointer;
             transition-duration: 0.7s;
         }
@@ -172,14 +172,30 @@
             background-color: crimson;
             color: white;
             border: none;
-            position: absolute;
-            right: 515px;
+            position: relative;
+            right: 565px;
             cursor: pointer;
             transition-duration: 0.7s;
         }
 
         .button-2:hover {
             background-color: #FF033E;
+        }
+
+        .button-3 {
+            height: 25px;
+            width: 100px;
+            background-color: black;
+            color: white;
+            border: none;
+            position: relative;
+            right: 675px;
+            cursor: pointer;
+            transition-duration: 0.7s;
+        }
+
+        .button-3:hover {
+            background-color: #383838;
         }
 
 
@@ -415,7 +431,7 @@
 
             var selectedObj;
 
-            /*function selectObj(id) {
+            function selectObj(id) {
                 console.log("Selected Object - Id: " + id);
 
                 // turn on history delete button when selected obj for first time
@@ -425,84 +441,31 @@
                 if (selectedObj != null) {
                     var tempOB = document.getElementById("objbutton" + selectedObj);
                     tempOB.innerHTML = "Select";
-                    tempOB.classList.remove("selectedobjectcardbutton");
-                    tempOB.classList.add("objectcardbutton");
+                    tempOB.classList.remove("button-1");
+                    tempOB.classList.add("button-3");
                 }
 
-                // set innerHTML to selected object values using storedinfo
                 for (const row of storedinfo) {
                     if (row.id == id) {
-                        mTitle.innerHTML = "Object #" + row.id;
-                        mName.innerHTML = "Name: " + row.name;
-                        mKinematics.innerHTML = "Recent Kinematics Calc: " + row.finalAnswer;
-
+                        calculatorInputField.value = row.expression;
                         var tempOB = document.getElementById("objbutton" + row.id);
                         tempOB.innerHTML = "Selected";
-                        tempOB.classList.add("selectedobjectcardbutton");
-                        tempOB.classList.remove("objectcardbutton");
+                        tempOB.classList.add("button-1");
+                        tempOB.classList.remove("button-3");
                         selectedObj = row.id;
-
-                        // remove old event listener and add new one
-                        calcKinematicsButton.onclick = function() {
-                            calcKinematics(row.id);
+                        calculatorEqualsButton.onclick = function() {
+                            calculate(row.id);
                         };
                     }
                 }
-            }*/
+            }
 
-            /*function calcKinematics(id) {
+            function calculate(id) {
                 console.log("Calculating Kinematics for Object - Id: " + id);
 
-                var unknownValue;
-                if (document.getElementById("initial-velocity-unknown").checked == true) {
-                    unknownValue = document.getElementById("initial-velocity-unknown").value;
-                } else if (document.getElementById("final-velocity-unknown").checked == true) {
-                    unknownValue = document.getElementById("final-velocity-unknown").value;
-                } else if (document.getElementById("acceleration-unknown").checked == true) {
-                    unknownValue = document.getElementById("acceleration-unknown").value;
-                } else if (document.getElementById("displacement-unknown").checked == true) {
-                    unknownValue = document.getElementById("displacement-unknown").value;
-                } else if (document.getElementById("time-unknown").checked == true) {
-                    unknownValue = document.getElementById("time-unknown").value;
-                }
-
-                var viValue;
-                var vfValue;
-                var aValue;
-                var xValue;
-                var tValue;
-
-                if (document.getElementById("initial-velocity-value").value == "") {
-                    viValue = 0;
-                } else {
-                    viValue = document.getElementById("initial-velocity-value").value;
-                }
-                if (document.getElementById("final-velocity-value").value == "") {
-                    vfValue = 0;
-                } else {
-                    vfValue = document.getElementById("final-velocity-value").value;
-                }
-                if (document.getElementById("acceleration-value").value == "") {
-                    aValue = 0;
-                } else {
-                    aValue = document.getElementById("acceleration-value").value;
-                }
-                if (document.getElementById("displacement-value").value == "") {
-                    xValue = 0;
-                } else {
-                    xValue = document.getElementById("displacement-value").value;
-                }
-                if (document.getElementById("time-value").value == "") {
-                    tValue = 0;
-                } else {
-                    tValue = document.getElementById("time-value").value;
-                }
-
                 // build url for fetch
-                var calcKinematicsurl = "https://frq.dtsivkovski.tk/api/physics/kinematics/calculateKinematics/" + id +  "/" + viValue + "/" + document.getElementById("vi-known").checked + "/" + vfValue + "/" + document.getElementById("vf-known").checked
-                + "/" + aValue + "/" + document.getElementById("a-known").checked + "/" + xValue + "/" + document.getElementById("x-known").checked + "/" + tValue + "/" + document.getElementById("t-known").checked + "/" + unknownValue;
-
-                fetch(calcKinematicsurl, options)
+                var calculatorurl = "https://frq.dtsivkovski.tk/api/calculator/calculate/" + calculatorInputField.value;
+                fetch(calculatorurl, options)
                 // response is a RESTful "promise" on any successful fetch
                 .then(response => {
                     // check for response errors and display
@@ -518,7 +481,7 @@
                         getAllObjects();
                         });
                 });
-            }*/
+            }
 
             function createObj() {
                 console.log("Creating Object");
