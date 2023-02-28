@@ -156,7 +156,7 @@
             background-color: navy;
             color: white;
             border: none;
-            position: relative;
+            position: absolute;
             right: 675px;
             cursor: pointer;
             transition-duration: 0.7s;
@@ -172,7 +172,7 @@
             background-color: crimson;
             color: white;
             border: none;
-            position: relative;
+            position: absolute;
             right: 565px;
             cursor: pointer;
             transition-duration: 0.7s;
@@ -188,7 +188,7 @@
             background-color: black;
             color: white;
             border: none;
-            position: relative;
+            position: absolute;
             right: 675px;
             cursor: pointer;
             transition-duration: 0.7s;
@@ -396,6 +396,7 @@
                             outputContainer.classList.add("output-container");
                             var outputText = document.createElement("h3");
                             outputText.innerHTML = row.expression + " = " + row.finalAnswer;
+                            outputText.id = "output-text-" + row.id;
                             outputContainer.appendChild(outputText);
                             
                             const buttonholder = document.createElement("div");
@@ -477,7 +478,7 @@
                     // valid response will contain json data
                     response.json().then(data => {
                         console.log(data);
-                        mKinematics.innerHTML = "Recent Kinematics Calc: " + data.finalAnswer;
+                        document.getElementById("output-text-" + id).innerHTML = data.expression + " = " + data.finalAnswer;
                         getAllObjects();
                         });
                 });
