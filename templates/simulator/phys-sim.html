@@ -40,8 +40,7 @@
         }
 
         .phys-sim-background-1-image {
-            height: 700px;
-            width: 80%;
+            height: 800px;
             background: url("https://wallpaperaccess.com/full/31367.jpg");
             background-position: center center;
             background-size: cover;
@@ -50,32 +49,47 @@
         }
 
         .phys-sim-background-1-overlay {
-            height: 700px;
-            width: 80%;
+            height: 800px;
             background-color: white;
-            opacity: 0.5;
+            opacity: 0.35;
             z-index: 2;
         }
 
         .phys-sim-background-1-content {
-            height: 700px;
-            width: 80%;
+            height: 800px;
             position: relative;
             z-index: 3;
         }
 
+        .box {
+            background-color: black;
+            height: 650px;
+            width: 800px;
+            display: block;
+            margin: auto;
+        }
+
     </style>
     <body>
-        <div id = "navbar-content"></div>
         <div id = "phys-sim-background-1">
             <div class = "phys-sim-background-1-image"></div>
             <div class = "phys-sim-background-1-overlay"></div>
-            <div class = "phys-sim-background-1-content"></div>
+            <div class = "phys-sim-background-1-content">
+                <div id = "navbar-content"></div>
+                <div class = "box">
+                    <div id = "like_button_container"></div>
+                </div>
+            </div>
         </div>
         <script>
             $(function() {
                 $("#navbar-content").load("/layouts/navbar.html");
             });
         </script>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+      
+        <!-- Load our React component. -->
+        <script src="phys-sim.js"></script>
     </body>
 </html>
