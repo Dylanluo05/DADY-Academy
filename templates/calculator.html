@@ -477,8 +477,7 @@
                     // valid response will contain json data
                     response.json().then(data => {
                         console.log(data);
-                        document.getElementById("output-text-" + id).innerHTML = "Hello";
-                        //document.getElementById("output-text-" + id).innerHTML = data.expression + " = " + data.finalAnswer;
+                        document.getElementById("output-text-" + id).innerHTML = data.expression + " = " + data.finalAnswer;
                         getAllObjects();
                         calculatorInputField.value = "";
                         });
