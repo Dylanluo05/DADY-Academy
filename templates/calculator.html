@@ -456,6 +456,8 @@
                         selectedObj = row.id;
                         tempOB.onclick = function() {
                             calculate(selectedObj);
+                            tempOB.classList.remove("button-3");
+                            tempOB.classList.add("button-1");
                         };
                     }
                 }
@@ -465,7 +467,7 @@
                 console.log("Calculating Kinematics for Object - Id: " + id);
 
                 // build url for fetch
-                var calculatorurl = "https://frq.dtsivkovski.tk/api/calculator/calculate/" + calculatorInputField.value;
+                var calculatorurl = "https://frq.dtsivkovski.tk/api/calculator/calculate/" + id + "/" + calculatorInputField.value;
                 fetch(calculatorurl, options)
                 // response is a RESTful "promise" on any successful fetch
                 .then(response => {
