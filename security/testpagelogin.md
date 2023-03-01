@@ -61,7 +61,7 @@ function login() {
       document.cookie = "jwt=" + cookie;
       console.log(cookie);
       sessionStorage.setItem("username", email);
-      window.location.href = "https://dylanluo05.github.io/DADY-Academy/templates/home";
+      window.history.back();
       // window.location.href = "{{site.baseurl}}/home";
 
   })
