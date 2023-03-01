@@ -69,7 +69,8 @@ function login() {
 
 function logout() {
   
-  const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
+  // const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
+  const logoutUrl = "http://localhost:8679/logoutJWT";
   const optionsLogout = {
     method: 'GET', 
     mode: 'cors', // no-cors, *cors, same-origin
