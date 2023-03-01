@@ -10,8 +10,8 @@
     }
 
     .objectcard {
-        width: 500px;
-        height: 400px;
+        width: 400px;
+        height: 300px;
         margin: 10px;
         padding: 2em;
         border: 1px solid white;
