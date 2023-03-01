@@ -229,9 +229,6 @@
             <div class = "calculator-main-container">
                 <div class = "calculator-output-container" id = "calculator-output-container">
                     <div class = "output-container">
-                        <h3>1 + 1</h3>
-                        <button class = "button-1">Select</button>
-                        <button class = "button-2">Delete</button>
                     </div>
                 </div> 
                 <div class = "calculator-input-container">
@@ -407,9 +404,9 @@
                             button.classList.add("button-1");
                             button.innerHTML = "Update";
                             button.id = "objbutton" + row.id;
-                            button.addEventListener("click", function() {
+                            button.onclick = function() {
                                 selectObj(row.id);
-                            });
+                            }
                             outputContainer.appendChild(button);
 
                             // add deletebutton and give classlist
@@ -442,8 +439,8 @@
                 if (selectedObj != null) {
                     var tempOB = document.getElementById("objbutton" + selectedObj);
                     tempOB.innerHTML = "Update";
-                    tempOB.classList.remove("button-1");
-                    tempOB.classList.add("button-3");
+                    tempOB.classList.remove("button-3");
+                    tempOB.classList.add("button-1");
                 }
 
                 for (const row of storedinfo) {
@@ -482,6 +479,7 @@
                         console.log(data);
                         document.getElementById("output-text-" + id).innerHTML = data.expression + " = " + data.finalAnswer;
                         getAllObjects();
+                        calculatorInputField.value = "";
                         });
                 });
             }
@@ -507,6 +505,7 @@
 
                         getAllObjects();
                         selectObj(data.id);
+                        calculatorInputField.value = "";
                         });
                 });
             }
