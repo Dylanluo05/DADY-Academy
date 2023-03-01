@@ -156,8 +156,9 @@
             background-color: navy;
             color: white;
             border: none;
-            position: absolute;
-            right: 675px;
+            margin-left: auto;
+            position: relative;
+            left: 90px;
             cursor: pointer;
             transition-duration: 0.7s;
         }
@@ -172,8 +173,9 @@
             background-color: crimson;
             color: white;
             border: none;
-            position: absolute;
-            right: 565px;
+            margin-left: auto;
+            position: relative;
+            left: -20px;
             cursor: pointer;
             transition-duration: 0.7s;
         }
@@ -185,17 +187,18 @@
         .button-3 {
             height: 25px;
             width: 100px;
-            background-color: black;
+            background-color: gray;
             color: white;
             border: none;
-            position: absolute;
-            right: 675px;
+            margin-left: auto;
+            position: relative;
+            left: 90px;
             cursor: pointer;
             transition-duration: 0.7s;
         }
 
         .button-3:hover {
-            background-color: #383838;
+            background-color: slategray;
         }
 
 
@@ -438,7 +441,7 @@
                 // remove selected class from button with selectedObj id
                 if (selectedObj != null) {
                     var tempOB = document.getElementById("objbutton" + selectedObj);
-                    tempOB.innerHTML = "Confirm Update";
+                    tempOB.innerHTML = "Update";
                     tempOB.classList.remove("button-1");
                     tempOB.classList.add("button-3");
                 }
@@ -447,12 +450,12 @@
                     if (row.id == id) {
                         calculatorInputField.value = row.expression;
                         var tempOB = document.getElementById("objbutton" + row.id);
-                        tempOB.innerHTML = "Confirm Update";
+                        tempOB.innerHTML = "Update";
                         tempOB.classList.add("button-3");
                         tempOB.classList.remove("button-1");
                         selectedObj = row.id;
                         tempOB.onclick = function() {
-                            calculate(row.id);
+                            calculate(selectedObj);
                         };
                     }
                 }
