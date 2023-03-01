@@ -59,7 +59,6 @@ function login() {
       const cookie = response.headers.get('Set-Cookie');
       // Set the cookie using the document.cookie property
       document.cookie = "jwt=" + cookie;
-      console.log(cookie);
       sessionStorage.setItem("username", email);
       window.history.back();
       // window.location.href = "{{site.baseurl}}/home";
