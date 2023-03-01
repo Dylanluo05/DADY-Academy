@@ -1,7 +1,5 @@
 # Stats Calculator
 
-### Not logged in? - [Login Now](/DADY-Academy/security/testpagelogin)
-
 <style>
     .objectcards {
         display: flex;
