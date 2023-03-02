@@ -211,6 +211,7 @@ hr.cardhr {
                     recSDM.innerHTML = "Recent SDM Calc: " + row.recentSDM;
                     const updateN = document.createElement("input");
                     updateN.setAttribute("placeholder", "Update n");
+                    updateN.setAttribute("id", "input");
                     const breakElement = document.createElement("br");
 
                     card.appendChild(h3);
@@ -257,8 +258,9 @@ hr.cardhr {
                     updatebutton.style.border = "1px solid green";
                     updatebutton.style.width = "20%";
                     updatebutton.style.display = "inline-block";
+                    button.id = "objbutton" + row.id;
                     // updatebutton.addEventListener("click", function() {
-                    //     deleteObj(row.id);
+                    //     updateObj(row.id);
                     // });
                     card.appendChild(updatebutton);
                 }
@@ -417,6 +419,36 @@ hr.cardhr {
         var deleteObjurl = "http://localhost:8679/api/stats/delete/" + id;
 
         fetch(deleteObjurl, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+            // check for response errors and display
+            if (response.status !== 200) {
+                const errorMsg = 'Database response error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // valid response will contain json data
+            response.json().then(data => {
+                console.log(data);
+
+                getAllObjects();
+                selectObj(data[0].id);
+                });
+        });
+    }
+
+    function updateObj(id) {
+
+        if (confirm("Are you sure you want to update this object?") == false)
+            return;
+
+        console.log("Updating Object Id # " + id);
+
+        // build url for fetch
+        // var deleteObjurl = "https://frq.dtsivkovski.tk/api/stats/update/" + id + "/" + document.getElementById("input").value;
+        var updateObjurl = "http://localhost:8679/api/stats/update/" + id + "/" + document.getElementById("input").value;
+
+        fetch(updateObjurl, options)
         // response is a RESTful "promise" on any successful fetch
         .then(response => {
             // check for response errors and display
