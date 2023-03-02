@@ -1,7 +1,5 @@
 # Stats Calculator
 
-## Not logged in? - [Login Now](/DADY-Academy/security/testpagelogin)
-
 <style>
     .objectcards {
         display: flex;
@@ -12,8 +10,8 @@
     }
 
     .objectcard {
-        width: 200px;
-        height: 200px;
+        width: 400px;
+        height: 300px;
         margin: 10px;
         padding: 2em;
         border: 1px solid white;
@@ -250,8 +248,8 @@
                     const updatebutton = document.createElement("button");
                     updatebutton.classList.add("objectcardbutton");
                     updatebutton.innerHTML = "update";
-                    updatebutton.style.backgroundColor = "red";
-                    updatebutton.style.border = "1px solid red";
+                    updatebutton.style.backgroundColor = "green";
+                    updatebutton.style.border = "1px solid green";
                     updatebutton.style.width = "40%";
                     updatebutton.style.display = "inline-block";
                     // updatebutton.addEventListener("click", function() {
@@ -363,6 +361,11 @@
                 tr.appendChild(tdvalue);
                 histable.appendChild(tr);
             });
+        })
+        .catch(error => {
+            // Handle the error here
+            alert('Invalid Input! Please try again.');
+            console.error('There was a problem with the fetch operation:', error);
         });
     }
 
@@ -389,6 +392,11 @@
                 getAllObjects();
                 selectObj(data.id);
                 });
+        })
+        .catch(error => {
+            // Handle the error here
+            alert('Invalid Input! Please try again.');
+            console.error('There was a problem with the fetch operation:', error);
         });
     }
 

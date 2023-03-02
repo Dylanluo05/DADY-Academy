@@ -59,9 +59,8 @@ function login() {
       const cookie = response.headers.get('Set-Cookie');
       // Set the cookie using the document.cookie property
       document.cookie = "jwt=" + cookie;
-      console.log(cookie);
       sessionStorage.setItem("username", email);
-      window.location.href = "https://dylanluo05.github.io/DADY-Academy/templates/home";
+      window.history.back();
       // window.location.href = "{{site.baseurl}}/home";
 
   })
@@ -69,7 +68,8 @@ function login() {
 
 function logout() {
   
-  const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
+  // const logoutUrl = "https://frq.dtsivkovski.tk/logoutJWT";
+  const logoutUrl = "http://localhost:8679/logoutJWT";
   const optionsLogout = {
     method: 'GET', 
     mode: 'cors', // no-cors, *cors, same-origin
