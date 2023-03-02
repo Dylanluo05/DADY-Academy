@@ -1,81 +1,81 @@
 # Stats Calculator
 
 <style>
-    .objectcards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
+.objectcards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 
-    .objectcard {
-        width: 400px;
-        height: 300px;
-        margin: 10px;
-        padding: 2em;
-        border: 1px solid white;
-        border-radius: 10px;
-        background-image: linear-gradient(to right, purple, navy);
-        text-align: center;
-    }
+.objectcard {
+    width: 350px;
+    height: 200px;
+    margin: 0px;
+    padding: 2em;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, purple, navy);
+    text-align: center;
+}
 
-    table .objectcard {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
+table .objectcard {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: #f1f1f1;
+    text-align: center;
+}
 
-    .objectcardbutton {
-        background-color: white;
-        color: black;
-        border: 1px solid white;
-        margin: 0.5em;
-        padding: 0.75em;
-        background-image: none;
-    }
-    .objectcardbutton:hover {
-        border: 1px solid white;
-        background-color: #e5e5e5;
-    }
+.objectcardbutton {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    margin: 0.5em;
+    padding: 0.75em;
+    background-image: none;
+}
+.objectcardbutton:hover {
+    border: 1px solid white;
+    background-color: #e5e5e5;
+}
 
-    .selectedobjectcardbutton {
-        border: 1px solid white;
-        margin: 0.5em;
-        padding: 0.75em;
-        background-image: none;
-        background-color: #778899;
-        color: white;
-        cursor: default;
-    }
+.selectedobjectcardbutton {
+    border: 1px solid white;
+    margin: 0.5em;
+    padding: 0.75em;
+    background-image: none;
+    background-color: #778899;
+    color: white;
+    cursor: default;
+}
 
-    .maincard {
-        width: 95%;
-        margin: 10px;
-        padding: 2em;
-        border: 1px solid white;
-        border-radius: 10px;
-        background-image: linear-gradient(to right, purple, navy);
-    }
+.maincard {
+    width: 95%;
+    margin: 10px;
+    padding: 2em;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, purple, navy);
+}
 
-    .createcard {
-        width: 95%;
-        margin: 10px;
-        padding: 2em;
-        border: 1px solid white;
-        border-radius: 10px;
-        background-image: linear-gradient(to right, red, purple);
-    }
+.createcard {
+    width: 95%;
+    margin: 10px;
+    padding: 2em;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, red, purple);
+}
 
-    .maintitle{
-        color: white;
-    }
+.maintitle{
+    color: white;
+}
 
-    input[type=text] {
+input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -84,17 +84,17 @@
     border-radius: 4px;
     background-color: black;
     color: white;
-    }
-    input[type=text]:focus {
+}
+input[type=text]:focus {
     border: 1px solid white;
-    }
+}
 
-    hr.cardhr {
-        height:2px;
-        border-width:0;
-        color:white;
-        background-color:white
-    }
+hr.cardhr {
+    height:2px;
+    border-width:0;
+    color:white;
+    background-color:white
+}
 </style>
 
 <div class="objectcards">
@@ -210,12 +210,15 @@
                     const recSDM = document.createElement("p");
                     recSDM.innerHTML = "Recent SDM Calc: " + row.recentSDM;
                     const updateN = document.createElement("input");
-                    updateN.setAttribute("placeholder", "Update your sample size");
+                    updateN.setAttribute("placeholder", "Update n");
+                    const break = document.createElement("br");
 
                     card.appendChild(h3);
                     card.appendChild(n);
                     card.appendChild(recSDM);
                     card.appendChild(updateN);
+                    card.appendChild(break);
+                    card.appendChild(break);
   
                     const buttonholder = document.createElement("div");
                     buttonholder.style.whiteSpace = "nowrap";
@@ -223,7 +226,9 @@
                     // create button and give classlist, add to card
                     const button = document.createElement("button");
                     button.classList.add("objectcardbutton");
-                    button.style.width = "40%";
+                    deletebutton.style.backgroundColor = "#8a8787";
+                    deletebutton.style.border = "1px solid #8a8787";
+                    button.style.width = "20%";
                     button.style.display = "inline-block";
                     button.innerHTML = "Select";
                     button.id = "objbutton" + row.id;
@@ -238,7 +243,7 @@
                     deletebutton.innerHTML = "Delete";
                     deletebutton.style.backgroundColor = "red";
                     deletebutton.style.border = "1px solid red";
-                    deletebutton.style.width = "40%";
+                    deletebutton.style.width = "20%";
                     deletebutton.style.display = "inline-block";
                     deletebutton.addEventListener("click", function() {
                         deleteObj(row.id);
@@ -250,7 +255,7 @@
                     updatebutton.innerHTML = "update";
                     updatebutton.style.backgroundColor = "green";
                     updatebutton.style.border = "1px solid green";
-                    updatebutton.style.width = "40%";
+                    updatebutton.style.width = "20%";
                     updatebutton.style.display = "inline-block";
                     // updatebutton.addEventListener("click", function() {
                     //     deleteObj(row.id);
