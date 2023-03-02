@@ -226,8 +226,8 @@ hr.cardhr {
                     // create button and give classlist, add to card
                     const button = document.createElement("button");
                     button.classList.add("objectcardbutton");
-                    deletebutton.style.backgroundColor = "#8a8787";
-                    deletebutton.style.border = "1px solid #8a8787";
+                    button.style.backgroundColor = "#8a8787";
+                    button.style.border = "1px solid #8a8787";
                     button.style.width = "20%";
                     button.style.display = "inline-block";
                     button.innerHTML = "Select";
