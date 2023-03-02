@@ -211,14 +211,14 @@ hr.cardhr {
                     recSDM.innerHTML = "Recent SDM Calc: " + row.recentSDM;
                     const updateN = document.createElement("input");
                     updateN.setAttribute("placeholder", "Update n");
-                    const break = document.createElement("br");
+                    const breakElement = document.createElement("br");
 
                     card.appendChild(h3);
                     card.appendChild(n);
                     card.appendChild(recSDM);
                     card.appendChild(updateN);
-                    card.appendChild(break);
-                    card.appendChild(break);
+                    card.appendChild(breakElement);
+                    card.appendChild(breakElement);
   
                     const buttonholder = document.createElement("div");
                     buttonholder.style.whiteSpace = "nowrap";
